@@ -1,0 +1,49 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Frontdoor" %}
+{% set formAction = "./contact-type-answer" %}
+
+{% set backLink = "false" %}
+
+{% block formContent %}
+
+  {{ govukRadios({
+    idPrefix: "contact-type",
+    name: "contact-type",
+    fieldset: {
+      legend: {
+        text: "What would you like to do?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        value: "scotland",
+        text: "Ask a question and manage reposnses"
+      },
+      {
+        value: "complaint",
+        text: "Make a complaint and manage responses"
+      },
+      {
+        value: "wales",
+        text: "Make a Freedom of Information request and manage reponses"
+      },
+      {
+        value: "northern-ireland",
+        text: "Request personal information about yourself"
+      },
+      {
+        value: "northern-ireland",
+        text: "Contact the Exam procedures review service"
+      }
+    ]
+  }) }}
+
+  {{ govukButton({
+    text: "Continue"
+  }) }}
+
+{% endblock %}
