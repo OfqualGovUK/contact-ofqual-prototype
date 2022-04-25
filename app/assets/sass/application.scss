@@ -12,7 +12,7 @@ $govuk-assets-path: '/govuk/assets/';
 @import "lib/extensions/extensions";
 
 // Overrides
-@import "overrides/typography";
+// @import "overrides/blank";
 
 // Patterns that aren't in Frontend
 @import "patterns/step-by-step-header";
