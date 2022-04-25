@@ -2,11 +2,17 @@
 $govuk-global-styles: true;
 $govuk-new-link-styles: true;
 
+// Override the default GOV.UK Frontend font stack
+$govuk-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+
 // We can't mount GOV.UK Frontend's assets at root as it's done automatically by the extensions framework.
 $govuk-assets-path: '/govuk/assets/';
 
 // Import GOV.UK Frontend and any extension styles if extensions have been configured
 @import "lib/extensions/extensions";
+
+// Overrides
+@import "overrides/typography";
 
 // Patterns that aren't in Frontend
 @import "patterns/step-by-step-header";
