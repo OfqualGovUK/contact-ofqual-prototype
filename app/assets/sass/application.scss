@@ -15,6 +15,7 @@ $govuk-assets-path: '/govuk/assets/';
 // @import "overrides/blank";
 
 // Bespoke patterns
+@import "bespoke/notification-item";
 @import "bespoke/subnav";
 
 // Patterns that aren't in Frontend

@@ -29,17 +29,34 @@
 {% endblock %}
 
 
+
 {% block content %}
 
-{% set backLink = "false" %}
   <div class="govuk-width-container ">
 
     <div class="govuk-grid-row">
       <div class="govuk-grid-column-full">
         <h1 class="govuk-heading-l">
           <span class="govuk-caption-l">Firstname lastname</span>
+          <span class="govuk-caption-m">email@email.com</span>
           Your complaint
         </h1>
+        <p>Reference number: <strong>OFQ0006849</strong>
+          <a href="#">(Change)</a>
+        </p>
+
+        <div class="govuk-button-group govuk-!-margin-bottom-3 govuk-!-margin-top-3">
+          {{ govukButton({
+            text: "Send a message",
+            classes: "govuk-button--secondary"
+          }) }}
+
+          {{ govukButton({
+            text: "Close complaint",
+            classes: "govuk-button--secondary"
+          }) }}
+        </div>
+
       </div>
     </div>
 

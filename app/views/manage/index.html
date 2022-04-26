@@ -12,10 +12,23 @@
     Notifications
   </h2> 
 
-  <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Subject line</h2>
-  <p class="govuk-hint govuk-!-font-size-16">
-    <time>{{ "" | today | govukDate }} at 11.56am</time>
-  </p>
+  <div class="app-notification-item"> 
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+      <a href="#">Response subject line</a>
+    </h2>
+    <p class="govuk-hint govuk-!-font-size-16">
+      <span class="app-timeline-item__name">From Ofqual, </span>
+      <time>{{ "" | today | govukDate }} at 15.21pm</time>
+    </p>
+  </div>
+  <div class="app-notification-item"> 
+    <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
+      <a href="#">Subject line</a>
+    </h2>
+    <p class="govuk-hint govuk-!-font-size-16">
+      <time>{{ "" | today | moment('subtract', 1, 'days') |  govukDate }} at 11:56</time>
+    </p>
+  </div>
 
 
 
