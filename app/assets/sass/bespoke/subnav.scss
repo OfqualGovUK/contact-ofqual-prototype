@@ -1,0 +1,67 @@
+// Subnav
+
+ul.acc-navigation__list {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  
+    li.acc-navigation__list-item {
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      display: block;
+      position: relative;
+      height: 50px;
+      // padding: 0 15px;
+      // float: left;
+      display: inline-block;
+      line-height: 50px;
+  
+      a {
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.1875rem;
+  
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+      }
+    }
+  
+    li.acc-navigation__list-item + * {
+      margin-left: govuk-spacing(3);
+    }
+  
+    li.app-navigation__list-item--current {
+      border-bottom: 4px solid #1d70b8;
+  
+      a {
+        color: #0b0c0c;
+      }
+    }
+    
+  }
+  
+  ul.acc-navigation__list--has-border {
+    border-bottom: 1px solid $govuk-border-colour;
+  }
+  
+  @media (max-width: 40.0625em) {
+    ul.acc-navigation__list {
+      li.acc-navigation__list-item {
+        float: none;
+        height: 40px;
+        line-height: 40px;
+      }
+  
+      li.app-navigation__list-item--current {
+        border-bottom: 0;
+        border-left: 4px solid #1d70b8;
+      }
+    }
+  }

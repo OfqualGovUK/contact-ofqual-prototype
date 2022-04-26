@@ -1,0 +1,22 @@
+
+{% extends "_templates/manage-template.html" %}
+
+{% set pageHeading = "Manage" %}
+{% set manageTabActive = "Notifications" %}
+
+{% set backLink = "false" %}
+
+{% block manageContent %}
+
+  <h2 class="govuk-heading-m">
+    Notifications
+  </h2> 
+
+  <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Subject line</h2>
+  <p class="govuk-hint govuk-!-font-size-16">
+    <time>{{ "" | today | govukDate }} at 11.56am</time>
+  </p>
+
+
+
+{% endblock %}
