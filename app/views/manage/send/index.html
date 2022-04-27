@@ -1,0 +1,41 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Send a message" %}
+{% set formAction = "./send/check-answers" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Send a message to Ofqual<h1>
+
+  {{ govukInput({
+    label: {
+      text: "Subject (optional)"
+    }
+  } | decorateAttributes(data, "data.send.subject")) }}
+
+  {{ govukCharacterCount({
+    maxlength: 5000,
+    rows: "8",
+    label: {
+      text: "Message"
+    },
+    hint: {
+      text: "Update your complaint or respond to a recent notification."
+    }
+  } | decorateAttributes(data, "data.send.message")) }}
+
+  {{ govukFileUpload({
+    label: {
+      text: "Upload a file"
+    }
+  } | decorateAttributes(data, "data.send.fileUpload")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="/manage">Cancel</a>
+  </div>
+
+{% endblock %}

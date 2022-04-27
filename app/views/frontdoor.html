@@ -9,8 +9,6 @@
 {% block formContent %}
 
   {{ govukRadios({
-    idPrefix: "contact-type",
-    name: "contact-type",
     fieldset: {
       legend: {
         text: "What would you like to do?",
@@ -40,7 +38,7 @@
         text: "Contact the Exam procedures review service"
       }
     ]
-  }) }}
+  } | decorateAttributes(data, "data.contactType")) }}
 
   {{ govukButton({
     text: "Continue"

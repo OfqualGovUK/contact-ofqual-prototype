@@ -1,102 +1,97 @@
 
-{% extends "_templates/page-template.html" %}
+{% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Complaints" %}
+{% set formAction = "./complaint-type-answer" %}
 
-{% block content %}
+{% block formContent %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+  {% set legendHtml %}
+    <span class="govuk-caption-l">Complaints</span> 
+    What would you like to do?
+  {% endset %}
 
-      {% set legendHtml %}
-        <span class="govuk-caption-l">Complaints</span> 
-        What would you like to do?
-      {% endset %}
+  {% set complaint %}
+    <span class="govuk-!-font-weight-bold">Make a complaint</span>
+    <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">An awarding organisations handling of a complaint, registration, certification and assessments for candidates, schools, colleges or training providers.</span>
+  {% endset %}
+  
+  {% set ofqualComplaint %}
+    <span class="govuk-!-font-weight-bold">Make a complaint about Ofqual</span>
+    <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">If you want to make a complaint about the way in which we have carried out, or failed to carry out our work choose this option.</span>
+  {% endset %}
+  
+  {% set wrongdoing %}
+    <span class="govuk-!-font-weight-bold">Report a concern of wrongdoing or malpractice</span>
+    <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">Activities of awarding organisations, the qualifications they offer, exams, assessments schools, colleges and training providers or your employer’s role in delivering a qualification (Whistleblowing).</span>
+  {% endset %}
+  
+  {% set existingComplaint %}
+    <span class="govuk-!-font-weight-bold">View an existing complaint</span>
+    <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">Go to my complaint, wrongdoing, malpractice or whistleblowing report.</span>
+  {% endset %}
+  
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        html: legendHtml,
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        value: "Make a complaint",
+        html: complaint
+      },
+      {
+        value: "Make a complaint about Ofqual",
+        html: ofqualComplaint
+      },
+      {
+        text: "Report a concern of wrongdoing or malpractice",
+        html: wrongdoing
+      },
+      {
+        divider: "or",
+        classes: "test"
 
-      {% set complaint %}
-        <span class="govuk-!-font-weight-bold">Make a complaint</span>
-        <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">An awarding organisations handling of a complaint, registration, certification and assessments for candidates, schools, colleges or training providers.</span>
-      {% endset %}
-      
-      {% set ofqualComplaint %}
-        <span class="govuk-!-font-weight-bold">Make a complaint about Ofqual</span>
-        <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">If you want to make a complaint about the way in which we have carried out, or failed to carry out our work choose this option.</span>
-      {% endset %}
-      
-      {% set wrongdoing %}
-        <span class="govuk-!-font-weight-bold">Report a concern of wrongdoing or malpractice</span>
-        <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">Activities of awarding organisations, the qualifications they offer, exams, assessments schools, colleges and training providers or your employer’s role in delivering a qualification (Whistleblowing).</span>
-      {% endset %}
-      
-      {% set existingComplaint %}
-        <span class="govuk-!-font-weight-bold">View an existing complaint</span>
-        <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">Go to my complaint, wrongdoing, malpractice or whistleblowing report.</span>
-      {% endset %}
-      
-      {{ govukRadios({
-        idPrefix: "contact-type",
-        name: "contact-type",
-        fieldset: {
-          legend: {
-            html: legendHtml,
-            isPageHeading: true,
-            classes: "govuk-fieldset__legend--l"
-          }
-        },
-        items: [
-          {
-            value: "Make a complaint",
-            html: complaint
-          },
-          {
-            value: "Make a complaint about Ofqual",
-            html: ofqualComplaint
-          },
-          {
-            text: "Report a concern of wrongdoing or malpractice",
-            html: wrongdoing
-          },
-          {
-            divider: "or",
-            classes: "test"
+      },
+      {
+        html: existingComplaint,
+        text: "View an existing complaint"
+      }
+    ]
+  } | decorateAttributes(data, "data.complaintType")) }}
 
-          },
-          {
-            html: existingComplaint,
-            text: "View an existing complaint"
-          }
-        ]
-      }) }}
-
-      {{ govukButton({
-        text: "Continue"
-      }) }}
-
-      {% set detailsHtml %}
-          <p>An awarding organisation’s alleged failure to comply with our
-              <a href="https://www.gov.uk/guidance/awarding-organisations-understanding-our-regulatory-requirements" target="_blank">regulations</a>:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>customer service issues, including how the awarding organisation has handled your complaint</li>
-            <li>registration procedures for candidates and centres</li>
-            <li>certification procedures for candidates</li>
-            <li>potential or actual malpractice by someone involved with the exam or assessment</li>
-          </ul>
-          <p>You may wish to raise a concern about wrongdoing or malpractice, this may relate to:</p>
-          <ul class="govuk-list govuk-list--bullet">
-            <li>exams, such as GCSEs and A levels</li>
-            <li>key stage tests (SATs)</li>
-            <li>assessment of vocational or technical qualifications listed on the <a href="https://register.ofqual.gov.uk/" target="_blank">Register of Regulated Qualifications</a></li>
-            <li>activities of exam boards or awarding bodies (also called awarding organisations) which we regulate.</li>
-          </ul>
-          <p>The award of a regulated qualification by a recognised awarding organisation</p>
-      {% endset %}
-
-      {{ govukDetails({
-        summaryText: "Types of complaints we can investigate",
-        html: detailsHtml
-      }) }}
-
-    </div>
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./frontdoor">Cancel</a>
   </div>
+  {% set detailsHtml %}
+      <p>An awarding organisation’s alleged failure to comply with our
+          <a href="https://www.gov.uk/guidance/awarding-organisations-understanding-our-regulatory-requirements" target="_blank">regulations</a>:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>customer service issues, including how the awarding organisation has handled your complaint</li>
+        <li>registration procedures for candidates and centres</li>
+        <li>certification procedures for candidates</li>
+        <li>potential or actual malpractice by someone involved with the exam or assessment</li>
+      </ul>
+      <p>You may wish to raise a concern about wrongdoing or malpractice, this may relate to:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>exams, such as GCSEs and A levels</li>
+        <li>key stage tests (SATs)</li>
+        <li>assessment of vocational or technical qualifications listed on the <a href="https://register.ofqual.gov.uk/" target="_blank">Register of Regulated Qualifications</a></li>
+        <li>activities of exam boards or awarding bodies (also called awarding organisations) which we regulate.</li>
+      </ul>
+      <p>The award of a regulated qualification by a recognised awarding organisation</p>
+  {% endset %}
+
+  {{ govukDetails({
+    summaryText: "Types of complaints we can investigate",
+    html: detailsHtml
+  }) }}
 
 {% endblock %}

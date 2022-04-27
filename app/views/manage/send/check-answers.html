@@ -1,0 +1,76 @@
+{% extends "_templates/page-template.html" %}
+
+{% block content %}
+
+  <h1 class="govuk-heading-l">
+    Confirm message to Ofqual
+  </h1>
+  
+  {{ govukSummaryList({
+    rows: [
+      {
+        key: {
+          text: "Subject"
+        },
+        value: {
+          text: data.send.subject
+        },
+        actions: {
+          items: [
+            {
+              href: "../send",
+              text: "Change",
+              visuallyHiddenText: "the subject"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "Message"
+        },
+        value: {
+          text: data.send.message
+        },
+        actions: {
+          items: [
+            {
+              href: "../send",
+              text: "Change",
+              visuallyHiddenText: "the message"
+            }
+          ]
+        }
+      },
+      {
+        key: {
+          text: "File upload"
+        },
+        value: {
+          text: data.send.fileUpload
+        },
+        actions: {
+          items: [
+            {
+              href: "../send",
+              text: "Change",
+              visuallyHiddenText: "the upload"
+            }
+          ]
+        }
+      }
+    ]
+  }) }}
+
+  {# This is the success message that plays back to the user on the next screen #}
+  {% set successMessage %}Your message has been sent to Ofqual{% endset %}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Send message",
+      href: "/manage?_flash=" + successMessage
+    }) }}
+    <a class="govuk-link" href="/manage">Cancel</a>
+  </div>
+
+{% endblock %}
