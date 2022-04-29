@@ -1,0 +1,51 @@
+{% extends "_templates/page-template.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">
+      Confirm close of complaint
+    </h1>
+
+    <p class="govuk-body">You will be able to view your complaint for 6 months, after this period access to the complaint will be removed.</p>
+  
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Why you are closing your complaint?"
+          },
+          value: {
+            text: data.close.reason
+          },
+          actions: {
+            items: [
+              {
+                href: "../close",
+                text: "Change",
+                visuallyHiddenText: "the reason for closing this complaint"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
+
+    {# This is the success message that plays back to the user on the next screen #}
+    {% set successMessage %}Your complaint has been closed{% endset %}
+
+    <div class="govuk-button-group">
+      {{ govukButton({
+        text: "Close complaint",
+        classes: "govuk-button--warning",
+        href: "/manage?_flash=" + successMessage
+      }) }}
+      <a class="govuk-link" href="/manage">Cancel</a>
+    </div>
+
+    </div>
+  </div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "_templates/page-template.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">
+          From Ofqual,
+          <time>{{ "" | today|  govukDate }}</time>
+        </span>
+        An outcome has been reached regarding your complaint
+      </h1>
+      
+      <p clas="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus pretium est, eu tempus justo. Quisque rhoncus venenatis suscipit. Pellentesque ac ultrices neque. Curabitur tempus facilisis malesuada. Nulla faucibus aliquam neque eget condimentum. Praesent ornare rhoncus suscipit. In sodales ultricies imperdiet. Proin ac arcu nec turpis mollis tincidunt et vel ipsum.</p>
+
+      <div class="govuk-button-group govuk-!-margin-top-6">
+        {{ govukButton({
+          text: "Request a review of this outcome",
+          href: "./../request-review"
+        }) }}
+      </div>
+  
+    </div>
+  </div>
+  
+{% endblock %}

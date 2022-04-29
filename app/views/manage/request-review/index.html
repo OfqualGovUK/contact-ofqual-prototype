@@ -1,0 +1,56 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "If you are not happy with the outcome" %}
+{% set formAction = "./../manage" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Request an internal review</h1>
+  <p clas="govuk-body">If you are not happy with the outcome of your complaint, you cna request an internal review.</p>
+  <p clas="govuk-body">We will consider reviewing the outcome if you feel that Ofqual have got something wrong.</p>
+  <p clas="govuk-body">To do this you will need to provide evidence of one of the following options.</p>
+
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        text: "Why are you requesting a review of the outcome?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    hint: {
+      text: "Select all that apply."
+    },
+    items: [
+      {
+        value: "carcasses",
+        text: "Ofqual made the decision based on innacurate facts"
+      },
+      {
+        value: "carcasses",
+        text: "Ofqual overlooked or misunderstood parts of my complaint"
+      },
+      {
+        value: "mines",
+        text: "I have new information that was not prevously avaialble"
+      },
+      {
+        value: "farm",
+        text: "I do not consider the outcome reasonable in view of the findings"
+      }
+    ]
+  }) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../manage">Cancel</a>
+  </div>
+
+  {{ govukDetails({
+    summaryText: "How will the review be investigated?",
+    text: "Placeholder text"
+}) }}
+
+{% endblock %}
