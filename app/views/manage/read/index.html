@@ -1,0 +1,31 @@
+{% extends "_templates/page-template.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">
+          From Ofqual,
+          <time>{{ "" | today | moment('subtract', 1, 'days') |  govukDate }}</time>
+        </span>
+        Subject line here
+      </h1>
+      
+      <p clas="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus pretium est, eu tempus justo. Quisque rhoncus venenatis suscipit. Pellentesque ac ultrices neque. Curabitur tempus facilisis malesuada. Nulla faucibus aliquam neque eget condimentum. Praesent ornare rhoncus suscipit. In sodales ultricies imperdiet. Proin ac arcu nec turpis mollis tincidunt et vel ipsum.</p>
+
+      <p clas="govuk-body">Nullam cursus felis vitae sapien vestibulum gravida. Maecenas iaculis molestie orci, a lacinia magna tempus quis. Duis id fermentum dolor. Maecenas gravida mattis augue, quis facilisis nibh porta vulputate. Donec malesuada auctor mi, eget mattis velit fermentum sed. Donec ornare urna vel elit sodales vestibulum. Vestibulum commodo commodo est non pharetra.</p>
+
+      <div class="govuk-button-group govuk-!-margin-top-6">
+        {{ govukButton({
+          text: "Reply to this message",
+          href: "./send"
+        }) }}
+        {# <a class="govuk-link" href="/manage">Cancel</a> #}
+      </div>
+  
+    </div>
+  </div>
+  
+{% endblock %}

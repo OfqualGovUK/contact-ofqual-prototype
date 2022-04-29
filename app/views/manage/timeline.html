@@ -1,0 +1,45 @@
+
+{% extends "_templates/manage-template.html" %}
+
+{% set pageHeading = "Manage" %}
+{% set manageTabActive = "Timeline" %}
+
+{% set backLink = "false" %}
+
+{% block manageContent %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">
+        Timeline
+      </h2>
+
+      <div class="app-timeline">
+        
+        <div class="app-timeline__item">
+          <div class="app-timeline__header">
+            <h3 class="app-timeline__title">Review pending</h3>
+            <p class="app-timeline__byline">
+              <time datetime="">{{ "" | today | govukDate }} at 14:23</time>
+            </p>
+          </div>
+          <div class="app-timeline__description"></div>
+        </div>
+
+        <div class="app-timeline__item">
+          <div class="app-timeline__header">
+            <h3 class="app-timeline__title">Complaint submitted</h3>
+            <p class="app-timeline__byline">
+              <time datetime="">{{ "" | today | moment('subtract', 1, 'days') |  govukDate }} at 04:45</time>
+            </p>
+          </div>
+          <div class="app-timeline__description"></div>
+        </div>
+
+      </div>
+  
+    </div>
+  </div>
+
+{% endblock %}

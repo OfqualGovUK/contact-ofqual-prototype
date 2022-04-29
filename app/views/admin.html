@@ -1,0 +1,45 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Admin settings" %}
+{% set formAction = "" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">Admin settings<h1>
+  
+  <h2 class="govuk-heading-m">Case type<h2>
+
+   {{ govukRadios({
+    items: [
+      {
+        value: "Complaint",
+        text: "Complaint"
+      },
+      {
+        value: "Request",
+        text: "Request"
+      }
+    ]
+  } | decorateAttributes(data, "data.settings.caseType")) }}
+
+  <h2 class="govuk-heading-m">Case status<h2>
+
+   {{ govukCheckboxes({
+    items: [
+      {
+        value: "Has multiple cases in the service",
+        text: "Has multiple cases in the service"
+      },
+      {
+        value: "Is able to be challanged",
+        text: "Is able to be challanged"
+      }
+    ]
+  } | decorateAttributes(data, "data.settings.caseStatus")) }}
+
+  {{ govukButton({
+    text: "Update settings"
+  }) }}
+
+{% endblock %}

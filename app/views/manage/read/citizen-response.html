@@ -1,0 +1,28 @@
+{% extends "_templates/page-template.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">
+          From you,
+          <time datetime="">{{ "" | today | govukDate }}</time>
+        </span>
+        {{ data.send.subject }}
+      </h1>
+      
+      <p clas="govuk-body">{{ data.send.message }}</p>
+
+      <div class="govuk-button-group govuk-!-margin-top-6">
+        {{ govukButton({
+          text: "Return to my complaint",
+          href: "./../../manage"
+        }) }}
+      </div>
+  
+    </div>
+  </div>
+  
+{% endblock %}

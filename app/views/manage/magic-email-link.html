@@ -1,0 +1,23 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Check your email" %}
+{% set formAction = "./check-email" %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <div class="app-email-template">
+        <img src="/public/images/ofqual-logo.png" alt="Ofqual logo" width="155px">
+        <h2 class="govuk-heading-m govuk-!-margin-top-5">Sign in</h2>
+        <p class="govuk-body"><a href="./../manage" class="govuk-link">Follow this link below to view your complaint or concern.</a></p>
+        <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+        <p class="govuk-body">This is an automatically generated email; do not reply.</p>
+        <p class="govuk-body">Have you received this email by accident? No action is necessary.</p>
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

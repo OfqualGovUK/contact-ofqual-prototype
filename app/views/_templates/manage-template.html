@@ -51,29 +51,54 @@
         {% endif %} 
 
         <h1 class="govuk-heading-l">
-          <span class="govuk-caption-l">Firstname lastname</span>
-          
           Your complaint
+          <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
+            <span class="govuk-visually-hidden">Status</span>
+            {% if data.settings.caseStatus != "Is able to be challanged"%}
+              {{govukTag({
+                text: "Pending review",
+                classes: "govuk-tag--yellow"
+              })}}
+            {% else %}
+              {{govukTag({
+                text: "Outcome recieved",
+                classes: "govuk-tag--blue"
+              })}}
+            {% endif %}
+
         </h1>
-        <p>
-          <span class="govuk-caption-s">email@email.com</span>
-          <br>
-          Reference number: <strong>OFQ0006849</strong>
-          <a href="#">(Change<span class="govuk-visually-hidden"> to another complaint or concern</span>)</a>
+        <p class="govuk-body">
+        Sandra Teo<br>
+        {% if data.existing.emailAddress %}
+          {{ data.existing.emailAddress }}
+        {% else %}
+          email@email.com
+        {% endif %}
+        <br>
+        Reference number: OFQ0006849
         </p>
 
         <div class="govuk-button-group govuk-!-margin-bottom-3 govuk-!-margin-top-3">
-          {# {{ govukButton({
-            text: "Send a message to Ofqual",
+          {% if data.settings.caseStatus == "Is able to be challanged"%}
+            {{ govukButton({
+              text: "Request review of outcome",
+              href: "#"
+            }) }}
+          {% endif %}
+
+          {% if data.settings.caseStatus != "Is able to be challanged"%}
+            {{ govukButton({
+              text: "Close complaint",
+              classes: "govuk-button--secondary",
+              href: "/manage/close"
+            }) }}
+          {% endif %}
+{#           
+          {{ govukButton({
+            text: "View another complaint",
             classes: "govuk-button--secondary",
             href: "#"
           }) }} #}
-
-          {{ govukButton({
-            text: "Close complaint",
-            classes: "govuk-button--secondary",
-            href: "/manage/close"
-          }) }}
         </div>
 
       </div>

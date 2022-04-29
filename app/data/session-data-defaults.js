@@ -17,7 +17,15 @@ Example usage:
 
 */
 
+// Setting the default layout settings
+let settings = {
+  caseType: "Complaint"
+}
+
+
 module.exports = {
+
+  settings: settings
 
   // Insert values here
 
