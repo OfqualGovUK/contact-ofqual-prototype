@@ -1,74 +1,20 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Complaints" %}
+{% set pageHeading = "Make a pubic enquiry" %}
 {% set formAction = "./complaint-type-answer" %}
 
 {% block formContent %}
 
-  {% set legendHtml %}
-    <span class="govuk-caption-l">Complaints</span> 
-    What would you like to do?
-  {% endset %}
+  <h1 class="govuk-heading-l">Make a pubic enquiry</h1>
 
-  {% set complaint %}
-    <span class="govuk-!-font-weight-bold">Make a complaint</span>
-    <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">An awarding organisations handling of a complaint, registration, certification and assessments for candidates, schools, colleges or training providers.</span>
-  {% endset %}
-  
-  {% set ofqualComplaint %}
-    <span class="govuk-!-font-weight-bold">Make a complaint about Ofqual</span>
-    <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">If you want to make a complaint about the way in which we have carried out, or failed to carry out our work choose this option.</span>
-  {% endset %}
-  
-  {% set wrongdoing %}
-    <span class="govuk-!-font-weight-bold">Report a concern of wrongdoing or malpractice</span>
-    <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">Activities of awarding organisations, the qualifications they offer, exams, assessments schools, colleges and training providers or your employer’s role in delivering a qualification (Whistleblowing).</span>
-  {% endset %}
-  
-  {% set existingComplaint %}
-    <span class="govuk-!-font-weight-bold">View an existing complaint</span>
-    <span class="govuk-hint govuk-checkboxes__hint govuk-!-padding-0 govuk-!-margin-0">Go to my complaint, wrongdoing, malpractice or whistleblowing report.</span>
-  {% endset %}
-  
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        html: legendHtml,
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    items: [
-      {
-        value: "Make a complaint",
-        html: complaint
-      },
-      {
-        value: "Make a complaint about Ofqual",
-        html: ofqualComplaint
-      },
-      {
-        text: "Report a concern of wrongdoing or malpractice",
-        html: wrongdoing
-      },
-      {
-        divider: "or",
-        classes: "test"
-
-      },
-      {
-        html: existingComplaint,
-        text: "View an existing complaint"
-      }
-    ]
-  } | decorateAttributes(data, "data.complaintType")) }}
+  [form here]
 
   <div class="govuk-button-group">
     {{ govukButton({
       text: "Continue"
     }) }}
-    <a class="govuk-link" href="./frontdoor">Cancel</a>
+    {# <a class="govuk-link" href="./frontdoor">Cancel</a> #}
   </div>
   {% set detailsHtml %}
       <p>An awarding organisation’s alleged failure to comply with our
@@ -90,7 +36,7 @@
   {% endset %}
 
   {{ govukDetails({
-    summaryText: "Types of complaints we can investigate",
+    summaryText: "Types of enquiries we will answer",
     html: detailsHtml
   }) }}
 
