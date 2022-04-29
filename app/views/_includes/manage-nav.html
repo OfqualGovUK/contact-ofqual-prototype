@@ -1,6 +1,17 @@
+{# {% set notificationCount %}
+  {% if data.send.subject and data.settings.caseStatus == "Is able to be challanged" %}
+    3
+  {% elseif data.send.subject %}
+    2
+  {% else %}
+    1
+  {% endif %}
+{% endset %} #}
+
 <ul class="acc-navigation__list acc-navigation__list--has-border acc-navigation__list govuk-!-margin-bottom-5">
   <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Messages' }} ">
-    <a class="govuk-link govuk-link--no-visited-state" href="/manage">Messages (1<span class="govuk-visually-hidden"> messages</span>)</a>
+    {# <a class="govuk-link govuk-link--no-visited-state" href="/manage">Messages (1<span class="govuk-visually-hidden"> messages</span>)</a> #}
+    <a class="govuk-link govuk-link--no-visited-state" href="/manage">Messages</a>
   </li>
   <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Complaint-details' }} ">
     <a class="govuk-link govuk-link--no-visited-state" href="/manage/complaint-details">Complaint details</a>

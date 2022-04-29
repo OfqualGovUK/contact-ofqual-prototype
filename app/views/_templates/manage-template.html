@@ -50,10 +50,12 @@
           }) }}
         {% endif %} 
 
-        <h1 class="govuk-heading-l">
+        <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+          <span class="govuk-caption-l">OFQ0006849</span>
           Your complaint
           <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
             <span class="govuk-visually-hidden">Status</span>
+            {# Initial states #}
             {% if data.settings.caseStatus != "Is able to be challanged"%}
               {{govukTag({
                 text: "Pending review",
@@ -61,12 +63,12 @@
               })}}
             {% else %}
               {{govukTag({
-                text: "Outcome recieved",
+                text: "Outcome reached",
                 classes: "govuk-tag--blue"
               })}}
             {% endif %}
-
         </h1>
+        
         <p class="govuk-body">
         Sandra Teo<br>
         {% if data.existing.emailAddress %}
@@ -74,15 +76,15 @@
         {% else %}
           email@email.com
         {% endif %}
-        <br>
-        Reference number: OFQ0006849
+        {# <br>
+        Reference number: OFQ0006849 #}
         </p>
 
         <div class="govuk-button-group govuk-!-margin-bottom-3 govuk-!-margin-top-3">
           {% if data.settings.caseStatus == "Is able to be challanged"%}
             {{ govukButton({
               text: "Request review of outcome",
-              href: "#"
+              href: "./../manage/request-review"
             }) }}
           {% endif %}
 
