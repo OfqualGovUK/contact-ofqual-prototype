@@ -1,9 +1,13 @@
-{% extends "_templates/page-template.html" %}
+{% extends "_templates/form-template.html" %}
 
-{% block content %}
+{% set pageHeading = "Confirm close of complaint" %}
+{% set successMessage %}Your complaint has been closed{% endset %}
+{% set formAction = "/manage?_flash=" + successMessage %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+{% block formContent %}
+
+  {# <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds"> #}
 
     <h1 class="govuk-heading-l">
       Confirm close of complaint
@@ -33,19 +37,23 @@
       ]
     }) }}
 
+    <input type="hidden" id="confirmClosed" name="confirmClosed" value="true">
+
     {# This is the success message that plays back to the user on the next screen #}
-    {% set successMessage %}Your complaint has been closed{% endset %}
 
     <div class="govuk-button-group">
       {{ govukButton({
+        text: "Continue"
+      }) }}
+      {# {{ govukButton({
         text: "Close complaint",
         classes: "govuk-button--warning",
         href: "/manage?_flash=" + successMessage
-      }) }}
+      }) }} #}
       <a class="govuk-link" href="/manage">Cancel</a>
     </div>
 
-    </div>
-  </div>
+    {# </div>
+  </div> #}
 
 {% endblock %}

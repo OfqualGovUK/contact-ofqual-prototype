@@ -1,12 +1,17 @@
-{% extends "_templates/page-template.html" %}
+{% extends "_templates/form-template.html" %}
 
-{% block content %}
+{% set pageHeading = "Confirm close of complaint" %}
+{# This is the success message that plays back to the user on the next screen #}
+{% set successMessage %}Your request for a review has been raised{% endset %}
+{% set formAction = "/manage?_flash=" + successMessage %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+{% block formContent %}
+
+  {# <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds"> #}
 
     <h1 class="govuk-heading-l">
-      Confirm close of complaint
+      Confirm the request to review the outcome
     </h1>
 
     <p class="govuk-body">You will be able to view your complaint for 6 months, after this period access to the complaint will be removed.</p>
@@ -15,17 +20,17 @@
       rows: [
         {
           key: {
-            text: "Why you are closing your complaint?"
+            text: "Why are you requesting a review of the outcome?"
           },
           value: {
-            text: data.close.reason
+            text: data.requestReviewReasons
           },
           actions: {
             items: [
               {
-                href: "../close",
+                href: "../request-review",
                 text: "Change",
-                visuallyHiddenText: "the reason for closing this complaint"
+                visuallyHiddenText: "requesting a review of the outcome"
               }
             ]
           }
@@ -33,19 +38,16 @@
       ]
     }) }}
 
-    {# This is the success message that plays back to the user on the next screen #}
-    {% set successMessage %}Your complaint has been closed{% endset %}
+    <input type="hidden" id="confirmReviewRequest" name="confirmReviewRequest" value="true">
 
     <div class="govuk-button-group">
       {{ govukButton({
-        text: "Close complaint",
-        classes: "govuk-button--warning",
-        href: "/manage?_flash=" + successMessage
+        text: "Continue"
       }) }}
       <a class="govuk-link" href="/manage">Cancel</a>
     </div>
 
-    </div>
-  </div>
+    {# </div>
+  </div> #}
 
 {% endblock %}

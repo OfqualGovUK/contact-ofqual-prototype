@@ -17,12 +17,36 @@
 
       <div class="app-timeline">
         
-        {% if data.settings.caseStatus == "Is able to be challanged"%}
+        {% if data.confirmReviewRequest == "true" %}
+          <div class="app-timeline__item">
+            <div class="app-timeline__header">
+              <h3 class="app-timeline__title">Review of outcome was requested</h3>
+              <p class="app-timeline__byline">
+                <time datetime="">{{ "" | today | govukDate }} at 09:20</time>
+              </p>
+            </div>
+            <div class="app-timeline__description"></div>
+          </div>
+        {% endif %}
+        
+        {% if data.settings.caseStatus == "Is able to request review"%}
           <div class="app-timeline__item">
             <div class="app-timeline__header">
               <h3 class="app-timeline__title">Outcome reached</h3>
               <p class="app-timeline__byline">
                 <time datetime="">{{ "" | today | govukDate }} at 11:20</time>
+              </p>
+            </div>
+            <div class="app-timeline__description"></div>
+          </div>
+        {% endif %}
+        
+        {% if data.confirmClosed == "true" %}
+          <div class="app-timeline__item">
+            <div class="app-timeline__header">
+              <h3 class="app-timeline__title">Complaint closed</h3>
+              <p class="app-timeline__byline">
+                <time datetime="">{{ "" | today | govukDate }} at 10:34</time>
               </p>
             </div>
             <div class="app-timeline__description"></div>
@@ -43,7 +67,7 @@
           <div class="app-timeline__header">
             <h3 class="app-timeline__title">Complaint submitted</h3>
             <p class="app-timeline__byline">
-              <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }} at 04:45</time>
+              <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }} at 4:45</time>
             </p>
           </div>
           <div class="app-timeline__description"></div>

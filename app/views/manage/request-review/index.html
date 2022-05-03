@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "If you are not happy with the outcome" %}
-{% set formAction = "./../manage" %}
+{% set formAction = "./../manage/request-review/check-answers" %}
 
 {% block formContent %}
 
@@ -22,23 +22,23 @@
     },
     items: [
       {
-        value: "carcasses",
+        value: "Ofqual made the decision based on inaccurate facts",
         text: "Ofqual made the decision based on inaccurate facts"
       },
       {
-        value: "carcasses",
+        value: "Ofqual overlooked or misunderstood parts of my complaint",
         text: "Ofqual overlooked or misunderstood parts of my complaint"
       },
       {
-        value: "mines",
+        value: "I have new information that was not previously available",
         text: "I have new information that was not previously available"
       },
       {
-        value: "farm",
+        value: "I do not consider the outcome reasonable in view of the findings",
         text: "I do not consider the outcome reasonable in view of the findings"
       }
     ]
-  }) }}
+  } | decorateAttributes(data, "data.requestReviewReasons")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
