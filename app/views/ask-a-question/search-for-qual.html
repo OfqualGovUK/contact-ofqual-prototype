@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Ask Ofqual a question" %}
-{% set formAction = "./check-ao-qual-answers" %}
+{% set formAction = "./center-school-info" %}
 
 {% block formContent %}
 
@@ -51,7 +51,7 @@
       element: element,
       id: id,
       source: getSuggestions(),
-      name: "existingJobDetails",
+      name: "qualification",
       templates: {
         suggestion: (value) => {
           var result = qualifications.find(result => result.name == value);

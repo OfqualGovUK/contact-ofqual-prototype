@@ -13,51 +13,68 @@
         rows: [
           {
             key: {
-              text: "Subject"
+              text: "Full name"
             },
             value: {
-              text: data.send.subject
+              text: data.user.fullName
             },
             actions: {
               items: [
                 {
-                  href: "../send",
+                  href: "./../ask-a-question",
                   text: "Change",
-                  visuallyHiddenText: "the subject"
+                  visuallyHiddenText: "the full name"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Message"
+              text: "Phone number"
             },
             value: {
-              text: data.send.message
+              text: data.user.phone or 'Not provided'
             },
             actions: {
               items: [
                 {
-                  href: "../send",
+                  href: "./../ask-a-question",
                   text: "Change",
-                  visuallyHiddenText: "the message"
+                  visuallyHiddenText: "the phone number"
                 }
               ]
             }
           },
           {
             key: {
-              text: "File upload"
+              text: "Email address"
             },
             value: {
-              text: data.send.fileUpload
+              text: data.user.email
             },
             actions: {
               items: [
                 {
-                  href: "../send",
+                  href: "./../ask-a-question",
                   text: "Change",
-                  visuallyHiddenText: "the upload"
+                  visuallyHiddenText: "the email"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What best describes you?"
+            },
+            value: {
+              text: data.user.userType
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../ask-a-question",
+                  text: "Change",
+                  visuallyHiddenText: "what best describes you."
                 }
               ]
             }
@@ -65,13 +82,136 @@
         ]
       }) }}
 
+      <h2 class="govuk-heading-m">Awarding organisation and qualification</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Awarding organisation"
+            },
+            value: {
+              text: data.awardingOrg or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../ask-a-question/search-for-ao",
+                  text: "Change",
+                  visuallyHiddenText: "the awarding organisation"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Qualification"
+            },
+            value: {
+              text: data.qualification or 'Not provided'
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../ask-a-question/search-for-ao",
+                  text: "Change",
+                  visuallyHiddenText: "the qualification"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-m">Center or school or information</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Center or school name"
+            },
+            value: {
+              text: data.user.centerSchoolName or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../ask-a-question/center-school-info",
+                  text: "Change",
+                  visuallyHiddenText: "the center or school name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Other field"
+            },
+            value: {
+              text: data.user.other or 'Not provided'
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../ask-a-question/center-school-info",
+                  text: "Change",
+                  visuallyHiddenText: "the ..."
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-m">Question details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "What is your question?"
+            },
+            value: {
+              text: data.user.question or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../ask-a-question/the-question",
+                  text: "Change",
+                  visuallyHiddenText: "the question"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Upload a supporting document"
+            },
+            value: {
+              text: data.user.fileUpload or 'Not provided'
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../ask-a-question/the-question",
+                  text: "Change",
+                  visuallyHiddenText: "the uploaded file"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      
       {# This is the success message that plays back to the user on the next screen #}
       {% set successMessage %}Your message has been sent to Ofqual{% endset %}
 
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Submit",
-          href: "/manage?_flash=" + successMessage
+          text: "Submit question",
+          href: "./confirmation"
         }) }}
         <a class="govuk-link" href="/manage">Cancel</a>
       </div>

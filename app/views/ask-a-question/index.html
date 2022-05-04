@@ -8,7 +8,7 @@
 
   <span class="govuk-caption-l">Ask Ofqual a question</span>
   <h1 class="govuk-heading-l">Your details</h1>
-
+{# 
   {{ govukInput({
     label: {
       text: "First name"
@@ -21,7 +21,14 @@
       text: "Last name"
     },
     classes: "govuk-input govuk-!-width-two-thirds"
-  } | decorateAttributes(data, "data.user.lastName")) }}
+  } | decorateAttributes(data, "data.user.lastName")) }} #}
+
+  {{ govukInput({
+    label: {
+      text: "Full name"
+    },
+    classes: "govuk-input govuk-!-width-two-thirds"
+  } | decorateAttributes(data, "data.user.fullName")) }}
   
   {{ govukInput({
     label: {
@@ -38,7 +45,7 @@
       text: "This email will be used to send you notifications about your question"
     },
     classes: "govuk-input govuk-!-width-two-thirds"
-  } | decorateAttributes(data, "data.user.phone")) }}
+  } | decorateAttributes(data, "data.user.email")) }}
 
   {% set otherHtml %}
     {{ govukInput({
