@@ -1,0 +1,23 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Ask Ofqual a question" %}
+{% set formAction = "./check-ao-qual-answers" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Ask Ofqual a question</span>
+  <h1 class="govuk-heading-l">Search for the Awarding organisation</h1>
+
+  <p class="govuk-body">We can only investigate complaints about awarding organisations that we regulate.</p>
+
+  [autocomplete]
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}

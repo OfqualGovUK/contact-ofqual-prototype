@@ -1,0 +1,71 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Ask Ofqual a question" %}
+{% set formAction = "./is-it-qual" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Ask Ofqual a question</span>
+  <h1 class="govuk-heading-l">Search for the awarding organisation</h1>
+
+  <div class="body-text">
+    <span class="govuk-hint">AQA, OCR, Pearson for example</span>
+    <div id="tt-default" class="autocomplete-wrapper govuk-!-width-full-width govuk-!-margin-top-4 govuk-!-margin-bottom-6 govuk-body"></div>
+  </div>
+
+  <a href="./is-it-qual" class="govuk-link govuk-body">I can't find the awarding organisation, skip this step</a>
+
+  <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+  <script type="text/javascript">
+    var awardingOrgs = [
+      {
+        "id": "0",
+        "name": "Royal Society for Public Health",
+        "knownAs": "Royal Society for P"
+      },
+      {
+        "id": "1",
+        "name": "Portal User Group Example",
+        "knownAs": "Portal User Group E"
+      },
+      {
+        "id": "2",
+        "name": "Pearson EDI",
+        "knownAs": "Pearson EDI"
+      }
+    ];
+
+    var getSuggestions = () => {
+      var suggestions = []
+      awardingOrgs.forEach(result => suggestions.push(result.name));
+      return suggestions;
+    }
+  </script>
+
+  <script type="text/javascript">
+    var element = document.querySelector('#tt-default')
+    var id = 'autocomplete-default'
+    accessibleAutocomplete({
+      element: element,
+      id: id,
+      source: getSuggestions(),
+      name: "existingJobDetails",
+      templates: {
+        suggestion: (value) => {
+          var result = awardingOrgs.find(result => result.name == value);
+          return `<span class='job-title'>${result.name}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'>Known as: ${result.knownAs}</span>`
+        }
+      }
+    })
+  </script>
+
+  <div class="govuk-button-group govuk-!-margin-top-6">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}

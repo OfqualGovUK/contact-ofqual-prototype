@@ -1,0 +1,71 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Ask Ofqual a question" %}
+{% set formAction = "./check-ao-qual-answers" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Ask Ofqual a question</span>
+  <h1 class="govuk-heading-l">Search for the qualification</h1>
+
+  <div class="body-text">
+    <span class="govuk-hint">AQA level 2 Certificate in Further Maths or 603/3104/5 for example</span>
+    <div id="tt-default" class="autocomplete-wrapper govuk-!-width-full-width govuk-!-margin-top-4 govuk-!-margin-bottom-6 govuk-body"></div>
+  </div>
+
+  <a href="./center-school-info" class="govuk-link govuk-body">I can't find the qualification, skip this step</a>
+
+  <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
+
+  <script type="text/javascript">
+    var qualifications = [
+      {
+        "id": "0",
+        "name": "Cambridge English Level 1 Certificate in ESOL International (Financial English)",
+        "awardingOrganisation": "Cambridge Assessment English"
+      },
+      {
+        "id": "1",
+        "name": "Pearson BTEC Level 1/Level 2 Tech Award in Sport",
+        "awardingOrganisation": "Pearson Education Ltd"
+      },
+      {
+        "id": "2",
+        "name": "OCR Entry Level Certificate in Latin",
+        "awardingOrganisation": "OCR"
+      }
+    ];
+
+    var getSuggestions = () => {
+      var suggestions = []
+      qualifications.forEach(result => suggestions.push(result.name));
+      return suggestions;
+    }
+  </script>
+
+  <script type="text/javascript">
+    var element = document.querySelector('#tt-default')
+    var id = 'autocomplete-default'
+    accessibleAutocomplete({
+      element: element,
+      id: id,
+      source: getSuggestions(),
+      name: "existingJobDetails",
+      templates: {
+        suggestion: (value) => {
+          var result = qualifications.find(result => result.name == value);
+          return `<span class='job-title'>${result.name}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'>Closing date: ${result.awardingOrganisation}</span>`
+        }
+      }
+    })
+  </script>
+
+  <div class="govuk-button-group govuk-!-margin-top-6">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}

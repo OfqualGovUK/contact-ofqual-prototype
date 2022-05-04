@@ -1,0 +1,40 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Ask Ofqual a question" %}
+{% set formAction = "/is-it-qual-answer" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Ask Ofqual a question</span>
+  <h1 class="govuk-heading-l">Is your question about a qualification regulated by Ofqual?</h1>
+
+  <p class="govuk-body">We can only investigate complaints about awarding organisations that we regulate.</p>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Select an option",
+        classes: "govuk-fieldset__legend--s"
+      }
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes"
+      },
+      {
+        value: "No, a qualification is not applicable to my question",
+        text: "No, a qualification is not applicable to my question"
+      }
+    ]
+  } | decorateAttributes(data, "data.isItqual")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}

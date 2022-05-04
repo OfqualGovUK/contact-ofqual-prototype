@@ -15,6 +15,7 @@ $govuk-assets-path: '/govuk/assets/';
 // @import "overrides/blank";
 
 // Components
+@import "components/autocomplete";
 @import "components/email-template";
 @import "components/notification-item";
 @import "components/subnav";

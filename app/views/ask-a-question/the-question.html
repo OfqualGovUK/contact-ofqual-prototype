@@ -1,0 +1,34 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "What is your question?" %}
+{% set formAction = "./check-answers" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Ask Ofqual a question</span>
+
+  {{ govukCharacterCount({
+    maxlength: 5000,
+    rows: "8",
+    label: {
+      text: "What is your question?",
+      classes: "govuk-label--l",
+      isPageHeading: true
+    }
+  } | decorateAttributes(data, "data.user.question")) }}
+
+  {{ govukFileUpload({
+    label: {
+      text: "Upload a file"
+    }
+  } | decorateAttributes(data, "data.user.fileUpload")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}
