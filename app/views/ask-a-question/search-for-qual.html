@@ -10,8 +10,10 @@
   <h1 class="govuk-heading-l">Search for the qualification</h1>
 
   <div class="body-text">
+    {# <p class="govuk-body">We can only investigate complaints about qualifications that we regulate.</p> #}
+    <p class="govuk-body">You can search for your qualification by name or number, subject area and level.</p>
     <span class="govuk-hint">AQA level 2 Certificate in Further Maths or 603/3104/5 for example</span>
-    <div id="tt-default" class="autocomplete-wrapper govuk-!-width-full-width govuk-!-margin-top-4 govuk-!-margin-bottom-6 govuk-body"></div>
+    <div id="tt-default" class="autocomplete-wrapper govuk-!-width-full-width govuk-!-margin-top-2 govuk-!-margin-bottom-6 govuk-body"></div>
   </div>
 
   <a href="./center-school-info" class="govuk-link govuk-body">I can't find the qualification, skip this step</a>
@@ -55,7 +57,7 @@
       templates: {
         suggestion: (value) => {
           var result = qualifications.find(result => result.name == value);
-          return `<span class='job-title'>${result.name}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'>Closing date: ${result.awardingOrganisation}</span>`
+          return `<span class='job-title'>${result.name}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'>Awarding organisation: ${result.awardingOrganisation}</span>`
         }
       }
     })

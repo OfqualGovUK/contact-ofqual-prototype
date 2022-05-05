@@ -7,14 +7,14 @@
 {% block formContent %}
 
   <span class="govuk-caption-l">Ask Ofqual a question</span>
-  <h1 class="govuk-heading-l">Is your question about a qualification regulated by Ofqual?</h1>
+  <h1 class="govuk-heading-l">Qualification details</h1>
 
   <p class="govuk-body">We can only investigate complaints about awarding organisations that we regulate.</p>
 
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "Select an option",
+        text: "Is your question about a qualification regulated by Ofqual?",
         classes: "govuk-fieldset__legend--s"
       }
     },
@@ -26,9 +26,16 @@
       {
         value: "No, a qualification is not applicable to my question",
         text: "No, a qualification is not applicable to my question"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "I do not know the qualification",
+        text: "I do not know the qualification"
       }
     ]
-  } | decorateAttributes(data, "data.isItqual")) }}
+  } | decorateAttributes(data, "data.isItQual")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

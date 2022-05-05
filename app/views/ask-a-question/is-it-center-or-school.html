@@ -1,0 +1,38 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Is your question about a specific center or school?" %}
+{% set formAction = "/is-it-center-or-school-answer" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Ask Ofqual a question</span>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Is your question about a specific center or school?",
+        isPageHeading: true,
+        classes: "govuk-fieldset__legend--l"
+      }
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes"
+      },
+      {
+        value: "No",
+        text: "No"
+      }
+    ]
+   } | decorateAttributes(data, "data.isItCenterOrSchool")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}
