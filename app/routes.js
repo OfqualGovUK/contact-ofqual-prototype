@@ -43,18 +43,18 @@ router.post('/is-it-qual-answer', function (req, res) {
   if (isItQual === 'Yes') {
       res.redirect('/ask-a-question/search-for-qual')
     } else {
-      res.redirect('/ask-a-question/is-it-center-or-school')
+      res.redirect('/ask-a-question/is-it-centre-or-school')
   }
 
 })
 
 // Is your question about a specific cenetr or school?
-router.post('/is-it-center-or-school-answer', function (req, res) {
+router.post('/is-it-centre-or-school-answer', function (req, res) {
 
   let isItCenterOrSchool = req.session.data.isItCenterOrSchool
 
   if (isItCenterOrSchool === 'Yes') {
-      res.redirect('/ask-a-question/center-school-info')
+      res.redirect('/ask-a-question/centre-school-info')
     } else {
       res.redirect('/ask-a-question/the-question')
   }

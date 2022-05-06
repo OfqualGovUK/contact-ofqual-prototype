@@ -7,40 +7,45 @@
 {% block formContent %}
 
   <span class="govuk-caption-l">Ask Ofqual a question</span>
-  <h1 class="govuk-heading-l">Add center or school information</h1>
+  <h1 class="govuk-heading-l">Add centre or school information</h1>
 
   {{ govukInput({
     label: {
       text: "Centre or school name"
     },
     classes: "govuk-input govuk-!-width-two-thirds"
-  } | decorateAttributes(data, "data.user.centerSchoolName")) }}
+  } | decorateAttributes(data, "data.centreSchool.centreSchoolName")) }}
+
 
   {{ govukInput({
     label: {
       text: "Centre or school number (optional)"
     },
-    classes: "govuk-input govuk-!-width-two-thirds"
-  } | decorateAttributes(data, "data.user.centerSchoolName")) }}
+    classes: "govuk-input govuk-!-width-one-third"
+  } | decorateAttributes(data, "data.centreSchool.centreSchoolNumber")) }}
+  
+  {# <h2 class="govuk-heading-m">Centre or school address</h2>
   
   {{ govukInput({
     label: {
-      text: "Address (optional)"
+      text: "Address line 1"
     },
-    classes: "govuk-input govuk-!-width-two-thirds"
-  } | decorateAttributes(data, "data.user.other")) }}
+    classes: "govuk-input govuk-!-width-full-width"
+  } | decorateAttributes(data, "data.centreSchool.Address1")) }}
+
+  {{ govukInput({
+    label: {
+      text: "Address line 2 (optional)"
+    },
+    classes: "govuk-input govuk-!-width-full-width"
+  } | decorateAttributes(data, "data.centreSchool.Address2")) }}
+
   {{ govukInput({
     label: {
       text: "Address (optional)"
     },
     classes: "govuk-input govuk-!-width-two-thirds"
-  } | decorateAttributes(data, "data.user.other")) }}
-  {{ govukInput({
-    label: {
-      text: "Address (optional)"
-    },
-    classes: "govuk-input govuk-!-width-two-thirds"
-  } | decorateAttributes(data, "data.user.other")) }}
+  } | decorateAttributes(data, "data.user.other")) }} #}
 
   <div class="govuk-button-group">
     {{ govukButton({

@@ -132,31 +132,31 @@
               text: "Center or school name"
             },
             value: {
-              text: data.user.centerSchoolName or "Not provided"
+              text: data.centreSchool.centreSchoolName or "Not provided"
             },
             actions: {
               items: [
                 {
-                  href: "./../ask-a-question/center-school-info",
+                  href: "./../ask-a-question/centre-school-info",
                   text: "Change",
-                  visuallyHiddenText: "the center or school name"
+                  visuallyHiddenText: "the centre or school name"
                 }
               ]
             }
           },
           {
             key: {
-              text: "Other field"
+              text: "Center or school number"
             },
             value: {
-              text: data.user.other or 'Not provided'
+              text: data.centreSchool.centreSchoolNumber or 'Not provided'
             },
             actions: {
               items: [
                 {
-                  href: "./../ask-a-question/center-school-info",
+                  href: "./../ask-a-question/centre-school-info",
                   text: "Change",
-                  visuallyHiddenText: "the ..."
+                  visuallyHiddenText: "the centre or school number"
                 }
               ]
             }
