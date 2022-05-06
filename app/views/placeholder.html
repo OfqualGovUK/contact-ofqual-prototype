@@ -1,0 +1,43 @@
+
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Frontdoor" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">We haven't built this yet!</h1>
+    <p class="govuk-body">Contact Oqaul to support you with this type of enquiry.</p>
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Email"
+          },
+          value: {
+            text: "public.enquiries@ofqual.gov.uk"
+          }
+        },
+        {
+          key: {
+            text: "Telephone"
+          },
+          value: {
+            text: "0300 303 3344"
+          }
+        }
+      ]
+    }) }}
+
+    <p class="govuk-body">You can get in touch with us if you have a question about the qualifications or awarding bodies we regulate.</p> 
+    <p class="govuk-body">Our phone line is open from 9am to 5pm, Monday to Friday, except on Bank Holidays.</p> 
+    <p class="govuk-body">When you contact Ofqual, a third-party will handle your call. We have arrangements with them to ensure the security of your information. They cannot do anything with your information without our instructions. You can find out more in our Personal Information Charter.</p> 
+    <p class="govuk-body">We aim to respond to emails as quickly as possible. Sometimes it may take us longer than usual to respond, for example, when we are experiencing higher volumes of emails than normal.</p>
+
+    </div>
+  </div>
+
+{% endblock %}

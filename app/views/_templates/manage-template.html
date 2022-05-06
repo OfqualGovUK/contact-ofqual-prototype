@@ -98,13 +98,14 @@
           {% if data.settings.caseStatus == "Is able to request review" and data.confirmReviewRequest != "true"%}
             {{ govukButton({
               text: "Request review of outcome",
+              classes: "govuk-button--secondary",
               href: "./../manage/request-review"
             }) }}
           {% endif %}
 
           {% if data.settings.caseStatus != "Is able to request review" and data.confirmClosed != "true" %}
             {{ govukButton({
-              text: "Close complaint",
+              text: "Close this case",
               classes: "govuk-button--secondary",
               href: "/manage/close"
             }) }}
