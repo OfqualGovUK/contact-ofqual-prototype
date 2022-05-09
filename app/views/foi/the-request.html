@@ -1,21 +1,21 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "What is your question?" %}
+{% set pageHeading = "What information are you requesting?" %}
 {% set formAction = "./check-answers" %}
 
 {% block formContent %}
 
-  <span class="govuk-caption-l">Ask Ofqual a question</span>
+  <span class="govuk-caption-l">Make a Freedom of Information request</span>
 
   {{ govukTextarea({
     rows: "12",
     label: {
-      text: "What is your question?",
+      text: "What information are you requesting?",
       classes: "govuk-label--l",
       isPageHeading: true
     }
-  } | decorateAttributes(data, "data.question")) }}
+  } | decorateAttributes(data, "data.request")) }}
 
   {{ govukFileUpload({
     label: {

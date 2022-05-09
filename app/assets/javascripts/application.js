@@ -18,3 +18,23 @@ $('a[href=#]').on('click', function (event) {
 
   }
 });
+
+// Powers the select all checkbox thingo
+// Found here: https://stackoverflow.com/a/21248785
+
+// If the 'My request does not relate to specific qualification type checkbox exists'
+if ($('#foi-isItQual-7').length) {
+  
+  var deselectOthersCheckbox = $('#foi-isItQual-7')
+
+  // Deselect all others if the checkbox is checked
+  $(deselectOthersCheckbox).change(function() {
+    $('.govuk-checkboxes__input').not(this).attr('checked', false);
+  });
+
+  // Deselect the checkbox if any of the others are checked
+  $('.govuk-checkboxes__input').not(deselectOthersCheckbox).change(function() {
+    $(deselectOthersCheckbox).attr('checked', false);
+  });
+
+}

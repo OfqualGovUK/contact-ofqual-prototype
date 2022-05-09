@@ -1,0 +1,165 @@
+{% extends "_templates/page-template.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">Review your freedom of infromation request</h1>
+      
+      <h2 class="govuk-heading-m">Your details</h2>
+      
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Full name"
+            },
+            value: {
+              text: data.fullName or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi",
+                  text: "Change",
+                  visuallyHiddenText: "the full name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Phone number"
+            },
+            value: {
+              text: data.phone or 'Not provided'
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi",
+                  text: "Change",
+                  visuallyHiddenText: "the phone number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: data.email or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi",
+                  text: "Change",
+                  visuallyHiddenText: "the email"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What best describes you?"
+            },
+            value: {
+              text: data.userType
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi",
+                  text: "Change",
+                  visuallyHiddenText: "what best describes you."
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {% if data.foi.isItQual and data.foi.isItQual != "My request does not relate to specific qualification type"%}
+
+        <h2 class="govuk-heading-m">Qualification details</h2>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Select the qualification type"
+              },
+              value: {
+                text: data.foi.isItQual or "Not provided"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "./../foi/choose-qual",
+                    text: "Change",
+                    visuallyHiddenText: "if the request relates to specific qualification type"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+      {% endif %}
+      
+      <h2 class="govuk-heading-m">Request details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "What is your question?"
+            },
+            value: {
+              text: data.request or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi/the-request",
+                  text: "Change",
+                  visuallyHiddenText: "the request"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Upload a supporting document"
+            },
+            value: {
+              text: data.fileUpload or 'Not provided'
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi/the-request",
+                  text: "Change",
+                  visuallyHiddenText: "the uploaded file"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Submit question",
+          href: "./confirmation"
+        }) }}
+        <a class="govuk-link" href="/manage">Cancel</a>
+      </div>
+  
+    </div>
+  </div>
+  
+{% endblock %}

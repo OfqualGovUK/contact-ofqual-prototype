@@ -48,7 +48,7 @@ router.post('/is-it-qual-answer', function (req, res) {
 
 })
 
-// Is your question about a specific cenetr or school?
+// Is your question about a specific centre or school?
 router.post('/is-it-centre-or-school-answer', function (req, res) {
 
   let isItCenterOrSchool = req.session.data.isItCenterOrSchool
@@ -60,6 +60,23 @@ router.post('/is-it-centre-or-school-answer', function (req, res) {
   }
 
 })
+
+// FOI
+
+// Is your request about a qualification regulated by Ofqual?
+router.post('/foi/is-it-qual-answer', function (req, res) {
+
+  let isItQual = req.session.data.isItQual
+
+  if (isItQual === 'Yes') {
+      res.redirect('/foi/choose-qual')
+    } else {
+      res.redirect('/foi/the-request')
+  }
+
+})
+
+
 
 // Complaints
 
