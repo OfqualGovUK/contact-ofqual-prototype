@@ -1,0 +1,60 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "My cases" %}
+{% set formAction = "./" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-l">My cases</h1>
+
+  <p class="govuk-body">You can view messages from Ofqual regarding your case, send reponses and manage your case.</p>
+
+  {% set case1 %}
+    <span class="govuk-!-font-weight-bold">Compliant</span>
+    <p class="govuk-body govuk-!-margin-bottom-0">EDI Level 1 Certificate in Spoken Business English (ESOL)</p>
+    <span class="govuk-hint">Recieved <time datetime="">{{ "" | today | moment('subtract', 6, 'days') |  govukDate }}</time><br>
+    </span> 
+    {{govukTag({
+      text: "Pending review",
+      classes: "govuk-tag--yellow govuk-!-margin-top-1"
+    })}}
+  {% endset %}
+  
+  {% set case2 %}
+    <span class="govuk-!-font-weight-bold">Freedom of Information request</span><br>
+    <span class="govuk-hint">Recieved <time datetime="">{{ "" | today | moment('subtract', 43, 'days') |  govukDate }}</time><br>
+    </span> 
+    {{govukTag({
+      text: "Closed",
+      classes: "govuk-tag--grey govuk-!-margin-top-1"
+    })}}
+  {% endset %}
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Which case do you want to view?",
+         classes: "govuk-fieldset__legend--m"
+      }
+    },
+    items: [
+      {
+        value: "case1",
+        html: case1
+      },
+      {
+        value: "case2",
+        html: case2
+      }
+    ]
+  } | decorateAttributes(data, "data.manage.case")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="#">Cancel</a>
+  </div>
+
+{% endblock %}

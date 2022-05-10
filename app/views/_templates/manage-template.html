@@ -30,107 +30,102 @@
 
 {% block content %}
 
-  <div class="govuk-width-container">
+  {# This is the 'successful' notification banner, it fires based on the route from each of the check your answers pages #}
+  {% set successHtml %}
+    <h3 class="govuk-notification-banner__heading">
+      {{ query._flash | safe }}
+    </h3>
+  {% endset %}
 
-    {# This is the 'successful' notification banner, it fires based on the route from each of the check your answers pages #}
-    {% set successHtml %}
-      <h3 class="govuk-notification-banner__heading">
-        {{ query._flash | safe }}
-      </h3>
-    {% endset %}
+  {% if query._flash %}
+    {{ govukNotificationBanner({
+      html: successHtml,
+      type: "success",
+      classes: "govuk-!-margin-top-4 govuk-!-margin-bottom-6"
+    }) }}
+  {% endif %}
+  
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      
 
-    {% if query._flash %}
-      {{ govukNotificationBanner({
-        html: successHtml,
-        type: "success",
-        classes: "govuk-!-margin-top-4 govuk-!-margin-bottom-6"
-      }) }}
-    {% endif %}
-    
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-two-thirds">
-        
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
+        <span class="govuk-caption-l">Compliant</span>
+        Your case
+        <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
+          <span class="govuk-visually-hidden">Status</span>
+          {# Initial states #}
 
-        <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
-          <span class="govuk-caption-l">Compliant: OFQ0006849</span>
-          Your case
-          <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
-            <span class="govuk-visually-hidden">Status</span>
-            {# Initial states #}
-
-            {% if data.confirmClosed == "true" %}
-              {{govukTag({
-                text: "Closed",
-                classes: "govuk-tag--grey"
-              })}}
-            {% elseif data.settings.caseStatus == "Is able to request review" and data.confirmReviewRequest == "true" %}
-              {{govukTag({
-                text: "Review requestd",
-                classes: "govuk-tag--pink"
-              })}}
-            {% elseif data.settings.caseStatus == "Is able to request review" and data.confirmClosed != "true" %}
-              {{govukTag({
-                text: "Outcome reached",
-                classes: "govuk-tag--blue"
-              })}}
-            {% else %}
-              {{govukTag({
-                text: "Pending review",
-                classes: "govuk-tag--yellow"
-              })}}
-            {% endif %}
-        </h1>
-        
-        {# <p class="govuk-body">
-          Sandra Teo<br>
-          {% if data.existing.emailAddress %}
-            {{ data.existing.emailAddress }}
+          {% if data.confirmClosed == "true" %}
+            {{govukTag({
+              text: "Closed",
+              classes: "govuk-tag--grey"
+            })}}
+          {% elseif data.settings.caseStatus == "Is able to request review" and data.confirmReviewRequest == "true" %}
+            {{govukTag({
+              text: "Review requestd",
+              classes: "govuk-tag--pink"
+            })}}
+          {% elseif data.settings.caseStatus == "Is able to request review" and data.confirmClosed != "true" %}
+            {{govukTag({
+              text: "Outcome reached",
+              classes: "govuk-tag--blue"
+            })}}
           {% else %}
-            email@email.com
+            {{govukTag({
+              text: "Pending review",
+              classes: "govuk-tag--yellow"
+            })}}
           {% endif %}
-        </p> #}
-        
-        {# {{ govukInsetText({
-          text: "It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application."
-        }) }} #}
+      </h1>
+      
+      <p class="govuk-body">Date submitted <time datetime="">{{ "" | today | moment('subtract', 6, 'days') |  govukDate }}</time></p>
 
+      
+      {# <p class="govuk-body">
+        Sandra Teo<br>
+        {% if data.existing.emailAddress %}
+          {{ data.existing.emailAddress }}
+        {% else %}
+          email@email.com
+        {% endif %}
+      </p> #}
+
+      {% if data.settings.caseStatus == "Is able to request review" and data.confirmReviewRequest != "true"%}
         <div class="govuk-button-group govuk-!-margin-bottom-2 govuk-!-margin-top-6">
-          {% if data.settings.caseStatus == "Is able to request review" and data.confirmReviewRequest != "true"%}
             {{ govukButton({
               text: "Request review of outcome",
               classes: "govuk-button--secondary",
               href: "./../manage/request-review"
             }) }}
-          {% endif %}
-
-          {# {% if data.settings.caseStatus != "Is able to request review" and data.confirmClosed != "true" %}
-            {{ govukButton({
-              text: "Close this case",
-              classes: "govuk-button--secondary",
-              href: "/manage/close"
-            }) }}
-          {% endif %} #}
         </div>
-      </div>
-        
-      {# </div>
-        <div class="govuk-grid-column-one-third">
-          <h2 class="govuk-heading-m">Links</h2>
-          <a href="#" class="govuk-link govuk-body">Privacy statement</a>
-        </div>  #}
+      {% endif %}
 
+        {# {% if data.settings.caseStatus != "Is able to request review" and data.confirmClosed != "true" %}
+          {{ govukButton({
+            text: "Close this case",
+            classes: "govuk-button--secondary",
+            href: "/manage/close"
+          }) }}
+        {% endif %} #}
     </div>
-
-    <div class="govuk-grid-row">
-      <div class="govuk-grid-column-full">
-        {% include "_includes/manage-nav.html" %}
-      </div>
-    </div>
-
-    {% block manageContent %}
-    {% endblock %}
+      
+    {# </div>
+      <div class="govuk-grid-column-one-third">
+        <h2 class="govuk-heading-m">Links</h2>
+        <a href="#" class="govuk-link govuk-body">Privacy statement</a>
+      </div>  #}
 
   </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      {% include "_includes/manage-nav.html" %}
+    </div>
+  </div>
+
+  {% block manageContent %}
+  {% endblock %}
 
 
 {% endblock %}

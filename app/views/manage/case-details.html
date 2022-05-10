@@ -23,12 +23,20 @@
             href: "/manage/close"
           }) }}
         {% endif %}
-        {{ govukButton({
-          text: "View my other cases",
-          classes: "govuk-button--secondary",
-          href: "#"
-        }) }}
+
+        {% if data.settings.caseStatus == "Has multiple cases in the service" %}
+          {{ govukButton({
+            text: "View my other cases",
+            classes: "govuk-button--secondary",
+            href: "./my-cases"
+          }) }}
+        {% endif %}
+
       </div>
+
+      {% set dateSubmitted %}
+        <time datetime="">{{ "" | today | moment('subtract', 6, 'days') |  govukDate }}</time>
+      {% endset %} 
 
       {{ govukSummaryList({
         rows: [
@@ -38,6 +46,14 @@
             },
             value: {
               text: "First name Lastname"
+            }
+          },
+          {
+            key: {
+              text: "Date submitted"
+            },
+            value: {
+              html: dateSubmitted
             }
           },
           {
@@ -54,6 +70,14 @@
             },
             value: {
               text: "Complaint"
+            }
+          },
+          {
+            key: {
+              text: "Case ID"
+            },
+            value: {
+              text: "OFQ0006849"
             }
           },
           {

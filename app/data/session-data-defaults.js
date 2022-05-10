@@ -19,7 +19,9 @@ Example usage:
 
 // Setting the default layout settings
 let settings = {
-  caseType: "Complaint"
+  caseType: "Complaint",
+  caseStatus: "Has multiple cases in the service",
+
 }
 
 
