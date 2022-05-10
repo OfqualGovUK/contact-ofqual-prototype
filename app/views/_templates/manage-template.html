@@ -81,20 +81,20 @@
             {% endif %}
         </h1>
         
-        <p class="govuk-body">
+        {# <p class="govuk-body">
           Sandra Teo<br>
           {% if data.existing.emailAddress %}
             {{ data.existing.emailAddress }}
           {% else %}
             email@email.com
           {% endif %}
-        </p>
+        </p> #}
         
         {# {{ govukInsetText({
           text: "It can take up to 8 weeks to register a lasting power of attorney if there are no mistakes in the application."
         }) }} #}
 
-        <div class="govuk-button-group govuk-!-margin-bottom-3 govuk-!-margin-top-3">
+        <div class="govuk-button-group govuk-!-margin-bottom-2 govuk-!-margin-top-6">
           {% if data.settings.caseStatus == "Is able to request review" and data.confirmReviewRequest != "true"%}
             {{ govukButton({
               text: "Request review of outcome",
@@ -103,13 +103,13 @@
             }) }}
           {% endif %}
 
-          {% if data.settings.caseStatus != "Is able to request review" and data.confirmClosed != "true" %}
+          {# {% if data.settings.caseStatus != "Is able to request review" and data.confirmClosed != "true" %}
             {{ govukButton({
               text: "Close this case",
               classes: "govuk-button--secondary",
               href: "/manage/close"
             }) }}
-          {% endif %}
+          {% endif %} #}
         </div>
       </div>
         

@@ -16,6 +16,16 @@
 
     <p class="govuk-body">You will be able to view your complaint for 6 months, after this period access to the complaint will be removed.</p>
   
+    {% set reviewRequestReasons %}
+      <ul class="govuk-list">
+        {% for reason in data.requestReviewReasons %}
+          <li>
+            {{ reason }}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endset %}
+    
     {{ govukSummaryList({
       rows: [
         {
@@ -23,7 +33,7 @@
             text: "Why are you requesting a review of the outcome?"
           },
           value: {
-            text: data.requestReviewReasons
+            html: reviewRequestReasons
           },
           actions: {
             items: [

@@ -13,11 +13,14 @@
     {# <a class="govuk-link govuk-link--no-visited-state" href="/manage">Messages (1<span class="govuk-visually-hidden"> messages</span>)</a> #}
     <a class="govuk-link govuk-link--no-visited-state" href="/manage">Messages</a>
   </li>
-  <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Complaint-details' }} ">
-    <a class="govuk-link govuk-link--no-visited-state" href="/manage/complaint-details">Complaint details</a>
+  <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Case-details' }} ">
+    <a class="govuk-link govuk-link--no-visited-state" href="/manage/case-details">Case details</a>
   </li>
   <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Timeline' }} ">
     <a class="govuk-link govuk-link--no-visited-state" href="/manage/timeline">Timeline</a>
+  </li>
+  <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Guidance' }} ">
+    <a class="govuk-link govuk-link--no-visited-state" href="/manage/guidance">Guidance</a>
   </li>
   {% if data.settings.caseStatus == "Has multiple cases in the service" %}
     <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Other-complaints' }} ">

@@ -12,6 +12,8 @@ router.post('/contact-type-answer', function (req, res) {
       res.redirect('/complaints')
   } else if (contactType === 'Ask a general question') {
     res.redirect('/ask-a-question')
+  } else if (contactType === 'Make a Freedom of Information request') {
+    res.redirect('/foi')
   } else if (contactType === 'View an existing query or complaint') {
     res.redirect('/manage/login')
   } else {

@@ -1,0 +1,114 @@
+
+{% extends "_templates/manage-template.html" %}
+
+{% set pageHeading = "Manage" %}
+{% set manageTabActive = "Case-details" %}
+
+{% set backLink = "false" %}
+
+{% block manageContent %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h2 class="govuk-heading-m">
+        Case details
+      </h2>
+
+      <div class="govuk-button-group govuk-!-margin-bottom-3 govuk-!-margin-top-3">
+        {% if data.settings.caseStatus != "Is able to request review" and data.confirmClosed != "true" %}
+          {{ govukButton({
+            text: "Close this case",
+            classes: "govuk-button--secondary",
+            href: "/manage/close"
+          }) }}
+        {% endif %}
+        {{ govukButton({
+          text: "View my other cases",
+          classes: "govuk-button--secondary",
+          href: "#"
+        }) }}
+      </div>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Submitted by"
+            },
+            value: {
+              text: "First name Lastname"
+            }
+          },
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: "email@email.com"
+            }
+          },
+          {
+            key: {
+              text: "Case type"
+            },
+            value: {
+              text: "Complaint"
+            }
+          },
+          {
+            key: {
+              text: "What do you think went wrong?"
+            },
+            value: {
+              text: data.close.reason
+            }
+          },
+          {
+            key: {
+              text: "How has this affected you?"
+            },
+            value: {
+              text: data.close.reason
+            }
+          },
+          {
+            key: {
+              text: "What do you think should be done to put things right?"
+            },
+            value: {
+              text: data.close.reason
+            }
+          }
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-m">
+        Awarding organisation
+      </h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Organisation"
+            },
+            value: {
+              text: "Pearson"
+            }
+          },
+          {
+            key: {
+              text: "Qualification"
+            },
+            value: {
+              text: "EDI Level 1 Certificate in Spoken Business English (ESOL)"
+            }
+          }
+        ]
+      }) }}
+  
+    </div>
+  </div>
+
+{% endblock %}

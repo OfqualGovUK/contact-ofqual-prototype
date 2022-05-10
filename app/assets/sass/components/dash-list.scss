@@ -1,0 +1,17 @@
+// Dashed list (used in Contents links list)
+
+.govuk-list--dash {
+  padding-left: govuk-spacing(3);
+}
+
+.govuk-list--dash li {
+  position: relative;
+
+  &::before {
+    color: $govuk-secondary-text-colour;
+    content: "\2013";
+    left: -16px;
+    position: absolute;
+    top: 0;
+  }
+}

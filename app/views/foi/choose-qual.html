@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Select the qualification type" %}
+{% set pageHeading = "Which qualification is your requst about?" %}
 {% set formAction = "./the-request" %}
 
 {% block formContent %}
@@ -12,7 +12,7 @@
     {{ govukInput({
       classes: "govuk-!-width-two-thirds",
       label: {
-        html: pageHeading
+        text: "Enter qualification details (optional)"
       }
     }) }}
   {% endset -%}
@@ -20,7 +20,7 @@
   {{ govukCheckboxes({
     fieldset: {
       legend: {
-        text: "Select the qualification",
+        html: pageHeading,
         classes: "govuk-fieldset__legend--l",
         isPaheheading: true
       }
@@ -57,7 +57,7 @@
         text: "My request does not relate to specific qualification type"
       }
     ]
-  } | decorateAttributes(data, "data.foi.isItQual")) }}
+  } | decorateAttributes(data, "data.foi.chooseQual")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({

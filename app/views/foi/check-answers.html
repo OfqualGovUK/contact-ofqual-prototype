@@ -82,8 +82,18 @@
         ]
       }) }}
 
-      {% if data.foi.isItQual and data.foi.isItQual != "My request does not relate to specific qualification type"%}
+      {% if data.foi.chooseQual and data.foi.chooseQual != "My request does not relate to specific qualification type"%}
 
+        {% set qualificationType %}
+          <ul class="govuk-list">
+            {% for qualification in data.foi.chooseQual %}
+              <li>
+                {{ qualification }}
+              </li>
+            {% endfor %}
+          </ul>
+        {% endset %}
+        
         <h2 class="govuk-heading-m">Qualification details</h2>
 
         {{ govukSummaryList({
@@ -93,7 +103,7 @@
                 text: "Select the qualification type"
               },
               value: {
-                text: data.foi.isItQual or "Not provided"
+                html: qualificationType or "Not provided"
               },
               actions: {
                 items: [

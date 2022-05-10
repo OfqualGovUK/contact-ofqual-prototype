@@ -23,9 +23,9 @@ $('a[href=#]').on('click', function (event) {
 // Found here: https://stackoverflow.com/a/21248785
 
 // If the 'My request does not relate to specific qualification type checkbox exists'
-if ($('#foi-isItQual-7').length) {
+if ($('#foi-chooseQual-7').length) {
   
-  var deselectOthersCheckbox = $('#foi-isItQual-7')
+  var deselectOthersCheckbox = $('#foi-chooseQual-7')
 
   // Deselect all others if the checkbox is checked
   $(deselectOthersCheckbox).change(function() {
