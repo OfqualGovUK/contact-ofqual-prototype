@@ -68,7 +68,7 @@
               text: "Case type"
             },
             value: {
-              text: "Complaint"
+               html: casetype
             }
           },
           {
@@ -84,57 +84,78 @@
 
       <h2 class="govuk-heading-m">Case summary</h2>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "What do you think went wrong?"
+      {# If a complaint #}
+      {% if data.manage.case == "caseComplaint" %}
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "What do you think went wrong?"
+              },
+              value: {
+                text: data.close.reason
+              }
             },
-            value: {
-              text: data.close.reason
-            }
-          },
-          {
-            key: {
-              text: "How has this affected you?"
+            {
+              key: {
+                text: "How has this affected you?"
+              },
+              value: {
+                text: data.close.reason
+              }
             },
-            value: {
-              text: data.close.reason
+            {
+              key: {
+                text: "What do you think should be done to put things right?"
+              },
+              value: {
+                text: data.close.reason
+              }
             }
-          },
-          {
-            key: {
-              text: "What do you think should be done to put things right?"
-            },
-            value: {
-              text: data.close.reason
-            }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
+      {% endif %}
       
-      <h2 class="govuk-heading-m">Awarding organisation</h2>
+      {# If an enquiry #}
+      {% if data.manage.case == "caseEnquiry" %}
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "What is your question?"
+              },
+              value: {
+                text: data.question
+              }
+            }
+          ]
+        }) }}
+      {% endif %}
+      
+      {% if data.manage.case == "caseComplaint" %}
+        <h2 class="govuk-heading-m">Awarding organisation</h2>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Organisation"
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Organisation"
+              },
+              value: {
+                text: "Pearson"
+              }
             },
-            value: {
-              text: "Pearson"
+            {
+              key: {
+                text: "Qualification"
+              },
+              value: {
+                text: "EDI Level 1 Certificate in Spoken Business English (ESOL)"
+              }
             }
-          },
-          {
-            key: {
-              text: "Qualification"
-            },
-            value: {
-              text: "EDI Level 1 Certificate in Spoken Business English (ESOL)"
-            }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
+      {% endif %}
   
     </div>
   </div>

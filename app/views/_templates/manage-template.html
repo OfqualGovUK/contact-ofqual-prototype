@@ -44,19 +44,39 @@
       classes: "govuk-!-margin-top-4 govuk-!-margin-bottom-6"
     }) }}
   {% endif %}
+
+  {% set casetype %}
+    {% if data.manage.case == "caseEnquiry" %}
+      Enquiry
+    {% endif %}
+    {% if data.manage.case == "caseComplaint" %}
+      Compliant
+    {% endif %}
+  {% endset %}
   
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
       
 
       <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
-        <span class="govuk-caption-l">Compliant</span>
+        <span class="govuk-caption-l">{{ casetype }}</span>
         Your case
         <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
           <span class="govuk-visually-hidden">Status</span>
           {# Initial states #}
 
-          {% if data.confirmClosed == "true" %}
+          
+          {% if data.manage.case == "caseEnquiry" %}
+            {{govukTag({
+              text: "Open",
+              classes: "govuk-tag--blue"
+            })}}
+          {% elseif data.manage.case == "caseComplaint" %}
+            {{govukTag({
+              text: "Closed",
+              classes: "govuk-tag--grey"
+            })}}
+          {% elseif data.confirmClosed == "true" %}
             {{govukTag({
               text: "Closed",
               classes: "govuk-tag--grey"
@@ -79,7 +99,16 @@
           {% endif %}
       </h1>
       
-      <p class="govuk-body">Date submitted <time datetime="">{{ "" | today | moment('subtract', 6, 'days') |  govukDate }}</time></p>
+      <p class="govuk-body">
+        {% if data.manage.case == "caseEnquiry" %}
+          Last updated: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time><br>
+          Submitted: <time datetime="">{{ "" | today | moment('subtract', 7, 'days') |  govukDate }}</time>
+        {% endif %}
+        {% if data.manage.case == "caseComplaint" %}
+          Last updated: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time><br>
+          Submitted: <time datetime="">{{ "" | today | moment('subtract', 41, 'days') |  govukDate }}</time>
+        {% endif %}
+      </p>
 
       
       {# <p class="govuk-body">

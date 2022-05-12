@@ -16,7 +16,7 @@
       </h2>
 
       <div class="app-timeline">
-        
+            
         {% if data.confirmReviewRequest == "true" %}
           <div class="app-timeline__item">
             <div class="app-timeline__header">
@@ -41,12 +41,12 @@
           </div>
         {% endif %}
         
-        {% if data.confirmClosed == "true" %}
+        {% if data.confirmClosed == "true" or data.manage.case == "caseComplaint" %}
           <div class="app-timeline__item">
             <div class="app-timeline__header">
-              <h3 class="app-timeline__title">Complaint closed</h3>
+              <h3 class="app-timeline__title">{{ casetype }} closed</h3>
               <p class="app-timeline__byline">
-                <time datetime="">{{ "" | today | govukDate }} at 10:34</time>
+                <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }} at 10:34</time>
               </p>
             </div>
             <div class="app-timeline__description"></div>
@@ -65,7 +65,7 @@
 
         <div class="app-timeline__item">
           <div class="app-timeline__header">
-            <h3 class="app-timeline__title">Complaint submitted</h3>
+            <h3 class="app-timeline__title">{{ casetype }} submitted</h3>
             <p class="app-timeline__byline">
               <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }} at 4:45</time>
             </p>
