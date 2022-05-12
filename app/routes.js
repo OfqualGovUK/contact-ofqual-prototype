@@ -10,8 +10,8 @@ router.post('/contact-type-answer', function (req, res) {
 
   if (contactType === 'Make a complaint') {
       res.redirect('/complaints')
-  } else if (contactType === 'Ask a general question') {
-    res.redirect('/ask-a-question')
+  } else if (contactType === 'Make an enquiry') {
+    res.redirect('/make-an-enquiry')
   } else if (contactType === 'Make a Freedom of Information request') {
     res.redirect('/foi')
   } else if (contactType === 'View an existing query or complaint') {
@@ -32,9 +32,9 @@ router.post('/is-it-ao-answer', function (req, res) {
   let isItAo = req.session.data.isItAo
 
   if (isItAo === 'Yes') {
-      res.redirect('/ask-a-question/search-for-ao')
+      res.redirect('/make-an-enquiry/search-for-ao')
     } else {
-      res.redirect('/ask-a-question/is-it-qual')
+      res.redirect('/make-an-enquiry/is-it-qual')
   }
 
 })
@@ -45,9 +45,9 @@ router.post('/is-it-qual-answer', function (req, res) {
   let isItQual = req.session.data.isItQual
 
   if (isItQual === 'Yes') {
-      res.redirect('/ask-a-question/search-for-qual')
+      res.redirect('/make-an-enquiry/search-for-qual')
     } else {
-      res.redirect('/ask-a-question/is-it-centre-or-school')
+      res.redirect('/make-an-enquiry/is-it-centre-or-school')
   }
 
 })
@@ -58,9 +58,9 @@ router.post('/is-it-centre-or-school-answer', function (req, res) {
   let isItCenterOrSchool = req.session.data.isItCenterOrSchool
 
   if (isItCenterOrSchool === 'Yes') {
-      res.redirect('/ask-a-question/centre-school-info')
+      res.redirect('/make-an-enquiry/centre-school-info')
     } else {
-      res.redirect('/ask-a-question/the-question')
+      res.redirect('/make-an-enquiry/the-question')
   }
 
 })
