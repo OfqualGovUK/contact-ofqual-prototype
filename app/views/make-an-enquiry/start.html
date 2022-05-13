@@ -5,6 +5,29 @@
 
 {% block content %}
 
-  <h1 class="govuk-heading-l">Make an enquiry</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Make an enquiry</h1>
+
+    <p class="govuk-body">Ofqual is the independent regulator of qualifications in England. We regulate on behalf of students to make sure qualifications and assessments are fit for purpose and are designed and assessed well.</p>
+
+    <p class="govuk-body">You can use this service to make general enquiries about things we do.</p>
+
+    {{ govukButton({
+      text: "Start now",
+      href: "./",
+      isStartButton: true
+    }) }}
+    
+    <h2 class="govuk-heading-m">Enquiries we cannot answer</h2>
+    <h3 class="govuk-heading-s">Certificates</h3>
+    <p class="govuk-body">Ofqual does not issue certificates, this is done by the exam board. </p>
+    <h3 class="govuk-heading-s">Qualification equivalences</h3>
+    <p class="govuk-body">Ofqual does not provide qualification equivalences as each regulated qualification has a level. If qualification types share the same level then they are seen as broadly comparable, in terms of the demand they place on the learner. However, qualifications at the same level can still be very different in terms of content and duration.</p> 
+    <p class="govuk-body">View a guide to understanding comparisons between qualification levels: <a href="https://www.gov.uk/what-different-qualification-levels-mean/compare-different-qualification-levels" class="govuk-link">https://www.gov.uk/what-different-qualification-levels-mean/compare-different-qualification-levels</p>
+
+    </div>
+  </div>
 
 {% endblock %}
