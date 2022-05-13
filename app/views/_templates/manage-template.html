@@ -54,10 +54,11 @@
       {% else %}
         Enquiry
       {% endif %}
-    {% endif %}
     {# if its a complaint #}
-    {% if data.manage.case == "caseComplaint" %}
+    {% elseif data.manage.case == "caseComplaint" %}
       Compliant
+    {% else %}
+      Enquiry
     {% endif %}
   {% endset %}
   
@@ -97,8 +98,8 @@
             })}}
           {% else %}
             {{govukTag({
-              text: "Pending review",
-              classes: "govuk-tag--yellow"
+              text: "Open",
+              classes: "govuk-tag--blue"
             })}}
           {% endif %}
       </h1>
