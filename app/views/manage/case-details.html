@@ -22,7 +22,7 @@
           }) }}
         {% endif %}
 
-        {% if data.settings.caseStatus == "Has multiple cases in the service" %}
+        {% if data.settings.caseStatus == "Has multiple cases in the service" or data.manage.case == "caseNew" %}
           {{ govukButton({
             text: "View my other cases",
             classes: "govuk-button--secondary",
@@ -84,6 +84,22 @@
 
       <h2 class="govuk-heading-m">Case summary</h2>
 
+      {# If an enquiry #}
+      {% if data.manage.case == "caseNew" %}
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "What is your question?"
+              },
+              value: {
+                text: data.question
+              }
+            }
+          ]
+        }) }}
+      {% endif %}
+
       {# If a complaint #}
       {% if data.manage.case == "caseComplaint" %}
         {{ govukSummaryList({
@@ -110,22 +126,6 @@
               },
               value: {
                 text: data.close.reason
-              }
-            }
-          ]
-        }) }}
-      {% endif %}
-      
-      {# If an enquiry #}
-      {% if data.manage.case == "caseEnquiry" %}
-        {{ govukSummaryList({
-          rows: [
-            {
-              key: {
-                text: "What is your question?"
-              },
-              value: {
-                text: data.question
               }
             }
           ]

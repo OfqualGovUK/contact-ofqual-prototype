@@ -46,9 +46,16 @@
   {% endif %}
 
   {% set casetype %}
-    {% if data.manage.case == "caseEnquiry" %}
-      Enquiry
+  {# if its a new case #}
+    {% if data.manage.case == "caseNew" %}
+      {# If its a FOI case esle fall back to Enquiry #}
+      {% if data.confirmFoi %}
+        Freedom of Information request
+      {% else %}
+        Enquiry
+      {% endif %}
     {% endif %}
+    {# if its a complaint #}
     {% if data.manage.case == "caseComplaint" %}
       Compliant
     {% endif %}
@@ -56,17 +63,14 @@
   
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      
 
       <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
         <span class="govuk-caption-l">{{ casetype }}</span>
         Your case
         <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
           <span class="govuk-visually-hidden">Status</span>
-          {# Initial states #}
-
           
-          {% if data.manage.case == "caseEnquiry" %}
+          {% if data.manage.case == "caseNew" %}
             {{govukTag({
               text: "Open",
               classes: "govuk-tag--blue"
@@ -101,8 +105,8 @@
       
       <p class="govuk-body">
         {% if data.manage.case == "caseEnquiry" %}
-          Last updated: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time><br>
-          Submitted: <time datetime="">{{ "" | today | moment('subtract', 7, 'days') |  govukDate }}</time>
+          Last updated: <time datetime="">{{ "" | today | govukDate }}</time><br>
+          Submitted: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
         {% endif %}
         {% if data.manage.case == "caseComplaint" %}
           Last updated: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time><br>

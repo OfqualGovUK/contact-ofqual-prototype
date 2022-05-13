@@ -1,9 +1,11 @@
-{% extends "_templates/page-template.html" %}
+{% extends "_templates/form-template.html" %}
 
-{% block content %}
+{% set formAction = "./confirmation" %}
 
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+{% block formContent %}
+
+  {# <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds"> #}
 
       <h1 class="govuk-heading-l">Review your freedom of infromation request</h1>
       
@@ -129,7 +131,7 @@
               text: "What is your question?"
             },
             value: {
-              text: data.request or "Not provided"
+              text: data.question or "Not provided"
             },
             actions: {
               items: [
@@ -160,16 +162,17 @@
           }
         ]
       }) }}
+
+      <input type="hidden" id="confirmFoi" name="confirmFoi" value="true">
       
       <div class="govuk-button-group">
         {{ govukButton({
-          text: "Submit question",
-          href: "./confirmation"
+          text: "Submit request"
         }) }}
         <a class="govuk-link" href="/manage">Cancel</a>
       </div>
   
-    </div>
-  </div>
+    {# </div>
+  </div> #}
   
 {% endblock %}
