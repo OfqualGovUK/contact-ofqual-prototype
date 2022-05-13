@@ -14,14 +14,17 @@
       <h2 class="govuk-heading-m">Case details</h2>
 
       <div class="govuk-button-group govuk-!-margin-bottom-3 govuk-!-margin-top-3">
-        {% if data.settings.caseStatus != "Is able to request review" and data.confirmClosed != "true" %}
+        
+        {# if not closed #}
+        {% if data.confirmClosed != "true" and data.manage.case != "caseComplaint" %}
           {{ govukButton({
             text: "Close this case",
             classes: "govuk-button--secondary",
             href: "/manage/close"
           }) }}
         {% endif %}
-
+        
+        {# if has more than one case #}
         {% if data.settings.caseStatus == "Has multiple cases in the service" or data.manage.case == "caseNew" %}
           {{ govukButton({
             text: "View my other cases",

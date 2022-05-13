@@ -23,10 +23,10 @@
 
     {% if data.confirmClosed == "true"%}
       <div class="app-notification-item"> 
-        {{govukTag({
+        {# {{govukTag({
           text: "New",
           classes: "govuk-tag--blue govuk-!-margin-bottom-1"
-        })}}
+        })}} #}
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
           <a href="/manage/read/close-case-request">Close case request</a>
         </h3>
@@ -39,10 +39,10 @@
     
     {% if data.settings.caseStatus == "Is able to request review"%}
       <div class="app-notification-item"> 
-        {{govukTag({
+        {# {{govukTag({
           text: "New",
           classes: "govuk-tag--blue govuk-!-margin-bottom-1"
-        })}}
+        })}} #}
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
           <a href="/manage/read/outcome-reached">An outcome has been reached</a>
         </h3>

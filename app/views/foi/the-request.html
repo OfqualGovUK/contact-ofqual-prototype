@@ -19,7 +19,8 @@
 
   {{ govukFileUpload({
     label: {
-      text: "Upload a supporting document (optional)"
+      text: "Upload a supporting document (optional)",
+      classes: "govuk-label--s"
     }
   } | decorateAttributes(data, "data.fileUpload")) }}
 

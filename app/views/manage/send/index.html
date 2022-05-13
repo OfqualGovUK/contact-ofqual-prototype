@@ -10,7 +10,8 @@
 
   {{ govukInput({
     label: {
-      text: "Subject"
+      text: "Subject",
+      classes: "govuk-label--s"
     }
   } | decorateAttributes(data, "data.send.subject")) }}
 
@@ -18,7 +19,8 @@
     maxlength: 5000,
     rows: "8",
     label: {
-      text: "Message"
+      text: "Message",
+      classes: "govuk-label--s"
     },
     hint: {
       text: "Update your complaint or respond to a recent notification."
@@ -27,7 +29,8 @@
 
   {{ govukFileUpload({
     label: {
-      text: "Upload a file"
+      text: "Upload a file (optional)",
+      classes: "govuk-label--s"
     }
   } | decorateAttributes(data, "data.send.fileUpload")) }}
 

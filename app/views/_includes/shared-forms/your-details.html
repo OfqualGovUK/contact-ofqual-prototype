@@ -3,21 +3,24 @@
 
   {{ govukInput({
     label: {
-      text: "Full name"
+      text: "Full name",
+      classes: "govuk-label--s"
     },
     classes: "govuk-input govuk-!-width-two-thirds"
   } | decorateAttributes(data, "data.fullName")) }}
   
   {{ govukInput({
     label: {
-      text: "Phone number (optional)"
+      text: "Phone number (optional)",
+      classes: "govuk-label--s"
     },
     classes: "govuk-input govuk-!-width-two-thirds"
   } | decorateAttributes(data, "data.phone")) }}
   
   {{ govukInput({
     label: {
-      text: "Email address"
+      text: "Email address",
+      classes: "govuk-label--s"
     },
     hint: {
       text: "This email will be used to send you notifications about your question"
@@ -29,7 +32,8 @@
     {{ govukInput({
       classes: "govuk-!-width-two-thirds",
       label: {
-        text: "Enter details (optional)"
+        text: "Enter details (optional)",
+        classes: "govuk-label--s"
       }
     }) }}
   {% endset -%}
@@ -37,7 +41,8 @@
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "What best describes you?"
+        text: "What best describes you?",
+        classes: "govuk-label--s"
       }
     },
     items: [
