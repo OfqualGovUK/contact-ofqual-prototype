@@ -1,54 +1,59 @@
 
-{% extends "_templates/form-template.html" %}
+{% extends "_templates/page-template.html" %}
 
 {% set pageHeading = "Frontdoor" %}
-{% set formAction = "./contact-type-answer" %}
 
 {# {% set backLink = "false" %} #}
 
-{% block formContent %}
+{% block content %}
 
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: "What would you like to do?",
-        isPageHeading: true,
-        classes: "govuk-fieldset__legend--l"
-      }
-    },
-    items: [
-      {
-        value: "Make an enquiry",
-        text: "Make an enquiry"
-      },
-      {
-        value: "Make a complaint",
-        text: "Make a complaint"
-      },
-      {
-        value: "Make a Freedom of Information request",
-        text: "Make a Freedom of Information request"
-      },
-      {
-        value: "Request personal information about yourself",
-        text: "Request personal information about yourself"
-      },
-      {
-        value: "Contact the Exam procedures review service",
-        text: "Contact the Exam procedures review service"
-      },
-      {
-        divider: "or"
-      },
-        {
-          value: "View an existing query or complaint",
-          text: "View an existing query or complaint"
-        }
-    ]
-  } | decorateAttributes(data, "data.contactType")) }}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-  {{ govukButton({
-    text: "Continue"
-  }) }}
+      <h1 class="govuk-heading-l">Contact Ofqual</h1>
+      {# <p class="govuk-body">
+        Ofqual is the independent regulator of qualifications in England. We regulate on behalf of students to make sure qualifications and assessments are fit for purpose and are designed and assessed well. 
+      </p> #}
+      
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><a href="/make-an-enquiry" class="govuk-link">Make an enquiry</a></h2>
+      <p class="govuk-body">Ask Ofqual general questions.</p>
+      
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><a href="https://www.gov.uk/government/organisations/ofqual/about/complaints-procedure" class="govuk-link">Make a complaint</a></h2>
+      <p class="govuk-body">Make a complaint, report a concern of wrongdoing or malpractice or raise a concern as a whistleblower.</p>
+      
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><a href="/foi" class="govuk-link">Make a Freedom of Information request</a></h2>
+      <p class="govuk-body">Ask to see recorded information held by Ofqual.</p>
+      
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><a href="/placeholder" class="govuk-link">Request personal information about yourself</a></h2>
+      <p class="govuk-body">
+        Know what personal data we hold about you and to request a copy of that data. 
+      </p>
+      
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-2"><a href="/placeholder" class="govuk-link">Contact the Exam procedures review service</a></h2>
+      <p class="govuk-body">
+       Request a review of the decisions made by exam boards on appeals against GCSE, AS, A level and some vocational or technical qualifications results.
+      </p>
+
+    </div>
+    <div class="govuk-grid-column-one-third"> 
+      <aside class="app-sidebar">
+      <h2 class="govuk-heading-s">Do you have an existing enquiry or complaint?</h2>
+      <p class="govuk-body">
+        <a href="/manage" class="govuk-link">Log in to view responses and manage your case</a>
+      </p>
+      </aside>
+    </div> 
+  </div>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <hr class="govuk-section-break govuk-section-break--m govuk-section-break--visible">
+      <h2 class="govuk-heading-m">Other ways to contact Ofqual</h2>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Email</h3>
+      <p class="govuk-body"><a class="govuk-link" href="mailto:public.enquiries@ofqual.gov.uk">public.enquiries@ofqual.gov.uk</a></p>
+      <h3 class="govuk-heading-s govuk-!-margin-bottom-2">Telephone</h3>
+      <p class="govuk-body">0300 303 3344</p>
+    </div>
+  </div>
 
 {% endblock %}
