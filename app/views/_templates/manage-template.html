@@ -65,7 +65,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
         <span class="govuk-caption-l">{{ casetype }}</span>
         Your case
         <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
@@ -105,13 +105,13 @@
       </h1>
       
       <p class="govuk-body">
-        {% if data.manage.case == "caseEnquiry" %}
-          Last updated: <time datetime="">{{ "" | today | govukDate }}</time><br>
-          Submitted: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
-        {% endif %}
         {% if data.manage.case == "caseComplaint" %}
           Last updated: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time><br>
           Submitted: <time datetime="">{{ "" | today | moment('subtract', 41, 'days') |  govukDate }}</time>
+        {% else %}
+        {# {% if data.manage.case == "caseEnquiry" %} #}
+          Last updated: <time datetime="">{{ "" | today | govukDate }}</time><br>
+          Submitted: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
         {% endif %}
       </p>
 
