@@ -65,6 +65,19 @@ router.post('/is-it-centre-or-school-answer', function (req, res) {
 
 })
 
+// Is your question about a specific centre or school?
+router.post('/is-it-documents-answer', function (req, res) {
+
+  let isItDocument = req.session.data.isItDocument
+
+  if (isItDocument === 'Yes') {
+      res.redirect('/make-an-enquiry/upload-document')
+    } else {
+      res.redirect('/make-an-enquiry/is-it-centre-or-school')
+  }
+
+})
+
 // FOI
 
 // Is your request about a qualification regulated by Ofqual?

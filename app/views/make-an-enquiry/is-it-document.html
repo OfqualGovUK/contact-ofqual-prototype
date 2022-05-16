@@ -1,0 +1,41 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Make an enquiry" %}
+{% set formAction = "/is-it-documents-answer" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Make an enquiry</span>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Do you have any supporting documentation?",
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    hint: {
+      text: "Provide any documents which can support your enquiry."
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes"
+      },
+      {
+        value: "No",
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.isItDocument")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}

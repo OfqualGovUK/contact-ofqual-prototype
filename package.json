@@ -37,6 +37,7 @@
     "lodash": "^4.17.21",
     "marked": "^4.0.10",
     "moment": "^2.29.1",
+    "@ministryofjustice/frontend": "1.4.1",
     "notifications-node-client": "^5.1.0",
     "nunjucks": "^3.2.1",
     "portscanner": "^2.1.1",

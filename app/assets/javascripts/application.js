@@ -38,3 +38,12 @@ if ($('#foi-chooseQual-7').length) {
   });
 
 }
+
+// Moj Multi file upload thingo
+if (typeof MOJFrontend.MultiFileUpload !== "undefined") {
+  new MOJFrontend.MultiFileUpload({
+    container: $(".moj-multi-file-upload"),
+    uploadUrl: "/ajax-upload",
+    deleteUrl: "/ajax-delete",
+  });
+}
