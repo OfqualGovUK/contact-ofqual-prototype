@@ -3,11 +3,20 @@
 
   {{ govukInput({
     label: {
+      text: "Title (optional)",
+      classes: "govuk-label--s"
+    },
+    classes: "govuk-input govuk-!-width-one-third"
+  } | decorateAttributes(data, "data.title")) }}
+  
+  {{ govukInput({
+    label: {
       text: "Full name",
       classes: "govuk-label--s"
     },
     classes: "govuk-input govuk-!-width-two-thirds"
   } | decorateAttributes(data, "data.fullName")) }}
+  
   
   {{ govukInput({
     label: {
