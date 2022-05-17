@@ -12,7 +12,7 @@
   <div class="body-text">
 
     {# <p class="govuk-body">You can search for your subject by name or number, subject area and level.</p> #}
-    <span class="govuk-hint">Maths, English or Biology for example</span>
+    <span class="govuk-hint">Education, Science or Psychology for example</span>
     <div id="tt-default" class="autocomplete-wrapper govuk-!-width-full-width govuk-!-margin-top-2 govuk-!-margin-bottom-6 govuk-body"></div>
   </div>
 
@@ -22,25 +22,57 @@
 
   <script type="text/javascript">
     var subjects = [
-      {
-        "id": "0",
-        "name": "Biology",
-      },
-      {
-        "id": "1",
-        "name": "English",
-      },
-      {
-        "id": "2",
-        "name": "Maths",
-      }
+      "Accounting and finance",
+      "Agriculture, horticulture and the environment",
+      "Animal care, grooming and veterinary science",
+      "Art, design and photography",
+      "Building and construction",
+      "Business management, marketing and sales",
+      "Communication and journalism",
+      "Cosmetic and complementary therapies",
+      "Counselling",
+      "Design technology, product design and graphics",
+      "Economics",
+      "Education",
+      "Electronics",
+      "Engineering",
+      "English and literacy",
+      "First Aid",
+      "Geography",
+      "Health and safety (children and adults)",
+      "Health and social care",
+      "History and classics",
+      "Hospitality, food and catering",
+      "ICT and computer science",
+      "Law",
+      "Mathematics and numeracy",
+      "Media",
+      "Medicine, nursing and dentistry",
+      "Modern and foreign languages",
+      "Music and music technology",
+      "Performing arts, dance and drama",
+      "Politics",
+      "Project qualifications",
+      "Protection and security services",
+      "Psychology",
+      "Public services",
+      "Religious Education, philosophy and theology",
+      "Science",
+      "Sign language",
+      "Sociology ",
+      "Sport, PE and personal training",
+      "TEFL/ESOL",
+      "Transportation operations and maintenance",
+      "Travel and tourism",
+      "NA",
+      "Multiple"
     ];
 
-    var getSuggestions = () => {
+    {# var getSuggestions = () => {
       var suggestions = []
       subjects.forEach(result => suggestions.push(result.name));
       return suggestions;
-    }
+    } #}
   </script>
 
   <script type="text/javascript">
@@ -49,14 +81,7 @@
     accessibleAutocomplete({
       element: element,
       id: id,
-      source: getSuggestions(),
-      name: "subject",
-      templates: {
-        suggestion: (value) => {
-          var result = subjects.find(result => result.name == value);
-          return `<span class=''>${result.name}</span>`
-        }
-      }
+      source: subjects
     })
   </script>
 
