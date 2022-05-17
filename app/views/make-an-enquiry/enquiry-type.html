@@ -1,0 +1,60 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "What is you enquiry about?" %}
+{% set formAction = "/enquiry-type-answer" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Make an enquiry</span>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "What is you enquiry about?",
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    items: [
+      {
+        value: "An examination or assessment taken this year",
+        text: "An examination or assessment taken this year"
+      },
+      {
+        value: "Certificates",
+        text: "Certificates"
+      },
+      {
+        value: "How Ofqual operates",
+        text: "How Ofqual operates",
+        hint: {
+          text: "HR, Legal and Portal support for example"
+        }
+      },
+      {
+        value: "Qualifications, regulation and equivalence",
+        text: "Qualifications, regulation and equivalence"
+      },
+      {
+        value: "Recognition of a qualification",
+        text: "Recognition of a qualification"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "My enquiry is about something else",
+        text: "My enquiry is about something else"
+      }
+    ]
+   } | decorateAttributes(data, "data.enquiryType")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}

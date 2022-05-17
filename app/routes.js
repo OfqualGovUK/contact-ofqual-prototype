@@ -3,28 +3,33 @@ const router = express.Router()
 
 // Add your routes here - above the module.exports line
 
-//Front door
-router.post('/contact-type-answer', function (req, res) {
+// Ask a question
 
-  let contactType = req.session.data.contactType
+// What is you enquiry about?
+router.post('/enquiry-type-answer', function (req, res) {
 
-  if (contactType === 'Make a complaint') {
-      res.redirect('/complaints')
-  } else if (contactType === 'Make an enquiry') {
-    res.redirect('/make-an-enquiry')
-  } else if (contactType === 'Make a Freedom of Information request') {
-    res.redirect('/foi')
-  } else if (contactType === 'View an existing query or complaint') {
-    res.redirect('/manage/login')
-  } else {
-    res.redirect('/placeholder')
+  let enquiryType = req.session.data.enquiryType
+
+  if ((enquiryType === 'Recognition of a qualification') || (enquiryType === 'How Ofqual operates') || (enquiryType === 'My enquiry is about something else')) {
+      res.redirect('/make-an-enquiry/the-question')
+    } else {
+      res.redirect('/make-an-enquiry/qual-type')
   }
 
 })
 
-// Manage
+//Is your enquiry about a specific subject?about an awarding organisation regulated by Ofqual?
+router.post('/is-it-subject-answer', function (req, res) {
 
-// Ask a question
+  let isItSubject = req.session.data.isItSubject
+
+  if (isItSubject === 'Yes') {
+      res.redirect('/make-an-enquiry/search-for-subject')
+    } else {
+      res.redirect('/make-an-enquiry/is-it-ao')
+  }
+
+})
 
 // Is your question about an awarding organisation regulated by Ofqual?
 router.post('/is-it-ao-answer', function (req, res) {
@@ -34,7 +39,7 @@ router.post('/is-it-ao-answer', function (req, res) {
   if (isItAo === 'Yes') {
       res.redirect('/make-an-enquiry/search-for-ao')
     } else {
-      res.redirect('/make-an-enquiry/is-it-qual')
+      res.redirect('/make-an-enquiry/the-question')
   }
 
 })

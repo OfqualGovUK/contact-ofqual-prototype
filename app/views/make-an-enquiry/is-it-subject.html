@@ -1,0 +1,45 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Make an enquiry" %}
+{% set formAction = "/is-it-subject-answer" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Make an enquiry</span>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Is your enquiry about a specific subject?",
+        classes: "govuk-fieldset__legend--l",
+        isPgeHeading: true
+      }
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes"
+      },
+      {
+        value: "No, a subject is not relevant to my question",
+        text: "No, a subject is not relevant to my question"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "I do not know the subject",
+        text: "I do not know the subject"
+      }
+    ]
+  } | decorateAttributes(data, "data.isItSubject")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}

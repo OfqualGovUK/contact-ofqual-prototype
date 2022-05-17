@@ -2,44 +2,43 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Make an enquiry" %}
-{% set formAction = "./the-question" %}
+{% set formAction = "./is-it-ao" %}
 
 {% block formContent %}
 
   <span class="govuk-caption-l">Make an enquiry</span>
-  <h1 class="govuk-heading-l">Search for the awarding organisation</h1>
+  <h1 class="govuk-heading-l">Search for the subject</h1>
 
   <div class="body-text">
-    <span class="govuk-hint">AQA, OCR, Pearson for example</span>
+
+    {# <p class="govuk-body">You can search for your subject by name or number, subject area and level.</p> #}
+    <span class="govuk-hint">Maths, English or Biology for example</span>
     <div id="tt-default" class="autocomplete-wrapper govuk-!-width-full-width govuk-!-margin-top-2 govuk-!-margin-bottom-6 govuk-body"></div>
   </div>
 
-  <a href="./the-question" class="govuk-link govuk-body">I can't find the awarding organisation, skip this step</a>
+  <a href="./is-it-ao" class="govuk-link govuk-body">I can't find the subject, skip this step</a>
 
   <script type="text/javascript" src="/public/javascripts/accessible-autocomplete.min.js"></script>
 
   <script type="text/javascript">
-    var awardingOrgs = [
+    var subjects = [
       {
         "id": "0",
-        "name": "Royal Society for Public Health",
-        "knownAs": "Royal Society for P"
+        "name": "Biology",
       },
       {
         "id": "1",
-        "name": "Portal User Group Example",
-        "knownAs": "Portal User Group E"
+        "name": "English",
       },
       {
         "id": "2",
-        "name": "Pearson EDI",
-        "knownAs": "Pearson EDI"
+        "name": "Maths",
       }
     ];
 
     var getSuggestions = () => {
       var suggestions = []
-      awardingOrgs.forEach(result => suggestions.push(result.name));
+      subjects.forEach(result => suggestions.push(result.name));
       return suggestions;
     }
   </script>
@@ -51,11 +50,11 @@
       element: element,
       id: id,
       source: getSuggestions(),
-      name: "awardingOrg",
+      name: "subject",
       templates: {
         suggestion: (value) => {
-          var result = awardingOrgs.find(result => result.name == value);
-          return `<span class='job-title'>${result.name}</span><span class='govuk-hint govuk-!-margin-bottom-0 govuk-!-font-size-16'>Known as: ${result.knownAs}</span>`
+          var result = subjects.find(result => result.name == value);
+          return `<span class=''>${result.name}</span>`
         }
       }
     })

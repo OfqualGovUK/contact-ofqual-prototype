@@ -1,0 +1,69 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Which qualification is your request about?" %}
+{% set formAction = "./is-it-subject" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Make an enquiry</span>
+
+  {% set otherHtml %}
+    {{ govukInput({
+      classes: "govuk-!-width-two-thirds",
+      label: {
+        text: "Enter qualification details (optional)"
+      }
+    }) }}
+  {% endset -%}
+
+  {{ govukCheckboxes({
+    fieldset: {
+      legend: {
+        html: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPaheheading: true
+      }
+    },
+    items: [
+      {
+        value: "GCE A Level",
+        text: "GCE  A Level"
+      },
+      {
+        value: "GCE AS Level",
+        text: "GCE AS Level"
+      },
+      {
+        value: "GCSE",
+        text: "GCSE"
+      },
+      {
+        value: "Vocational qualification",
+        text: "Vocational qualification"
+      },
+      {
+        value: "Another qualification type",
+        text: "Another qualification type",
+        conditional: {
+          html: otherHtml
+        }
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "My request does not relate to specific qualification type",
+        text: "My request does not relate to specific qualification type"
+      }
+    ]
+  } | decorateAttributes(data, "data.qualType")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}

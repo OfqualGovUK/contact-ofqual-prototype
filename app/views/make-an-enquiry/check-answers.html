@@ -18,7 +18,7 @@
               text: "Title"
             },
             value: {
-              text: data.title
+              text: data.title or 'Not provided'
             },
             actions: {
               items: [
@@ -35,7 +35,7 @@
               text: "Full name"
             },
             value: {
-              text: data.fullName
+              text: data.fullName or 'Not provided'
             },
             actions: {
               items: [
@@ -69,7 +69,7 @@
               text: "Email address"
             },
             value: {
-              text: data.email
+              text: data.email or 'Not provided'
             },
             actions: {
               items: [
@@ -86,7 +86,7 @@
               text: "What best describes you?"
             },
             value: {
-              text: data.userType
+              text: data.userType or 'Not provided'
             },
             actions: {
               items: [
@@ -101,7 +101,55 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Awarding organisation and qualification</h2>
+      <h2 class="govuk-heading-m">Qualification type</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Qualification type"
+            },
+            value: {
+              text: data.qualType or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../make-an-enquiry/qual-type",
+                  text: "Change",
+                  visuallyHiddenText: "the aualification type"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-m">Subject</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Subject"
+            },
+            value: {
+              text: data.subject or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../make-an-enquiry/search-for-subject",
+                  text: "Change",
+                  visuallyHiddenText: "the awarding organisation"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-m">Awarding organisation</h2>
 
       {{ govukSummaryList({
         rows: [
@@ -118,64 +166,6 @@
                   href: "./../make-an-enquiry/search-for-ao",
                   text: "Change",
                   visuallyHiddenText: "the awarding organisation"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Qualification"
-            },
-            value: {
-              text: data.qualification or 'Not provided'
-            },
-            actions: {
-              items: [
-                {
-                  href: "./../make-an-enquiry/search-for-ao",
-                  text: "Change",
-                  visuallyHiddenText: "the qualification"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
-      
-      <h2 class="govuk-heading-m">Centre or school or information</h2>
-
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Centre or school name"
-            },
-            value: {
-              text: data.centreSchool.centreSchoolName or "Not provided"
-            },
-            actions: {
-              items: [
-                {
-                  href: "./../make-an-enquiry/centre-school-info",
-                  text: "Change",
-                  visuallyHiddenText: "the centre or school name"
-                }
-              ]
-            }
-          },
-          {
-            key: {
-              text: "Centre or school number"
-            },
-            value: {
-              text: data.centreSchool.centreSchoolNumber or 'Not provided'
-            },
-            actions: {
-              items: [
-                {
-                  href: "./../make-an-enquiry/centre-school-info",
-                  text: "Change",
-                  visuallyHiddenText: "the centre or school number"
                 }
               ]
             }
@@ -223,9 +213,6 @@
           }
         ]
       }) }}
-      
-      {# This is the success message that plays back to the user on the next screen #}
-      {# {% set successMessage %}Your message has been sent to Ofqual{% endset %} #}
 
       <input type="hidden" id="confirmEnquiry" name="confirmEnquiry" value="true">
 
