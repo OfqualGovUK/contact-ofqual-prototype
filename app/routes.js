@@ -58,27 +58,14 @@ router.post('/is-it-qual-answer', function (req, res) {
 })
 
 // Is your question about a specific centre or school?
-router.post('/is-it-centre-or-school-answer', function (req, res) {
+router.post('/the-question-answer', function (req, res) {
 
-  let isItCenterOrSchool = req.session.data.isItCenterOrSchool
+  let questionAnswer = req.session.data.questionAnswer
 
-  if (isItCenterOrSchool === 'Yes') {
-      res.redirect('/make-an-enquiry/centre-school-info')
-    } else {
-      res.redirect('/make-an-enquiry/the-question')
-  }
-
-})
-
-// Is your question about a specific centre or school?
-router.post('/is-it-documents-answer', function (req, res) {
-
-  let isItDocument = req.session.data.isItDocument
-
-  if (isItDocument === 'Yes') {
+  if (questionAnswer === 'Yes') {
       res.redirect('/make-an-enquiry/upload-document')
     } else {
-      res.redirect('/make-an-enquiry/is-it-centre-or-school')
+      res.redirect('/make-an-enquiry/check-answers')
   }
 
 })

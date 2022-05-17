@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "What is your question?" %}
-{% set formAction = "./check-answers" %}
+{% set formAction = "/the-question-answer" %}
 
 {% block formContent %}
 
@@ -17,12 +17,24 @@
     }
   } | decorateAttributes(data, "data.question")) }}
 
-  {{ govukFileUpload({
-    label: {
-      text: "Upload a supporting document (optional)",
-      classes: "govuk-label--s"
-    }
-  } | decorateAttributes(data, "data.fileUpload")) }}
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Do you have any supporting documentation you want to include?",
+        classes: "govuk-label--s"
+      }
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes"
+      },
+      {
+        value: "No",
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.questionAnswer")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
