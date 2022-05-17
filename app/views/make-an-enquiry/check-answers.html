@@ -101,6 +101,30 @@
         ]
       }) }}
 
+      <h2 class="govuk-heading-m">Enquiry type</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Enquiry type"
+            },
+            value: {
+              text: data.enquiryType or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../make-an-enquiry/enquiry-type",
+                  text: "Change",
+                  visuallyHiddenText: "the enquiry type"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      
       <h2 class="govuk-heading-m">Qualification type</h2>
 
       {{ govukSummaryList({
@@ -117,7 +141,7 @@
                 {
                   href: "./../make-an-enquiry/qual-type",
                   text: "Change",
-                  visuallyHiddenText: "the aualification type"
+                  visuallyHiddenText: "the qaualification type"
                 }
               ]
             }
