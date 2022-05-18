@@ -63,64 +63,9 @@
                 }
               ]
             }
-          },
-          {
-            key: {
-              text: "What best describes you?"
-            },
-            value: {
-              text: data.userType
-            },
-            actions: {
-              items: [
-                {
-                  href: "./../foi",
-                  text: "Change",
-                  visuallyHiddenText: "what best describes you."
-                }
-              ]
-            }
           }
         ]
       }) }}
-
-      {% if data.foi.chooseQual and data.foi.chooseQual != "My request does not relate to specific qualification type"%}
-
-        {% set qualificationType %}
-          <ul class="govuk-list">
-            {% for qualification in data.foi.chooseQual %}
-              <li>
-                {{ qualification }}
-              </li>
-            {% endfor %}
-          </ul>
-        {% endset %}
-        
-        <h2 class="govuk-heading-m">Qualification details</h2>
-
-        {{ govukSummaryList({
-          rows: [
-            {
-              key: {
-                text: "Select the qualification type"
-              },
-              value: {
-                html: qualificationType or "Not provided"
-              },
-              actions: {
-                items: [
-                  {
-                    href: "./../foi/choose-qual",
-                    text: "Change",
-                    visuallyHiddenText: "if the request relates to specific qualification type"
-                  }
-                ]
-              }
-            }
-          ]
-        }) }}
-
-      {% endif %}
       
       <h2 class="govuk-heading-m">Request details</h2>
 
@@ -128,7 +73,7 @@
         rows: [
           {
             key: {
-              text: "What is your question?"
+              text: "Add a detailed description of the information you want"
             },
             value: {
               text: data.question or "Not provided"
@@ -138,7 +83,7 @@
                 {
                   href: "./../foi/the-request",
                   text: "Change",
-                  visuallyHiddenText: "the request"
+                  visuallyHiddenText: " the description of the information you want"
                 }
               ]
             }
