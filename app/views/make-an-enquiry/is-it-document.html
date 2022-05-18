@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Make an enquiry" %}
+{% set pageHeading = "Do you want to upload files to support your enquiry?" %}
 {% set formAction = "/is-it-documents-answer" %}
 
 {% block formContent %}
@@ -11,13 +11,13 @@
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "Do you have any supporting documentation?",
+        text: pageHeading,
         classes: "govuk-fieldset__legend--l",
         isPageHeading: true
       }
     },
-    hint: {
-      text: "Provide any documents which can support your enquiry."
+    _hint: {
+      text: "You can upload documents to support your enquiry"
     },
     items: [
       {

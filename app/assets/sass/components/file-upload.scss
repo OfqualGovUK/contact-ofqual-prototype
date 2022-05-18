@@ -1,0 +1,18 @@
+.app-file-upload {
+  margin: 0 0 govuk-spacing(6) 0;
+
+  .govuk-form-group {
+    margin-bottom: govuk-spacing(2);
+  }
+}
+
+.app-file-upload__item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #b1b4b6;
+  padding: govuk-spacing(2) 0;
+
+  & > * {
+    margin-bottom: 0;
+  }
+}

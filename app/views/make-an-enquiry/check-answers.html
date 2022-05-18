@@ -101,101 +101,117 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Enquiry type</h2>
+      {% if data.enquiryType %}
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Enquiry type"
-            },
-            value: {
-              text: data.enquiryType or "Not provided"
-            },
-            actions: {
-              items: [
-                {
-                  href: "./../make-an-enquiry/enquiry-type",
-                  text: "Change",
-                  visuallyHiddenText: "the enquiry type"
-                }
-              ]
-            }
-          }
-        ]
-      }) }}
-      
-      <h2 class="govuk-heading-m">Qualification type</h2>
+        <h2 class="govuk-heading-m">Enquiry type</h2>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Qualification type"
-            },
-            value: {
-              text: data.qualType or "Not provided"
-            },
-            actions: {
-              items: [
-                {
-                  href: "./../make-an-enquiry/qual-type",
-                  text: "Change",
-                  visuallyHiddenText: "the qaualification type"
-                }
-              ]
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Enquiry type"
+              },
+              value: {
+                text: data.enquiryType or "Not provided"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "./../make-an-enquiry/enquiry-type",
+                    text: "Change",
+                    visuallyHiddenText: "the enquiry type"
+                  }
+                ]
+              }
             }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
       
+      {% endif %}
+
+      {% if data.qualType %}
+      
+        <h2 class="govuk-heading-m">Qualification type</h2>
+
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Qualification type"
+              },
+              value: {
+                text: data.qualType or "Not provided"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "./../make-an-enquiry/qual-type",
+                    text: "Change",
+                    visuallyHiddenText: "the qaualification type"
+                  }
+                ]
+              }
+            }
+          ]
+        }) }}
+
+      {% endif%}
+      
+      {% if data.subject %}
+
       <h2 class="govuk-heading-m">Subject</h2>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Subject"
-            },
-            value: {
-              text: data.subject or "Not provided"
-            },
-            actions: {
-              items: [
-                {
-                  href: "./../make-an-enquiry/search-for-subject",
-                  text: "Change",
-                  visuallyHiddenText: "the awarding organisation"
-                }
-              ]
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Subject"
+              },
+              value: {
+                text: data.subject or "Not provided"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "./../make-an-enquiry/search-for-subject",
+                    text: "Change",
+                    visuallyHiddenText: "the awarding organisation"
+                  }
+                ]
+              }
             }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
+
+      {% endif %}
+      
+      {% if data.awardingOrg %}
       
       <h2 class="govuk-heading-m">Awarding organisation</h2>
 
-      {{ govukSummaryList({
-        rows: [
-          {
-            key: {
-              text: "Awarding organisation"
-            },
-            value: {
-              text: data.awardingOrg or "Not provided"
-            },
-            actions: {
-              items: [
-                {
-                  href: "./../make-an-enquiry/search-for-ao",
-                  text: "Change",
-                  visuallyHiddenText: "the awarding organisation"
-                }
-              ]
+        {{ govukSummaryList({
+          rows: [
+            {
+              key: {
+                text: "Awarding organisation"
+              },
+              value: {
+                text: data.awardingOrg or "Not provided"
+              },
+              actions: {
+                items: [
+                  {
+                    href: "./../make-an-enquiry/search-for-ao",
+                    text: "Change",
+                    visuallyHiddenText: "the awarding organisation"
+                  }
+                ]
+              }
             }
-          }
-        ]
-      }) }}
+          ]
+        }) }}
+
+      {% endif %}
       
       <h2 class="govuk-heading-m">Question details</h2>
 
@@ -217,7 +233,14 @@
                 }
               ]
             }
-          },
+          }
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-m">Supporting files</h2>
+
+      {{ govukSummaryList({
+        rows: [
           {
             key: {
               text: "Upload a supporting document"
@@ -228,7 +251,7 @@
             actions: {
               items: [
                 {
-                  href: "./../make-an-enquiry/the-question",
+                  href: "./../make-an-enquiry/upload-document",
                   text: "Change",
                   visuallyHiddenText: "the uploaded file"
                 }
