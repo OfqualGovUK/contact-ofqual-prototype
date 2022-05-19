@@ -22,10 +22,29 @@ $('a[href=#]').on('click', function (event) {
 // Powers the select all checkbox thingo
 // Found here: https://stackoverflow.com/a/21248785
 
+// FOI Flow
 // If the 'My request does not relate to specific qualification type checkbox exists'
-if ($('#foi-chooseQual-7').length) {
+if ($('#foi-qualType-7').length) {
   
   var deselectOthersCheckbox = $('#foi-chooseQual-7')
+
+  // Deselect all others if the checkbox is checked
+  $(deselectOthersCheckbox).change(function() {
+    $('.govuk-checkboxes__input').not(this).attr('checked', false);
+  });
+
+  // Deselect the checkbox if any of the others are checked
+  $('.govuk-checkboxes__input').not(deselectOthersCheckbox).change(function() {
+    $(deselectOthersCheckbox).attr('checked', false);
+  });
+
+}
+
+// PE Flow
+// If the 'My request does not relate to specific qualification type checkbox exists'
+if ($('#qualType').length) {
+  
+  var deselectOthersCheckbox = $('#qualType-18')
 
   // Deselect all others if the checkbox is checked
   $(deselectOthersCheckbox).change(function() {

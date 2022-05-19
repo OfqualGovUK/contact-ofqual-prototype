@@ -15,52 +15,19 @@
         Guidance on this case
       </h2>
 
-      <ul class="govuk-list govuk-list--dash">
-        <li><a href="#section-how-will" class="govuk-link">How will my complaint be investigated?</a></li>
-        <li><a href="#section-how-long" class="govuk-link">When will my complaint be investigated?</a></li>
-        <li><a href="#section-outcomes" class="govuk-link">What are the possible outcomes?</a></li>
-      </ul>
-
-      <h2 class="govuk-heading-m" id="section-how-will">How will my complaint be investigated?</h2>
-      <p clas="govuk-body">Our investigation will look to establish whether there are indications of non-compliance. It will not make a final decision as to whether non-compliance has taken place.</p>
-
-      <p clas="govuk-body">As part of our investigation, we will:</p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>contact the awarding organisation to request a response and copies of any relevant documentation if necessary</li>
-        <li>review all relevant information and consider it in relation to relevant requirements</li>
-        <li>give all parties the opportunity to clarify elements of the complaint, where necessary</li>
-      </ul>
-      
-      <p clas="govuk-body">When we believe we have enough information to make a fair decision, we will share a draft decision with you and the awarding organisation, and seek comments from both parties.</p>
-
-      <p clas="govuk-body">We will write to you to confirm the outcome when our investigation is complete, and after considering any comments we receive.</p>
-
-      <p clas="govuk-body">Where we can, we will inform you of the information we have relied on or which has influenced our decision. However, we sometimes receive confidential or sensitive personal information which we cannot share with you. Where this is the case we will explain this.</p>
-
-      <h2 class="govuk-heading-m" id="section-how-long">When will my complaint be investigated?</h2>
-      <p clas="govuk-body">We aim to complete all investigations as quickly as possible, and to complete 80% of cases within 40 working days. Some cases can be more complex and take longer for us to gather enough information to make a fair decision. Where our investigations take longer, we will keep you informed of progress on your case at least every 30 working days.</p>
-      
-      <h2 class="govuk-heading-m" id="section-outcomes">What are the possible outcomes?</h2>
-      <p clas="govuk-body">It may be that we are satisfied that the awarding organisation has met our requirements and we will close the complaint. Examples of this include:</p>
-
-      <ul class="govuk-list govuk-list--bullet">
-        <li>we consider the organisation acted correctly in the first place</li>
-        <li>the awarding organisation made mistakes, but we consider they have already done what we would expect to put things right for those affected</li>
-      </ul>
-      
-      <p clas="govuk-body">We may ask an awarding organisation to assure us about the course of action they will take. If we do not get appropriate assurances, we will refer your complaint to the relevant team to consider whether any further action may be appropriate. Examples of where we may do this include:</p>
-      
-      <ul class="govuk-list govuk-list--bullet">
-        <li>the awarding organisation made mistakes, provided a poor service or maladministration</li>
-        <li>the awarding organisation’s actions has had a negative impact which has not yet been put right</li>
-      </ul>
-
-      <p clas="govuk-body">Whether we decide to take action or not, we will write to let you know the outcome. We may be limited in what we can tell you where there are legal or confidentiality issues.</p>
-
-      <p clas="govuk-body">As a risk-based regulator, we use what we learn from complaints to focus on those awarding organisations who give us cause for concern.</p>
-
-      <p clas="govuk-body">Where appropriate, we may appoint an independent party to investigate a complaint.</p>
+      {% if data.manage.case == "caseNew" %}
+        {# If its a FOI case esle fall back to Enquiry #}
+        {% if data.confirmFoi %}
+          {% include "_includes/content/foi-guidance.html" %}
+        {% else %}
+          {% include "_includes/content/enquiry-guidance.html" %}
+        {% endif %}
+        {# if its a complaint #}
+        {% elseif data.manage.case == "caseComplaint" %}
+          {% include "_includes/content/complaint-guidance.html" %}
+        {% else %}
+        Enquiry
+      {% endif %}
   
     </div>
   </div>
