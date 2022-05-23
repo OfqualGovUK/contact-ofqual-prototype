@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Make an enquiry" %}
+{% set pageHeading = "Is your enquiry about a specific subject?" %}
 {% set formAction = "/is-it-subject-answer" %}
 
 {% block formContent %}
@@ -11,7 +11,7 @@
   {{ govukRadios({
     fieldset: {
       legend: {
-        text: "Is your enquiry about a specific subject?",
+        text: pageHeading,
         classes: "govuk-fieldset__legend--l",
         isPgeHeading: true
       }
