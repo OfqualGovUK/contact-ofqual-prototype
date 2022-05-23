@@ -18,15 +18,18 @@
       {% if data.manage.case == "caseNew" %}
         {# If its a FOI case esle fall back to Enquiry #}
         {% if data.confirmFoi %}
+          {# Freedom of Information request #}
           {% include "_includes/content/foi-guidance.html" %}
         {% else %}
+          {# Enquiry #}
           {% include "_includes/content/enquiry-guidance.html" %}
         {% endif %}
         {# if its a complaint #}
-        {% elseif data.manage.case == "caseComplaint" %}
-          {% include "_includes/content/complaint-guidance.html" %}
-        {% else %}
-        Enquiry
+      {% elseif data.manage.case == "caseComplaint" %}
+        Complaint
+        {% include "_includes/content/complaint-guidance.html" %}
+      {% else %}
+        {% include "_includes/content/enquiry-guidance.html" %}
       {% endif %}
   
     </div>

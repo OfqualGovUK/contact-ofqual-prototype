@@ -37,7 +37,7 @@
 
 
       {% set dateSubmitted %}
-        <time datetime="">{{ "" | today | moment('subtract', 6, 'days') |  govukDate }}</time>
+        <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
       {% endset %} 
 
       {{ govukSummaryList({
@@ -47,7 +47,7 @@
               text: "Submitted by"
             },
             value: {
-              text: "First name Lastname"
+              text: data.fullName or "Sarah Teo"
             }
           },
           {
@@ -165,7 +165,15 @@
                 text: "What is your question?"
               },
               value: {
-                text: data.question
+                text: data.question or 'Not provided'
+              }
+            },
+            {
+              key: {
+                text: "Supporting documents"
+              },
+              value: {
+                text: data.fileUpload or 'Not provided'
               }
             }
           ]
