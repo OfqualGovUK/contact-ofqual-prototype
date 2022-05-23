@@ -1,3 +1,18 @@
+// see set a bodyclass on email templates to hide the header and footer
+
+.is-email-template {
+  .govuk-header,
+  .govuk-phase-banner,
+  // .govuk-back-link,
+  .govuk-footer {
+    display: none;
+  }
+  
+  &.govuk-template__body {
+    min-height: 100vh;
+  }
+}
+
 .app-notification-item {
   display: block;
   border-top: 1px solid $govuk-border-colour;

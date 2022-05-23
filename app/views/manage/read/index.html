@@ -8,7 +8,7 @@
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-l">
           From Ofqual,
-          <time>{{ "" | today | moment('subtract', 1, 'days') |  govukDate }}</time>
+          <time>{{ "" | today | govukDate }}</time>
         </span>
         Subject line here
       </h1>
@@ -16,8 +16,8 @@
       <p clas="govuk-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus pretium est, eu tempus justo. Quisque rhoncus venenatis suscipit. Pellentesque ac ultrices neque.</p>
 
       <h2 class="govuk-heading-m">Attachments</h2>
-      <a href="./../manage/login" class="govuk-link govuk-body">Document title one (PDF - 256kb)</a><br>
-      <a href="./../manage/login" class="govuk-link govuk-body">Document title two (PDF - 36kb)</a>
+      {# <a href="./../manage/login" class="govuk-link govuk-body">Document title one (PDF - 256kb)</a><br> #}
+      <a href="./../manage/login" class="govuk-link govuk-body">Document title (PDF - 36kb)</a>
 
       <div class="govuk-button-group govuk-!-margin-top-6">
         {{ govukButton({

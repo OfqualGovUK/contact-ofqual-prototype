@@ -11,8 +11,10 @@
 
       <div class="app-email-template">
         <img src="/public/images/ofqual-logo.png" alt="Ofqual logo" width="155px">
-        <h2 class="govuk-heading-m govuk-!-margin-top-5">Sign in</h2>
+        <h2 class="govuk-heading-m govuk-!-margin-top-5">You have a response</h2>
+        <p class="govuk-body">Your case has been updated, sign in to view the response from Ofqual.</p>
         <p class="govuk-body">
+          Sign in:
           {% if data.settings.caseStatus == "Has multiple cases in the service" %}
             <a href="/manage/my-cases" class="govuk-link">https://manage/my-cases</a></p>
           {% else %}
