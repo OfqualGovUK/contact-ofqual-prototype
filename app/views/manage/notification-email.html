@@ -14,12 +14,7 @@
         <h2 class="govuk-heading-m govuk-!-margin-top-5">You have a response</h2>
         <p class="govuk-body">Your case has been updated, sign in to view the response from Ofqual.</p>
         <p class="govuk-body">
-          Sign in:
-          {% if data.settings.caseStatus == "Has multiple cases in the service" %}
-            <a href="/manage/my-cases" class="govuk-link">https://manage/my-cases</a></p>
-          {% else %}
-            <a href="/manage" class="govuk-link">https://manage</a></p>
-          {% endif %}
+          Sign in: <a href="/manage/login" class="govuk-link">https://manage/login</a></p>
         <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
         <p class="govuk-body">This is an automatically generated email; do not reply.</p>
         <p class="govuk-body">Have you received this email by accident? No action is necessary.</p>

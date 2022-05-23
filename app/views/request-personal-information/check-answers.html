@@ -1,0 +1,140 @@
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./confirmation" %}
+
+{% block formContent %}
+
+  {# <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds"> #}
+
+      <h1 class="govuk-heading-l">Review your request for personal information</h1>
+      
+      <h2 class="govuk-heading-m">Your details</h2>
+      
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "First name"
+            },
+            value: {
+              text: data.firstName or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../request-personal-information",
+                  text: "Change",
+                  visuallyHiddenText: " first name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Middle names"
+            },
+            value: {
+              text: data.middleName or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../request-personal-information",
+                  text: "Change",
+                  visuallyHiddenText: " middle names"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Last name"
+            },
+            value: {
+              text: data.lastName or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../request-personal-information",
+                  text: "Change",
+                  visuallyHiddenText: " last name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Phone number"
+            },
+            value: {
+              text: data.phone or 'Not provided'
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../request-personal-information",
+                  text: "Change",
+                  visuallyHiddenText: " phone number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: data.email or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../request-personal-information",
+                  text: "Change",
+                  visuallyHiddenText: " email"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-m">Request details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Add a detailed description of the information you want"
+            },
+            value: {
+              text: data.question or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../request-personal-information/the-request",
+                  text: "Change",
+                  visuallyHiddenText: " description of the information you want"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <input type="hidden" id="confirmPersonalInfoRequest" name="confirmPersonalInfoRequest" value="true">
+      
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Submit request"
+        }) }}
+        <a class="govuk-link" href="/manage">Cancel</a>
+      </div>
+  
+    {# </div>
+  </div> #}
+  
+{% endblock %}

@@ -1,0 +1,27 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "What information are you requesting?" %}
+{% set formAction = "./check-answers" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Request personal information</span>
+
+  {{ govukTextarea({
+    rows: "12",
+    label: {
+      text: "Add a detailed description of the information you want",
+      classes: "govuk-label--l",
+      isPageHeading: true
+    }
+  } | decorateAttributes(data, "data.question")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}
