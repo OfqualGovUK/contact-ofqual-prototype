@@ -15,6 +15,23 @@
         rows: [
           {
             key: {
+              text: "Title"
+            },
+            value: {
+              text: data.title or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi",
+                  text: "Change",
+                  visuallyHiddenText: " title"
+                }
+              ]
+            }
+          },
+          {
+            key: {
               text: "Full name"
             },
             value: {
@@ -25,7 +42,7 @@
                 {
                   href: "./../foi",
                   text: "Change",
-                  visuallyHiddenText: "the full name"
+                  visuallyHiddenText: " full name"
                 }
               ]
             }
@@ -42,7 +59,7 @@
                 {
                   href: "./../foi",
                   text: "Change",
-                  visuallyHiddenText: "the phone number"
+                  visuallyHiddenText: " phone number"
                 }
               ]
             }

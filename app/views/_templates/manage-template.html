@@ -86,12 +86,12 @@
               text: "Closed",
               classes: "govuk-tag--grey"
             })}}
-          {% elseif data.settings.caseStatus == "Is able to request review" and data.confirmReviewRequest == "true" %}
+          {% elseif data.settings.caseReview  == "Is able to request review" and data.confirmReviewRequest == "true" %}
             {{govukTag({
-              text: "Review requestd",
+              text: "Review requested",
               classes: "govuk-tag--pink"
             })}}
-          {% elseif data.settings.caseStatus == "Is able to request review" and data.confirmClosed != "true" %}
+          {% elseif data.settings.caseReview  == "Is able to request review" and data.confirmClosed != "true" %}
             {{govukTag({
               text: "Outcome reached",
               classes: "govuk-tag--blue"
@@ -116,17 +116,7 @@
         {% endif %}
       </p>
 
-      
-      {# <p class="govuk-body">
-        Sandra Teo<br>
-        {% if data.existing.emailAddress %}
-          {{ data.existing.emailAddress }}
-        {% else %}
-          email@email.com
-        {% endif %}
-      </p> #}
-
-      {% if data.settings.caseStatus == "Is able to request review" and data.confirmReviewRequest != "true"%}
+      {% if data.settings.caseReview == "Is able to request review" and data.confirmReviewRequest != "true"%}
         <div class="govuk-button-group govuk-!-margin-bottom-2 govuk-!-margin-top-6">
             {{ govukButton({
               text: "Request review of outcome",
@@ -136,20 +126,7 @@
         </div>
       {% endif %}
 
-        {# {% if data.settings.caseStatus != "Is able to request review" and data.confirmClosed != "true" %}
-          {{ govukButton({
-            text: "Close this case",
-            classes: "govuk-button--secondary",
-            href: "/manage/close"
-          }) }}
-        {% endif %} #}
     </div>
-      
-    {# </div>
-      <div class="govuk-grid-column-one-third">
-        <h2 class="govuk-heading-m">Links</h2>
-        <a href="#" class="govuk-link govuk-body">Privacy statement</a>
-      </div>  #}
 
   </div>
 

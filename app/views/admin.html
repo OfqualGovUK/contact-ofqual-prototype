@@ -30,20 +30,27 @@
     ]
   } | decorateAttributes(data, "data.settings.caseType")) }}
 
-  <h2 class="govuk-heading-m">Case status<h2>
+  <h2 class="govuk-heading-m">Multiple cases<h2>
 
    {{ govukCheckboxes({
     items: [
       {
         value: "Has multiple cases in the service",
         text: "Has multiple cases in the service"
-      },
+      }
+    ]
+  } | decorateAttributes(data, "data.settings.caseStatus")) }}
+  
+  <h2 class="govuk-heading-m">Able to request review<h2>
+
+   {{ govukCheckboxes({
+    items: [
       {
         value: "Is able to request review",
         text: "Is able to request review"
       }
     ]
-  } | decorateAttributes(data, "data.settings.caseStatus")) }}
+  } | decorateAttributes(data, "data.settings.caseReview")) }}
 
   {{ govukButton({
     text: "Update settings"
