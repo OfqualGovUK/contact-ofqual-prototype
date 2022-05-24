@@ -66,21 +66,9 @@
 
 {% if useAutoStoreData %}
   {% block footer %}
-    {{ govukFooter({
-      meta: {
-        items: [
-          {
-            href: "/admin",
-            text: "Admin settings"
-          },
-          {
-            href: "/prototype-admin/clear-data",
-            text: "Clear data"
-          }
-        ],
-        visuallyHiddenTitle: "Footer links"
-      }
-    }) }}
+    
+    {% include "_includes/components/footer.html" %}
+
   {% endblock %}
 {% endif %}
 
