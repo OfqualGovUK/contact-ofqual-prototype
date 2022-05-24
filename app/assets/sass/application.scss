@@ -12,7 +12,7 @@ $govuk-assets-path: '/govuk/assets/';
 @import "lib/extensions/extensions";
 
 // Overrides
-// @import "overrides/blank";
+@import "overrides/home";
 
 // Components
 @import "components/autocomplete";

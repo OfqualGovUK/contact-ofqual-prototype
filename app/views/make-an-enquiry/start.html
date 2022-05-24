@@ -15,8 +15,9 @@
     <p class="govuk-body">You can use this service to make general enquiries about things we do.</p>
 
     <h2 class="govuk-heading-m">Before you begin</h2>
-    <p class="govuk-body">Review the latest updates from Ofqual which contain updates to guidance and answers to common enquiries:<br> 
+    <p class="govuk-body">See if there is an answer to your enquiry in our guidance and common enquiries: 
     <a href="https://www.gov.uk/guidance/ofqual-rolling-update" class="govuk-link">www.gov.uk/guidance/ofqual-rolling-update</a> </p>
+
     
     {{ govukButton({
       text: "Start now",
@@ -25,8 +26,8 @@
     }) }}  
 
     <h2 class="govuk-heading-m">Common enquiries</h2>
-    <p class="govuk-body">Our website, <a href="https://www.gov.uk/ofqual" class="govuk-link">www.gov.uk/ofqual</a> has links to our most recent information which will answer our most common enquiries: </p>
-    <ul class="govuk-list govuk-list--bullet">
+    <p class="govuk-body">Our website, <a href="https://www.gov.uk/ofqual" class="govuk-link">www.gov.uk/ofqual</a> has links to our most recent information which will answer our most common enquiries.</p>
+    {# <ul class="govuk-list govuk-list--bullet">
       <li>
         arrangements for exams and assessments
       </li>
@@ -54,7 +55,7 @@
       <li>
         information on how to make a complaint or an allegation of malpractice
       </li>
-    </ul>
+    </ul> #}
 
     <h2 class="govuk-heading-m">Enquiries we cannot answer</h2>
     <h3 class="govuk-heading-s">Certificates</h3>
@@ -69,6 +70,16 @@
     <p class="govuk-body">Please be aware that Ofqual is not affiliated with ENIC and they are not an official government body.</p>
 
     </div>
+
+    <div class="govuk-grid-column-one-third"> 
+      <aside class="app-sidebar">
+      <h2 class="govuk-heading-s">View your existing enquiries</h2>
+      <p class="govuk-body">
+        <a href="/manage/login" class="govuk-link">Sign in to view responses from Ofqual and manage your case</a>
+      </p>
+      </aside>
+    </div>
+
   </div>
 
 {% endblock %}
