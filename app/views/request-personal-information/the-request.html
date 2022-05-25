@@ -11,10 +11,13 @@
   {{ govukTextarea({
     rows: "12",
     label: {
-      text: "Add a detailed description of the information you want",
+      text: "Add a detailed description of the information you are requesting",
       classes: "govuk-label--l",
-      isPageHeading: true
-    }
+      ispageHeading: true
+    },
+    hint: {
+      text: "This includes information such as relevant dates and departments that you have dealt with."
+    } 
   } | decorateAttributes(data, "data.question")) }}
 
   <div class="govuk-button-group">
