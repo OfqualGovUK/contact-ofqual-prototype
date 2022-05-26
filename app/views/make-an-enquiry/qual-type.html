@@ -1,7 +1,7 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Which qualification is your request about?" %}
+{% set pageHeading = "Which qualification is your enquiry about?" %}
 {% set formAction = "./is-it-subject" %}
 
 {% block formContent %}
@@ -17,7 +17,7 @@
     }) }}
   {% endset -%}
 
-  {{ govukCheckboxes({
+  {{ govukRadios({
     fieldset: {
       legend: {
         html: pageHeading,
@@ -35,56 +35,12 @@
         text: "A/AS level"
       },
       {
-        value: "BTEC",
-        text: "BTEC"
-      },
-      {
-        value: "Functional Skills",
-        text: "Functional Skills"
-      },
-      {
         value: "GCSE",
         text: "GCSE"
       },
       {
-        value: "International Baccalaureate",
-        text: "International Baccalaureate"
-      },
-      {
-        value: "T level",
-        text: "T level"
-      },
-      {
-        value: "Pre-U",
-        text: "Pre-U"
-      },
-      {
-        value: "SATs",
-        text: "SATs"
-      },
-      {
-        value: "Other Level 1",
-        text: "Other Level 1"
-      },
-      {
-        value: "Other Level 2",
-        text: "Other Level 2"
-      },
-      {
-        value: "Other Level 3",
-        text: "Other Level 3"
-      },
-      {
-        value: "Other Level 4 or 5",
-        text: "Other Level 4 or 5"
-      },
-      {
-        value: "Other Level 6+",
-        text: "Other Level 6+"
-      },
-      {
-        value: "Multiple",
-        text: "Multiple"
+        value: "Vocational qualification",
+        text: "Vocational qualification"
       },
       {
         value: "Another qualification type",
@@ -97,8 +53,8 @@
         divider: "or"
       },
       {
-        value: "My request does not relate to specific qualification type",
-        text: "My request does not relate to specific qualification type"
+        value: "My request does not relate to a qualification",
+        text: "My request does not relate to a qualification"
       }
     ]
   } | decorateAttributes(data, "data.qualType")) }}
