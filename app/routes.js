@@ -45,14 +45,14 @@ router.post('/is-it-ao-answer', function (req, res) {
 })
 
 // Is your question about a qualification regulated by Ofqual?
-router.post('/is-it-qual-answer', function (req, res) {
+router.post('/qual-type-answer', function (req, res) {
 
-  let isItQual = req.session.data.isItQual
+  let qualType = req.session.data.qualType
 
-  if (isItQual === 'Yes') {
-      res.redirect('/make-an-enquiry/search-for-qual')
+  if ((qualType === 'A/AS level') || (qualType === 'GCSE') ) {
+      res.redirect('/make-an-enquiry/is-it-subject')
     } else {
-      res.redirect('/make-an-enquiry/is-it-centre-or-school')
+      res.redirect('/make-an-enquiry/is-it-ao')
   }
 
 })

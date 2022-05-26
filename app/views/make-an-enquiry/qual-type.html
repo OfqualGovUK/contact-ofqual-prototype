@@ -1,8 +1,8 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Which qualification is your enquiry about?" %}
-{% set formAction = "./is-it-subject" %}
+{% set pageHeading = "Is your request about a specific qualification?" %}
+{% set formAction = "/qual-type-answer" %}
 
 {% block formContent %}
 
@@ -39,12 +39,16 @@
         text: "GCSE"
       },
       {
+        value: "T-level",
+        text: "T-level"
+      },
+      {
         value: "Vocational qualification",
         text: "Vocational qualification"
       },
       {
-        value: "Another qualification type",
-        text: "Another qualification type",
+        value: "Another qualification",
+        text: "Another qualification",
         conditional: {
           html: otherHtml
         }
