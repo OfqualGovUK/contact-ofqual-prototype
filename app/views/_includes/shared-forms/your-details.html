@@ -14,7 +14,7 @@
       text: "Full name",
       classes: "govuk-label--s"
     },
-    classes: "govuk-input govuk-!-width-two-thirds"
+    classes: "govuk-input govuk-!-full-width"
   } | decorateAttributes(data, "data.fullName")) }}
   
   
@@ -23,7 +23,7 @@
       text: "Telephone number (optional)",
       classes: "govuk-label--s"
     },
-    classes: "govuk-input govuk-!-width-two-thirds"
+    classes: "govuk-input govuk-!-width-one-third"
   } | decorateAttributes(data, "data.phone")) }}
   
   {{ govukInput({
@@ -34,7 +34,7 @@
     hint: {
       text: "This email will be used to send you updates about your question"
     },
-    classes: "govuk-input govuk-!-width-two-thirds"
+    classes: "govuk-input govuk-!-full-width"
   } | decorateAttributes(data, "data.email")) }}
 
   {% set otherHtml %}
