@@ -103,8 +103,8 @@
       
       <p class="govuk-body">
         {% if data.manage.case == "caseComplaint" %}
-          Last updated: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time><br>
-          Submitted: <time datetime="">{{ "" | today | moment('subtract', 41, 'days') |  govukDate }}</time>
+          Last updated: <time datetime="">{{ "" | today | moment('subtract', 13, 'days') |  govukDate }}</time><br>
+          Submitted: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time>
         {% else %}
         {# must be a new case #}
         {# {% if data.manage.case == "caseEnquiry" %} #}
