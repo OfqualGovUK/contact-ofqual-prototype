@@ -9,7 +9,6 @@
   <span class="govuk-caption-l">Make an enquiry</span>
   <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-  <p class="govuk-body">We can only answer questions about awarding organisations that we regulate.</p>
   <p class="govuk-body">Awarding organisations are also known as exam boards or an awarding body, developing qualifications and issuing certificates, diplomas or titles.</p>
 
   {{ govukRadios({
@@ -18,6 +17,9 @@
         text: "Is your question about an awarding organisation regulated by Ofqual?",
         classes: "govuk-fieldset__legend--m"
       }
+    },
+    _hint: {
+      text: "Awarding organisations are also known as exam boards or an awarding body, developing qualifications and issuing certificates, diplomas or titles."
     },
     items: [
       {

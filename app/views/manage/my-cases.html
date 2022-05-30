@@ -11,7 +11,7 @@
   <p class="govuk-body">You can view updates from Ofqual, send reponses and manage your case.</p>
 
   {% set caseComplaint %}
-    <span class="govuk-!-font-weight-bold">Complaint</span>
+    <span class="govuk-!-font-weight-bold">OF35375</span>
     {{govukTag({
       text: "Closed",
       classes: "govuk-tag--grey govuk-!-margin-bottom-1"
@@ -19,6 +19,9 @@
     <br>
     {# <p class="govuk-body govuk-!-margin-bottom-0">EDI Level 1 Certificate in Spoken Business English (ESOL)</p> #}
     <span class="govuk-hint govuk-!-font-size-16">
+      <span class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">
+        Complaint
+      </span><br>
       Last updated: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time><br>
       Submitted: <time datetime="">{{ "" | today | moment('subtract', 41, 'days') |  govukDate }}</time>
     </span><br>
@@ -26,11 +29,7 @@
   
   {% set caseNew %}
     <span class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">
-    {% if data.confirmFoi %}
-      Freedom of Information request
-    {% else %}
-      Enquiry
-    {% endif %} 
+      OF12347
     </span>
     {{govukTag({
       text: "Open",
@@ -38,6 +37,13 @@
     })}}
     <br>
     <span class="govuk-hint govuk-!-font-size-16">
+      <span class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">
+        {% if data.confirmFoi %}
+          Freedom of Information request
+        {% else %}
+          Enquiry
+        {% endif %} 
+      </span><br>
       Last updated: <time datetime="">{{ "" | today |  govukDate }}</time><br>
       Submitted: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
     </span><br> 
