@@ -50,15 +50,15 @@
     {% if data.manage.case == "caseNew" %}
       {# If its a FOI case esle fall back to Enquiry #}
       {% if data.confirmFoi %}
-        Freedom of Information request
+        Freedom of Information request (Case ID: OF12347)
       {% else %}
-        Enquiry
+        Enquiry (Case ID: OF12347)
       {% endif %}
     {# if its a complaint #}
     {% elseif data.manage.case == "caseComplaint" %}
-      Complaint
+      Complaint (Case ID: OF35375)
     {% else %}
-      Enquiry
+      Enquiry (Case ID: OF12347)
     {% endif %}
   {% endset %}
   
@@ -71,22 +71,24 @@
         <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
           <span class="govuk-visually-hidden">Status</span>
           
-          {% if data.manage.case == "caseNew" %}
-            {{govukTag({
-              text: "Open",
-              classes: "govuk-tag--blue"
-            })}}
-          {% elseif data.manage.case == "caseComplaint" %}
-            {{govukTag({
-              text: "Closed",
-              classes: "govuk-tag--grey"
-            })}}
-          {% elseif data.confirmClosed == "true" %}
-            {{govukTag({
-              text: "Closed",
-              classes: "govuk-tag--grey"
-            })}}
-          {% elseif data.settings.caseReview  == "Is able to request review" and data.confirmReviewRequest == "true" %}
+          {% if data.manage.case == "caseNew" or data.manage.case == "caseComplaint"  %}
+            
+            {% if data.confirmClosed == "true" %}
+              {{govukTag({
+                text: "Closed",
+                classes: "govuk-tag--grey"
+              })}}
+            {% else %}
+              {{govukTag({
+                text: "Open",
+                classes: "govuk-tag--blue"
+              })}}
+            {% endif %}
+
+          {% endif %}
+
+
+          {% if data.settings.caseReview  == "Is able to request review" and data.confirmReviewRequest == "true" %}
             {{govukTag({
               text: "Review requested",
               classes: "govuk-tag--pink"
@@ -94,11 +96,6 @@
           {% elseif data.settings.caseReview  == "Is able to request review" and data.confirmClosed != "true" %}
             {{govukTag({
               text: "Outcome reached",
-              classes: "govuk-tag--blue"
-            })}}
-          {% else %}
-            {{govukTag({
-              text: "Open",
               classes: "govuk-tag--blue"
             })}}
           {% endif %}
@@ -116,15 +113,21 @@
         {% endif %}
       </p>
 
-      {% if data.settings.caseReview == "Is able to request review" and data.confirmReviewRequest != "true"%}
+
         <div class="govuk-button-group govuk-!-margin-bottom-2 govuk-!-margin-top-6">
+          {{ govukButton({
+            text: "Send a message to Ofqual",
+            _classes: "govuk-button--secondary",
+            href: "/manage/send"
+          }) }} 
+          {% if data.settings.caseReview == "Is able to request review" and data.confirmReviewRequest != "true"%}
             {{ govukButton({
               text: "Request review of outcome",
               classes: "govuk-button--secondary",
               href: "./../manage/request-review"
             }) }}
+          {% endif %}
         </div>
-      {% endif %}
 
     </div>
 

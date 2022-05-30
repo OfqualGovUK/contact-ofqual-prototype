@@ -11,10 +11,10 @@
   <p class="govuk-body">You can view updates from Ofqual, send reponses and manage your case.</p>
 
   {% set caseComplaint %}
-    <span class="govuk-!-font-weight-bold">OF35375</span>
+    <span class="govuk-!-font-weight-bold">Case ID: OF35375</span>
     {{govukTag({
-      text: "Closed",
-      classes: "govuk-tag--grey govuk-!-margin-bottom-1"
+      text: "Open",
+      classes: "govuk-tag--blue govuk-!-margin-bottom-1"
     })}}
     <br>
     {# <p class="govuk-body govuk-!-margin-bottom-0">EDI Level 1 Certificate in Spoken Business English (ESOL)</p> #}
@@ -29,7 +29,7 @@
   
   {% set caseNew %}
     <span class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">
-      OF12347
+      Case ID: OF12347
     </span>
     {{govukTag({
       text: "Open",
