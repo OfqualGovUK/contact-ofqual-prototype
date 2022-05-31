@@ -13,8 +13,8 @@
   {% set caseComplaint %}
     <span class="govuk-!-font-weight-bold">Case ID: OF35375</span>
     {{govukTag({
-      text: "Closed",
-      classes: "govuk-tag--grey govuk-!-margin-bottom-1"
+      text: "Open",
+      classes: "govuk-tag--blue govuk-!-margin-bottom-1"
     })}}
     <br>
     {# <p class="govuk-body govuk-!-margin-bottom-0">EDI Level 1 Certificate in Spoken Business English (ESOL)</p> #}
@@ -22,8 +22,8 @@
       <span class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">
         Complaint
       </span><br>
-      Last updated: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time><br>
-      Submitted: <time datetime="">{{ "" | today | moment('subtract', 41, 'days') |  govukDate }}</time>
+      Last updated: <time datetime="">{{ "" | today | moment('subtract', 13, 'days') |  govukDate }}</time><br>
+      Submitted: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time>
     </span><br>
   {% endset %}
   
