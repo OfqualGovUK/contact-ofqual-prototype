@@ -47,18 +47,13 @@
 
   {% set casetype %}
   {# if its a new case #}
-    {% if data.manage.case == "caseNew" %}
+    {% if data.caseType == "foi" %}
       {# If its a FOI case esle fall back to Enquiry #}
-      {% if data.confirmFoi %}
-        Freedom of Information request (Case ID: OF12347)
-      {% else %}
-        Enquiry (Case ID: OF12347)
-      {% endif %}
-    {# if its a complaint #}
-    {% elseif data.manage.case == "caseComplaint" %}
-      Complaint (Case ID: OF35375)
+      Freedom of Information request
+    {% elseif data.caseType == "complaint" %}
+      Complaint
     {% else %}
-      Enquiry (Case ID: OF12347)
+      Enquiry
     {% endif %}
   {% endset %}
   
@@ -71,7 +66,7 @@
         <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
           <span class="govuk-visually-hidden">Status</span>
           
-          {% if data.manage.case == "caseNew" or data.manage.case == "caseComplaint"  %}
+          {% if data.manage.case == "caseNew" %}
             
             {% if data.confirmClosed == "true" %}
               {{govukTag({
@@ -86,6 +81,38 @@
             {% endif %}
 
           {% endif %}
+         
+          {% if data.caseType == "enquiryOld" %}
+            
+            {% if data.confirmClosed == "true" %}
+              {{govukTag({
+                text: "Transferred",
+                classes: "govuk-tag--grey"
+              })}}
+            {% else %}
+              {{govukTag({
+                text: "Transferred",
+                classes: "govuk-tag--grey"
+              })}}
+            {% endif %}
+
+          {% endif %}
+          
+          {# {% if data.manage.case == "caseNew" or data.manage.case == "caseComplaint"  %}
+            
+            {% if data.confirmClosed == "true" %}
+              {{govukTag({
+                text: "Closed",
+                classes: "govuk-tag--grey"
+              })}}
+            {% else %}
+              {{govukTag({
+                text: "Open",
+                classes: "govuk-tag--blue"
+              })}}
+            {% endif %}
+
+          {% endif %} #}
 
 
           {% if data.settings.caseReview  == "Is able to request review" and data.confirmReviewRequest == "true" %}
@@ -112,6 +139,22 @@
           Submitted: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
         {% endif %}
       </p>
+
+      <a href="/manage?caseType=complaint" class="govuk-link govuk-body">complaint</a>
+      <a href="/manage?caseType=enquiry" class="govuk-link govuk-body">enquiry</a>
+      <a href="/manage?caseType=foi" class="govuk-link govuk-body">foi</a>
+
+      {% if data.caseType == "complaint" %}
+        complaint
+      {% endif %}
+     
+      {% if data.caseType == "enquiry" %}
+        enquiry
+      {% endif %}
+      
+      {% if data.caseType == "foi" %}
+        foi
+      {% endif %}
 
 
         <div class="govuk-button-group govuk-!-margin-bottom-2 govuk-!-margin-top-6">

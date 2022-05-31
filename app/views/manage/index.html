@@ -52,16 +52,17 @@
       </div>
     {% endif %}
 
-    {% if data.manage.case == "caseComplaint"%}
+    {# {% if data.manage.case == "caseComplaint" %} #}
+    {% if data.caseType == "foi" %}
       <div class="app-notification-item"> 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
           A response to your case is available
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
           <span class="app-timeline-item__name">Ofqaul, </span>
-          <time datetime="">{{ "" | today | moment('subtract', 13, 'days') |  govukDate }}</time>
+          <time datetime="">{{ "" | today | moment('subtract', 12, 'days') |  govukDate }}</time>
         </p>
-        <a href="/manage/read" class="govuk-link govuk-body">View response <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today | moment('subtract', 13, 'days') |  govukDate }}</time></span></a>
+        <a href="/manage/read" class="govuk-link govuk-body">View response <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today | moment('subtract', 1, 'days') |  govukDate }}</time></span></a>
       </div>
       <div class="app-notification-item"> 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
@@ -71,31 +72,37 @@
           <span class="app-timeline-item__name">Ofqual, </span>
           <time datetime="">{{ "" | today | moment('subtract', 21, 'days') |  govukDate }}</time>
         </p>
-        <div class="app-notification-item__note">
-          <p class="govuk-body">This case has been transferred from the Enquiry team to the Complaints team.</p>
-          <p class="govuk-body">Ofqual is required to reply to this complaint within 10 days.<br> We will responsd by <time datetime="">{{ "" | today | moment('subtract', 11, 'days') |  govukDate }}</time>.</p>
+        <div class="app-notification-item__note govuk-!-margin-bottom-2">
+          <p class="govuk-body">This case was transferred from the Public enquiry team. It has now been classified as a Freedom of Inforamtion request.</p>
+          {# <p class="govuk-body">A new case has been opened by Ofqual.</p> #}
+          <p class="govuk-body">Ofqual is required to reply to this request within 10 days.<br> We will respond by <time datetime="">{{ "" | today | moment('subtract', 11, 'days') |  govukDate }}</time>.</p>
         </div>
+        <a href="./manage?caseType=enquiryOld" class="govuk-link govuk-body">View the original case</a>
       </div>
       <div class="app-notification-item"> 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
           Case created
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
-          <span class="app-timeline-item__name">By you, </span>
+          <span class="app-timeline-item__name">By Ofqual, </span>
           <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time>
         </p>
         <a href="/manage/case-details" class="govuk-link govuk-body">View case details</a>
       </div>
-    {% else %}
+    {% endif %}
+    {% if data.caseType == "enquiryOld" %}
       <div class="app-notification-item"> 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
-          A response to your case is available
+          Case transferred
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
-          <span class="app-timeline-item__name">Ofqaul, </span>
-          <time datetime="">{{ "" | today | moment('subtract', 1, 'days') |  govukDate }}</time>
+          <span class="app-timeline-item__name">Ofqual, </span>
+          <time datetime="">{{ "" | today | moment('subtract', 21, 'days') |  govukDate }}</time>
         </p>
-        <a href="/manage/read" class="govuk-link govuk-body">View response <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today | moment('subtract', 1, 'days') |  govukDate }}</time></span></a>
+        <div class="app-notification-item__note govuk-!-margin-bottom-2">
+          <p class="govuk-body">This case has been transferred to the Freedom of Information team. The enquiry case will no longer be active. A new case has been created for you and you have been notifed by email about it.</p>
+        </div>
+        <a href="./manage?caseType=enquiryOld" class="govuk-link govuk-body">View the new case</a>
       </div>
       <div class="app-notification-item"> 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">

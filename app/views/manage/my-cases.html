@@ -1,78 +1,90 @@
 
-{% extends "_templates/form-template.html" %}
+{% extends "_templates/page-template.html" %}
 
 {% set pageHeading = "My cases" %}
-{% set formAction = "./" %}
 
-{% block formContent %}
+{% block content %}
 
-  <h1 class="govuk-heading-l">My cases</h1>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
 
-  <p class="govuk-body">You can view updates from Ofqual, send reponses and manage your case.</p>
+      <h1 class="govuk-heading-l">My cases</h1>
 
-  {% set caseComplaint %}
-    <span class="govuk-!-font-weight-bold">Case ID: OF35375</span>
-    {{govukTag({
-      text: "Open",
-      classes: "govuk-tag--blue govuk-!-margin-bottom-1"
-    })}}
-    <br>
-    {# <p class="govuk-body govuk-!-margin-bottom-0">EDI Level 1 Certificate in Spoken Business English (ESOL)</p> #}
-    <span class="govuk-hint govuk-!-font-size-16">
-      <span class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">
-        Complaint
-      </span><br>
-      Last updated: <time datetime="">{{ "" | today | moment('subtract', 13, 'days') |  govukDate }}</time><br>
-      Submitted: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time>
-    </span><br>
-  {% endset %}
-  
-  {% set caseNew %}
-    <span class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">
-      Case ID: OF12347
-    </span>
-    {{govukTag({
-      text: "Open",
-      classes: "govuk-tag--blue govuk-!-margin-bottom-1"
-    })}}
-    <br>
-    <span class="govuk-hint govuk-!-font-size-16">
-      <span class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">
-        {% if data.confirmFoi %}
-          Freedom of Information request
-        {% else %}
+      {# <p class="govuk-body">You can view updates from Ofqual, send reponses and manage your case.</p> #}
+{# 
+      {% set caseComplaint %}
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
+          Complaint
+        </h2>
+        {{govukTag({
+          text: "Transferred",
+          classes: "govuk-tag--grey govuk-!-margin-bottom-1"
+        })}}<br>
+        <span class="govuk-hint govuk-!-font-size-16">
+          Submitted: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time><br>
+        </span> 
+        <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-1">
+          This case was transferred to the Freedom of Information team on <time datetime="">{{ "" | today | moment('subtract', 13, 'days') |  govukDate }}. </time>
+        </p>
+      {% endset %} #}
+      
+      {% set caseComplaint %}
+        <h2 class="govuk-heading-s govuk-!-margin-bottom-2">
           Enquiry
-        {% endif %} 
-      </span><br>
-      Last updated: <time datetime="">{{ "" | today |  govukDate }}</time><br>
-      Submitted: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
-    </span><br> 
-  {% endset %}
+        </h2>
+        {{govukTag({
+          text: "Transferred",
+          classes: "govuk-tag--grey govuk-!-margin-bottom-1"
+        })}}<br>
+        <span class="govuk-hint govuk-!-font-size-16">
+          Submitted: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time><br>
+        </span> 
+        <p class="govuk-body govuk-!-font-size-16 govuk-!-margin-top-1">
+          This case was transferred to the Freedom of Information team on <time datetime="">{{ "" | today | moment('subtract', 13, 'days') |  govukDate }}. </time>
+        </p>
+      {% endset %}
+      
+      {% set caseComplaintNew %}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+          <a href="/manage?caseType=foi" class="govuk-link">Freedom of Information request</a>
+        </h2>
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--blue govuk-!-margin-bottom-1"
+        })}}<br>
+        <span class="govuk-hint govuk-!-font-size-16">
+          Created: <time datetime="">{{ "" | today | moment('subtract', 13, 'days') |  govukDate }}</time><br>
+          Last updated: <time datetime="">{{ "" | today | moment('subtract', 13, 'days') |  govukDate }}</time>
+        </span>
+      {% endset %}
 
-  {{ govukRadios({
-    fieldset: {
-      legend: {
-        text: "Which case do you want to view?",
-         classes: "govuk-fieldset__legend--m"
-      }
-    },
-    items: [
-      {
-        value: "caseNew",
-        html: caseNew
-      },
-      {
-        value: "caseComplaint",
-        html: caseComplaint
-      }
-    ]
-  } | decorateAttributes(data, "data.manage.case")) }}
+      {% set caseNew %}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
+          <a href="/manage?caseType=enquiry" class="govuk-link">Enquiry</a>
+        </h2>
+        {{govukTag({
+          text: "Open",
+          classes: "govuk-tag--blue govuk-!-margin-bottom-1"
+        })}}<br>
+        <span class="govuk-hint govuk-!-font-size-16">
+          Submitted: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time><br>
+          Last updated: <time datetime="">{{ "" | today |  govukDate }}</time><br>
+        </span>
+      {% endset %}
 
-  <div class="govuk-button-group">
-    {{ govukButton({
-      text: "Continue"
-    }) }}
-    <a class="govuk-link" href="#">Cancel</a>
+
+      <div class="app-notification-item app-notification-item--case">
+        {{ caseNew | safe }}
+      </div>
+
+      <div class="app-notification-item app-notification-item--case">
+        {{ caseComplaintNew | safe }}
+        <div class="app-notification-item--transferred govuk-!-margin-top-3">
+          {{ caseComplaint | safe }}
+        </div>
+      </div>
+    </div>
   </div>
+
 
 {% endblock %}
