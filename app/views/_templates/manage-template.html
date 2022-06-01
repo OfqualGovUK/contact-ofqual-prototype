@@ -45,6 +45,14 @@
     }) }}
   {% endif %}
 
+  {% set enquiryHeading %}
+    {% if data.questionDescription %}
+      {{ data.questionDescription }}
+    {% else %}
+      Example enquiry name
+    {% endif %}
+  {% endset %}
+
   {% set casetype %}
   {# if its a new case #}
     {% if data.caseType == "foi" %}
@@ -55,7 +63,7 @@
       Complaint
     {% else %}
       {# Enquiry #}
-      Biology exam question
+    {{ enquiryHeading }}
     {% endif %}
   {% endset %}
   
@@ -115,22 +123,6 @@
             {% endif %}
 
           {% endif %}
-          
-          {# {% if data.manage.case == "caseNew" or data.manage.case == "caseComplaint"  %}
-            
-            {% if data.confirmClosed == "true" %}
-              {{govukTag({
-                text: "Closed",
-                classes: "govuk-tag--grey"
-              })}}
-            {% else %}
-              {{govukTag({
-                text: "Open",
-                classes: "govuk-tag--blue"
-              })}}
-            {% endif %}
-
-          {% endif %} #}
 
 
           {% if data.settings.caseReview  == "Is able to request review" and data.confirmReviewRequest == "true" %}

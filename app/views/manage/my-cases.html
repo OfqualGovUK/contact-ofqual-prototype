@@ -63,7 +63,13 @@
 
       {% set caseNew %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
-          <a href="/manage?caseType=enquiryNew" class="govuk-link">{{ data.questionDescription }}</a>
+          <a href="/manage?caseType=enquiryNew" class="govuk-link">
+          {% if data.questionDescription %}
+            {{ data.questionDescription }}
+          {% else %}
+            Example enquiry name
+          {% endif %}
+          </a>
         </h2>
         {{govukTag({
           text: "Open",
