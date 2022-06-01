@@ -219,7 +219,24 @@
         rows: [
           {
             key: {
-              text: "What is your question?"
+              text: "Provide a brief description of your enquiry"
+            },
+            value: {
+              text: data.questionDescription or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../make-an-enquiry/the-question",
+                  text: "Change",
+                  visuallyHiddenText: "the enquiry description"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "What is your enquiry?"
             },
             value: {
               text: data.question or "Not provided"

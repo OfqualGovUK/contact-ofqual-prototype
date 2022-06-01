@@ -98,6 +98,22 @@
 
           {% endif %}
           
+          {% if data.caseType == "enquiryNew" %}
+            
+            {% if data.confirmClosed == "true" %}
+              {{govukTag({
+                text: "Transferred",
+                classes: "govuk-tag--grey"
+              })}}
+            {% else %}
+              {{govukTag({
+                text: "Open",
+                classes: "govuk-tag--blue"
+              })}}
+            {% endif %}
+
+          {% endif %}
+          
           {# {% if data.manage.case == "caseNew" or data.manage.case == "caseComplaint"  %}
             
             {% if data.confirmClosed == "true" %}
@@ -127,20 +143,8 @@
             })}}
           {% endif %}
       </h1>
-      
-      <p class="govuk-body">
-        {% if data.manage.case == "caseComplaint" %}
-          Last updated: <time datetime="">{{ "" | today | moment('subtract', 13, 'days') |  govukDate }}</time><br>
-          Submitted: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time>
-        {% else %}
-        {# must be a new case #}
-        {# {% if data.manage.case == "caseEnquiry" %} #}
-          Last updated: <time datetime="">{{ "" | today | govukDate }}</time><br>
-          Submitted: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
-        {% endif %}
-      </p>
 
-      <a href="/manage?caseType=complaint" class="govuk-link govuk-body">complaint</a>
+      {# <a href="/manage?caseType=complaint" class="govuk-link govuk-body">complaint</a>
       <a href="/manage?caseType=enquiry" class="govuk-link govuk-body">enquiry</a>
       <a href="/manage?caseType=foi" class="govuk-link govuk-body">foi</a>
 
@@ -154,7 +158,7 @@
       
       {% if data.caseType == "foi" %}
         foi
-      {% endif %}
+      {% endif %} #}
 
 
         <div class="govuk-button-group govuk-!-margin-bottom-2 govuk-!-margin-top-6">

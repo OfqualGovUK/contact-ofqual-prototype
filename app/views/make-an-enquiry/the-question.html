@@ -7,16 +7,26 @@
 {% block formContent %}
 
   <span class="govuk-caption-l">Make an enquiry</span>
+  <span class="govuk-heading-l">Enquiry details</span>
+  
+  <p class="govuk-body">You will be able to upload files to support your enquiry on a following page.</p>
+
+  {{ govukInput({
+    label: {
+      text: "Provide a brief description of your enquiry",
+      classes: "govuk-label--s"
+    },
+    hint: {
+      text: ""
+    },
+    classes: "govuk-input govuk-!-width-two-thirds"
+  } | decorateAttributes(data, "data.questionDescription")) }}
 
   {{ govukTextarea({
     rows: "12",
     label: {
-      text: pageHeading,
-      classes: "govuk-label--l",
-      isPageHeading: true
-    },
-    hint: {
-      text: "You will be able to upload files to support your enquiry on a following page"
+      text: "What is your enquiry?",
+      classes: "govuk-label--s"
     }
   } | decorateAttributes(data, "data.question")) }}
 

@@ -11,6 +11,7 @@
 
       <div class="app-email-template">
         <img src="/public/images/ofqual-logo.png" alt="Ofqual logo" width="155px" class="govuk-!-margin-bottom-5">
+        <p class="govuk-body govuk-!-font-weight-bold">Subject: Ofqual enquiry received</p>
         <p class="govuk-body">Dear [Full name]</p>
         <p class="govuk-body">Your enquiry has been received by the Ofqual Public Enquiries team.</p>
         <h2 class="govuk-heading-m govuk-!-margin-top-5">What happens next</h2>
@@ -19,6 +20,12 @@
         <a href="https://contact-ofqual-experimental.herokuapp.com/manage/login" class="govuk-body govuk-link">https://contact-ofqual-experimental.herokuapp.com/manage/login</a></p>
         <p class="govuk-body">Regards, Ofqual</p>
       </div>
+
+      {{ govukButton({
+        text: "View next task",
+        classes: "govuk-button--secondary govuk-!-margin-top-8",
+        href: "./response-email"
+      }) }}  
 
     </div>
   </div>
