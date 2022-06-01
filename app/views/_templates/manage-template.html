@@ -49,11 +49,13 @@
   {# if its a new case #}
     {% if data.caseType == "foi" %}
       {# If its a FOI case esle fall back to Enquiry #}
-      Freedom of Information request
+      {# Freedom of Information request #}
+      Request for spending figures
     {% elseif data.caseType == "complaint" %}
       Complaint
     {% else %}
-      Enquiry
+      {# Enquiry #}
+      Biology exam question
     {% endif %}
   {% endset %}
   

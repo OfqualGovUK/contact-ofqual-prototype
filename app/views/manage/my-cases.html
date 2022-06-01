@@ -63,7 +63,7 @@
 
       {% set caseNew %}
         <h2 class="govuk-heading-m govuk-!-margin-bottom-2">
-          <a href="/manage?caseType=enquiryNew" class="govuk-link">Biology exam question</a>
+          <a href="/manage?caseType=enquiryNew" class="govuk-link">{{ data.questionDescription }}</a>
         </h2>
         {{govukTag({
           text: "Open",
@@ -83,9 +83,9 @@
 
       <div class="app-notification-item app-notification-item--case">
         {{ caseComplaintNew | safe }}
-        <div class="app-notification-item--transferred govuk-!-margin-top-3">
+        {# <div class="app-notification-item--transferred govuk-!-margin-top-3">
           {{ caseComplaint | safe }}
-        </div>
+        </div> #}
       </div>
     </div>
   </div>
