@@ -11,7 +11,7 @@
   <p class="govuk-body">You can view responses and send a message to Ofqual.</p> #}
 
   {% set caseComplaint %}
-    <span class="govuk-!-font-weight-bold">Enquiry Submitted <time datetime="">{{ "" | today | moment('subtract', 41, 'days') |  govukDate }}</time></span>
+    <span class="govuk-!-font-weight-bold">Enquiry submitted <time datetime="">{{ "" | today | moment('subtract', 41, 'days') |  govukDate }}</time></span>
     {{govukTag({
       text: "Closed",
       classes: "govuk-tag--grey govuk-!-margin-bottom-1"
@@ -25,7 +25,7 @@
   
   {% set caseNew %}
     <span class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">
-      Enquiry Submitted <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
+      Enquiry submitted <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
     </span>
     {{govukTag({
       text: "Open",
