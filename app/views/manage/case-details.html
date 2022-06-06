@@ -11,14 +11,14 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-      <h2 class="govuk-heading-m">Case details</h2>
+      <h2 class="govuk-heading-m">Enquiry details</h2>
 
       <div class="govuk-button-group govuk-!-margin-bottom-3 govuk-!-margin-top-3">
         
         {# if not closed #}
         {% if data.confirmClosed != "true" and data.manage.case != "caseComplaint" %}
           {{ govukButton({
-            text: "Close this case",
+            text: "Close this enquiry",
             classes: "govuk-button--secondary",
             href: "/manage/close"
           }) }}
@@ -27,7 +27,7 @@
         {# if has more than one case #}
         {% if data.settings.caseStatus == "Has multiple cases in the service" or data.manage.case == "caseNew" %}
           {{ govukButton({
-            text: "View my other cases",
+            text: "View my other enquiries",
             classes: "govuk-button--secondary",
             href: "./my-cases"
           }) }}
@@ -68,15 +68,7 @@
           },
           {
             key: {
-              text: "Case type"
-            },
-            value: {
-               html: casetype
-            }
-          },
-          {
-            key: {
-              text: "Case ID"
+              text: "Enquiry ID"
             },
             value: {
               text: "OFQ0006849"
@@ -85,7 +77,7 @@
         ]
       }) }}
 
-      <h2 class="govuk-heading-m">Case summary</h2>
+      <h2 class="govuk-heading-m">Enquiry summary</h2>
 
       {# If an enquiry #}
       {# {% if data.manage.case == "caseNew" %}

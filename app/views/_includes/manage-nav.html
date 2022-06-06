@@ -9,15 +9,12 @@
 {% endset %} #}
 
 <ul class="acc-navigation__list acc-navigation__list--has-border acc-navigation__list govuk-!-margin-bottom-5">
-  <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Messages' }} ">
+  <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Activity log' }} ">
     {# <a class="govuk-link govuk-link--no-visited-state" href="/manage">Messages (1<span class="govuk-visually-hidden"> messages</span>)</a> #}
-    <a class="govuk-link govuk-link--no-visited-state" href="/manage">Messages</a>
+    <a class="govuk-link govuk-link--no-visited-state" href="/manage">Activity log</a>
   </li>
   <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Case-details' }} ">
-    <a class="govuk-link govuk-link--no-visited-state" href="/manage/case-details">Case details</a>
-  </li>
-  <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Timeline' }} ">
-    <a class="govuk-link govuk-link--no-visited-state" href="/manage/timeline">Timeline</a>
+    <a class="govuk-link govuk-link--no-visited-state" href="/manage/case-details">Enquiry details</a>
   </li>
   <li class="acc-navigation__list-item {{ 'app-navigation__list-item--current' if manageTabActive == 'Guidance' }} ">
     <a class="govuk-link govuk-link--no-visited-state" href="/manage/guidance">Guidance</a>

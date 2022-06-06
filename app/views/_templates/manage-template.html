@@ -66,8 +66,10 @@
     <div class="govuk-grid-column-two-thirds">
 
       <h1 class="govuk-heading-l govuk-!-margin-bottom-4">
-        <span class="govuk-caption-l">{{ casetype }}</span>
-        Manage your case
+        <span class="govuk-caption-l">
+          Submitted <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
+        </span>
+        Manage your enquiry
         <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
           <span class="govuk-visually-hidden">Status</span>
           
@@ -103,18 +105,16 @@
             })}}
           {% endif %}
       </h1>
-      
-      <p class="govuk-body">
-        {% if data.manage.case == "caseComplaint" %}
-          Last updated: <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time><br>
-          Submitted: <time datetime="">{{ "" | today | moment('subtract', 41, 'days') |  govukDate }}</time>
-        {% else %}
-        {# must be a new case #}
-        {# {% if data.manage.case == "caseEnquiry" %} #}
-          Last updated: <time datetime="">{{ "" | today | govukDate }}</time><br>
-          Submitted: <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
-        {% endif %}
-      </p>
+
+      <div class="govuk-button-group govuk-!-margin-bottom-2 govuk-!-margin-top-6">
+
+        {{ govukButton({
+          text: "Send Ofqual a message",
+          _classes: "govuk-button--secondary",
+          href: "/manage/send"
+        }) }} 
+
+      </div>
 
       {% if data.settings.caseReview == "Is able to request review" and data.confirmReviewRequest != "true"%}
         <div class="govuk-button-group govuk-!-margin-bottom-2 govuk-!-margin-top-6">
@@ -138,7 +138,6 @@
 
   {% block manageContent %}
   {% endblock %}
-
 
 {% endblock %}
 

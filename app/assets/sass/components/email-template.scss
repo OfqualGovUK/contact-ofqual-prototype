@@ -27,3 +27,27 @@
 .app-notification-item + .app-notification-item {
   margin-top: govuk-spacing(5);
 }
+
+.app-notification-item {
+  display: block;
+  border-top: 1px solid $govuk-border-colour;
+  padding-top: govuk-spacing(2);
+  
+  p:last-child {
+    margin: 0;
+  }
+  
+}
+
+.app-notification-item--transferred {
+  padding-left: govuk-spacing(4);
+  border-left: 10px solid #b1b4b6;
+}
+.app-notification-item--case + .app-notification-item--case {
+  margin-top: govuk-spacing(5);
+}
+
+.app-notification-item__note {
+  padding: govuk-spacing(2);
+  background-color: govuk-colour("light-grey");
+}
