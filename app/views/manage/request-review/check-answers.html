@@ -1,6 +1,6 @@
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "Confirm close of complaint" %}
+{% set pageHeading = "Confirm close of case" %}
 {# This is the success message that plays back to the user on the next screen #}
 {% set successMessage %}Your have requested a review of the outcome{% endset %}
 {% set formAction = "/manage?_flash=" + successMessage %}
@@ -14,7 +14,7 @@
       Confirm the request to review the outcome
     </h1>
 
-    <p class="govuk-body">You will be able to view your complaint for 6 months, after this period access to the complaint will be removed.</p>
+    <p class="govuk-body">You will be able to view your case for 6 months, after this period access to the case will be removed.</p>
   
     {% set reviewRequestReasons %}
       <ul class="govuk-list">

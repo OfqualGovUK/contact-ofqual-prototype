@@ -54,16 +54,14 @@
   {% endset %}
 
   {% set casetype %}
-  {# if its a new case #}
     {% if data.caseType == "foi" %}
-      {# If its a FOI case esle fall back to Enquiry #}
       {# Freedom of Information request #}
       Request for spending figures
     {% elseif data.caseType == "complaint" %}
       Complaint
     {% else %}
       {# Enquiry #}
-    {{ enquiryHeading }}
+      {{ enquiryHeading }}
     {% endif %}
   {% endset %}
   
@@ -76,7 +74,7 @@
         <div class="app-status govuk-!-margin-left-1" style="display: inline-block">
           <span class="govuk-visually-hidden">Status</span>
           
-          {% if data.manage.case == "caseNew" %}
+          {% if data.caseType == "foi" %}
             
             {% if data.confirmClosed == "true" %}
               {{govukTag({
@@ -92,7 +90,7 @@
 
           {% endif %}
          
-          {% if data.caseType == "enquiryOld" %}
+          {# {% if data.caseType == "enquiryOld" %}
             
             {% if data.confirmClosed == "true" %}
               {{govukTag({
@@ -106,13 +104,13 @@
               })}}
             {% endif %}
 
-          {% endif %}
+          {% endif %} #}
           
           {% if data.caseType == "enquiryNew" %}
             
             {% if data.confirmClosed == "true" %}
               {{govukTag({
-                text: "Transferred",
+                text: "Closed",
                 classes: "govuk-tag--grey"
               })}}
             {% else %}

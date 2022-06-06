@@ -1,7 +1,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Confirm close of complaint" %}
-{% set successMessage %}Your complaint has been closed{% endset %}
+{% set successMessage %}Your case has been closed{% endset %}
 {% set formAction = "/manage?_flash=" + successMessage %}
 
 {% block formContent %}
@@ -10,7 +10,7 @@
     <div class="govuk-grid-column-two-thirds"> #}
 
     <h1 class="govuk-heading-l">
-      Confirm close of complaint
+      Confirm close of case
     </h1>
 
     <p class="govuk-body">You will be able to view your complaint for 6 months, after this period access to the complaint will be removed.</p>
@@ -19,7 +19,7 @@
       rows: [
         {
           key: {
-            text: "Why you are closing your complaint?"
+            text: "Why you are closing this case?"
           },
           value: {
             text: data.close.reason
@@ -29,7 +29,7 @@
               {
                 href: "../close",
                 text: "Change",
-                visuallyHiddenText: "the reason for closing this complaint"
+                visuallyHiddenText: "the reason for closing this case"
               }
             ]
           }

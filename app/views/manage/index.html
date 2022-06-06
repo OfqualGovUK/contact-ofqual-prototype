@@ -95,9 +95,9 @@
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
           <span class="app-timeline-item__name">Ofqaul, </span>
-          <time datetime="">{{ "" | today | moment('subtract', 12, 'days') |  govukDate }}</time>
+          <time datetime="">{{ "" | today |  govukDate }}</time>
         </p>
-        <a href="/manage/read" class="govuk-link govuk-body">View response <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today | moment('subtract', 1, 'days') |  govukDate }}</time></span></a>
+        <a href="/manage/read" class="govuk-link govuk-body">View response <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today |  govukDate }}</time></span></a>
       </div>
       <div class="app-notification-item"> 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
@@ -105,12 +105,12 @@
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
           <span class="app-timeline-item__name">By you, </span>
-          <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time>
+          <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
         </p>
         <a href="/manage/case-details" class="govuk-link govuk-body">View case details</a>
       </div>
     {% endif %}
-    {% if data.caseType == "enquiryOld" %}
+    {# {% if data.caseType == "enquiryOld" %}
       <div class="app-notification-item"> 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
           Case transferred
@@ -134,7 +134,7 @@
         </p>
         <a href="/manage/case-details" class="govuk-link govuk-body">View case details</a>
       </div>
-    {% endif %}
+    {% endif %} #}
     
     </div>
 
