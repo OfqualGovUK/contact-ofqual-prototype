@@ -28,7 +28,7 @@
   {% endif %}
 {% endblock %}
 
-  {% set prototypeSection = "Manage" %}
+{% set prototypeSection = "Manage" %}
 
 {% block content %}
 
@@ -79,19 +79,10 @@
           <span class="govuk-visually-hidden">Status</span>
           
           {% if data.caseType == "foi" %}
-            
-            {% if data.confirmClosed == "true" %}
               {{govukTag({
                 text: "Closed",
                 classes: "govuk-tag--grey"
               })}}
-            {% else %}
-              {{govukTag({
-                text: "Open",
-                classes: "govuk-tag--blue"
-              })}}
-            {% endif %}
-
           {% endif %}
          
           {# {% if data.caseType == "enquiryOld" %}
