@@ -87,8 +87,8 @@
         </p>
         <a href="/manage/case-details" class="govuk-link govuk-body">View case details</a>
       </div>
-    {% endif %}
-    {% if data.caseType == "enquiryNew" %}
+    {% else %}
+    {# {% if data.caseType == "enquiryNew" %} #}
       <div class="app-notification-item"> 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
           A response to your case is available
