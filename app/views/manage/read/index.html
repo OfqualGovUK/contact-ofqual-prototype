@@ -19,17 +19,24 @@
 
       <p class="govuk-body">Thank you for contacting Ofqual.</p>
 
-      <p class="govuk-body">Ofqual is the regulator of qualifications, examinations and assessments in England. We regulate by recognising and monitoring awarding organisations that deliver qualifications and assessments as set out in the Apprenticeship, Skills, Children and Learning Act (2009) and Education Act (2011).</p> 
+      {% if data.caseType == "foi" %}
 
-      <p class="govuk-body">Ofqual regulate awarding organisations. Once an awarding organisation has become recognised by Ofqual they are in a position to submit qualifications onto the official qualifications frameworks. The awarding organisations then approve centres to deliver these qualification.</p>
+        <p class="govuk-body">This is a placeholder response from Ofqual regarding the Freedom of Inforamtion request.</p> 
 
-      <p class="govuk-body">In answer to your question, it is possible for a candidate to hold the same qualification in the same discipline and level as they are from 2 different awarding organisations.</p>
+      {% else %}
 
-      <p class="govuk-body">If you were expecting the recent exam result to be at a different level, then the question would be for your son’s school to explain why they entered him for the same qualification the year after. </p>
+        <p class="govuk-body">Ofqual is the regulator of qualifications, examinations and assessments in England. We regulate by recognising and monitoring awarding organisations that deliver qualifications and assessments as set out in the Apprenticeship, Skills, Children and Learning Act (2009) and Education Act (2011).</p> 
 
-      <p class="govuk-body">Centres are approved by awarding organisations to deliver their qualifications and If a student thinks their grade might have been affected by wrongdoing or a lack of care taken by their school or college, they should first discuss this directly with the school or college and, if appropriate, raise a complaint through the school or college’s complaints policy. If a student feels their concerns have not been addressed, they could then consider raising their concerns directly with the relevant exam board.</p>
+        <p class="govuk-body">Ofqual regulate awarding organisations. Once an awarding organisation has become recognised by Ofqual they are in a position to submit qualifications onto the official qualifications frameworks. The awarding organisations then approve centres to deliver these qualification.</p>
 
-      <p class="govuk-body">Ofqual does not regulate centres, such as schools, colleges and training providers, we only regulate the arrangements that awarding organisations have with centres or providers regarding the delivery of assessments.</p>
+        <p class="govuk-body">In answer to your question, it is possible for a candidate to hold the same qualification in the same discipline and level as they are from 2 different awarding organisations.</p>
+
+        <p class="govuk-body">If you were expecting the recent exam result to be at a different level, then the question would be for your son’s school to explain why they entered him for the same qualification the year after. </p>
+
+        <p class="govuk-body">Centres are approved by awarding organisations to deliver their qualifications and If a student thinks their grade might have been affected by wrongdoing or a lack of care taken by their school or college, they should first discuss this directly with the school or college and, if appropriate, raise a complaint through the school or college’s complaints policy. If a student feels their concerns have not been addressed, they could then consider raising their concerns directly with the relevant exam board.</p>
+
+        <p class="govuk-body">Ofqual does not regulate centres, such as schools, colleges and training providers, we only regulate the arrangements that awarding organisations have with centres or providers regarding the delivery of assessments.</p>
+      {% endif %}
 
       <p class="govuk-body">Yours sincerely, Support Officer - Public Enquiries, Ofqual</p>
 
