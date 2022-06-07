@@ -1,6 +1,8 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "Confirm close of case" %}
+{% set prototypeSection = "Manage" %}
+
 {# This is the success message that plays back to the user on the next screen #}
 {% set successMessage %}Your have requested a review of the outcome{% endset %}
 {% set formAction = "/manage?_flash=" + successMessage %}

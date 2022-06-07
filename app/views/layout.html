@@ -45,7 +45,17 @@
     homepageUrl: "/",
     serviceName: serviceName,
     serviceUrl: "/",
-    containerClasses: "govuk-width-container"
+    containerClasses: "govuk-width-container",
+    navigation: [
+      {
+        href: "#",
+        text: "Manage notifications"
+      } if prototypeSection == "Manage",
+      {
+        href: "/manage/my-cases",
+        text: "My cases"
+      } if prototypeSection == "Manage"
+    ]
   }) }}
 {% endblock %}
 
@@ -59,6 +69,7 @@
   }) }}
 
   {% block pageNavigation %}
+  
   {% endblock %}  
 {% endblock %}
 

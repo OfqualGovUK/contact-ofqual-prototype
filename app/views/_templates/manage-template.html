@@ -28,6 +28,8 @@
   {% endif %}
 {% endblock %}
 
+  {% set prototypeSection = "Manage" %}
+
 {% block content %}
 
   {# This is the 'successful' notification banner, it fires based on the route from each of the check your answers pages #}
@@ -64,6 +66,8 @@
       {{ enquiryHeading }}
     {% endif %}
   {% endset %}
+
+
   
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">

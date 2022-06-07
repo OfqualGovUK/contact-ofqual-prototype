@@ -25,13 +25,13 @@
         {% endif %}
         
         {# if has more than one case #}
-        {% if data.settings.caseStatus == "Has multiple cases in the service" or data.manage.case == "caseNew" %}
+        {# {% if data.settings.caseStatus == "Has multiple cases in the service" or data.manage.case == "caseNew" %}
           {{ govukButton({
             text: "View my other cases",
             classes: "govuk-button--secondary",
             href: "./my-cases"
           }) }}
-        {% endif %}
+        {% endif %} #}
 
       </div>
 
