@@ -39,19 +39,6 @@
       </div>
     {% endif %}
 
-    {% if data.send.subject %}
-      <div class="app-notification-item"> 
-        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Messsage sent:<br>
-          {{ data.send.subject}}
-        </h3>
-        <p class="govuk-hint govuk-!-font-size-16">
-          <span class="app-timeline-item__name">From you, </span>
-          <time datetime="">{{ "" | today | govukDate }} at 13:05</time>
-        </p>
-        <a href="/manage/read/citizen-response" class="govuk-link govuk-body">View message <span class="govuk-visually-hidden">sent <time datetime="">{{ "" | today | govukDate }}</time></span></a>
-      </div>
-    {% endif %}
-
     {# {% if data.manage.case == "caseComplaint" %} #}
     {% if data.caseType == "foi" %}
       <div class="app-notification-item"> 
@@ -89,6 +76,18 @@
       </div>
     {% else %}
     {# {% if data.caseType == "enquiryNew" %} #}
+      {% if data.send.subject %}
+        <div class="app-notification-item"> 
+          <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Messsage sent:<br>
+            {{ data.send.subject}}
+          </h3>
+          <p class="govuk-hint govuk-!-font-size-16">
+            <span class="app-timeline-item__name">From you, </span>
+            <time datetime="">{{ "" | today | govukDate }} at 13:05</time>
+          </p>
+          <a href="/manage/read/citizen-response" class="govuk-link govuk-body">View message <span class="govuk-visually-hidden">sent <time datetime="">{{ "" | today | govukDate }}</time></span></a>
+        </div>
+      {% endif %}
       <div class="app-notification-item"> 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
           A response to your case is available
