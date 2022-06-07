@@ -8,29 +8,57 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-    <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+      <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
 
-    <p class="govuk-body">You have the right to ask to see recorded information held by Ofqual.</p>
+      <p class="govuk-body">The Freedom of Information Act (<abbr title="Freedom of Information">FOIA</abbr>) gives you the right to see information.</p>
 
-    <p class="govuk-body">You can use this service to make a Freedom of Information (<abbr title="Freedom of Information">FOI</abbr>) request.</p>
+      <p class="govuk-body">If you ask for environmental information, your request will be handled under the Environmental Regulations (<abbr title="Environmental Regulations">EIRs</abbr>). Environmental information includes things like carbon emissions or the environment’s effect on human health.</p>
+      
+      <p class="govuk-body">You do not need to tell us which law or regulations you’re making your request under.</p>
 
-    <h2 class="govuk-heading-m">Before you make a request</h2>
-    <p class="govuk-body">You might not need to make a <abbr title="Freedom of Information">FOI</abbr> request if Ofqaul has:</p>
-    <ul class="govuk-list govuk-list--bullet">
-      <li>already published the information</li>
-      <li>previously responded to an <abbr title="Freedom of Information">FOI</abbr> request</li>
-    </ul>
+      <h2 class="govuk-heading-m">Before you make a request</h2>
+      <p class="govuk-body">You might not need to make a <abbr title="Freedom of Information">FOI</abbr> request if we have:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>already published the information on our website:
+        <a href="https://www.ofqual.gov.uk" class="govuk-link">https://www.ofqual.gov.uk</a>
+        </li>
+        <li>previously responded to an <abbr title="Freedom of Information">FOI</abbr> request:
+        <a href="https://www.gov.uk/search/transparency-and-freedom-of-information-releases?content_store_document_type=foi_release&organisations%5B%5D=ofqual">https://www.gov.uk/search/transparency-and-freedom-of-information-releases?content_store_document_type=foi_release&organisations%5B%5D=ofqual</a></li>
+      </ul>
+      
+      {{ govukButton({
+        text: "Start now",
+        href: "./",
+        isStartButton: true
+      }) }}  
 
-    <p class="govuk-body"> <a href="https://www.gov.uk/search/transparency-and-freedom-of-information-releases?content_store_document_type=foi_release&organisations%5B%5D=ofqual" class="govuk-link">Check our previous releases</a> to see if we’ve already answered your question.</p>
+      <h2 class="govuk-heading-m">Common enquiries</h2>
+      <p class="govuk-body">Our website, <a href="" class="govuk-link">www.gov.uk/ofqual</a> has links to our most recent information which will answer our most common enquiries.</p>
+      
+      <h2 class="govuk-heading-m">Useful information</h2>
+
+      <p class="govuk-body">You can ask for any information you think we may hold. The right only covers recorded information which includes information held on computers, in emails and in printed or handwritten documents as well as images, video and audio recordings.</p>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>You should identify the information you want as clearly as possible.</li>
+        <li>Your request can be in the form of a question, rather than a request for specific documents, but we do not have to answer your question if this would mean creating new information or giving an opinion or judgment that is not already recorded.</li>
+      </ul>
+
+      <p class="govuk-body">Some information may not be given to you because it is exempt, for example because it would unfairly reveal personal details about somebody else.</p>
     
-    {{ govukButton({
-      text: "Start now",
-      href: "./",
-      isStartButton: true
-    }) }}  
+      <p class="govuk-body">For you request to be dealt with according the Freedom of Information Act, you must:</p>
 
-    <h2 class="govuk-heading-m">Heading here</h2>
-    <p class="govuk-body">Content here...</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>make the request in writing, by using this on-line form. If you prefer, you can make a request by another means, so long as it is in writing. For example in a letter or an email to <a href="mailto:OfqualFOI@ofqual.gov.uk">OfqualFOI@ofqual.gov.uk</a></li>
+        <li>give your real name</li>
+        <li>give an address to which we can reply. This can be an email or postal address</li>
+      </ul>
+     
+      <p class="govuk-body">If you cannot make your request in writing because of a disability, contact us. We will help you to make the request another way - for example over the phone.</p>
+      
+      <h2 class="govuk-heading-m">Costs</h2>
+      
+      <p class="govuk-body">Most requests are free but in very rare circumstances you might be asked to pay a small amount for photocopies or postage.</p>
 
     </div>
 
