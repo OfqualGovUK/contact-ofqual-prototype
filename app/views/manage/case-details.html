@@ -18,7 +18,7 @@
         {# if not closed #}
         {% if data.confirmClosed != "true" and data.manage.case != "caseComplaint" %}
           {{ govukButton({
-            text: "Close this enquiry",
+            text: "Close this case",
             classes: "govuk-button--secondary",
             href: "/manage/close"
           }) }}
@@ -27,7 +27,7 @@
         {# if has more than one case #}
         {% if data.settings.caseStatus == "Has multiple cases in the service" or data.manage.case == "caseNew" %}
           {{ govukButton({
-            text: "View my other enquiries",
+            text: "View my other cases",
             classes: "govuk-button--secondary",
             href: "./my-cases"
           }) }}
@@ -68,10 +68,18 @@
           },
           {
             key: {
-              text: "Enquiry ID"
+              text: "Case ID"
             },
             value: {
               text: "OFQ0006849"
+            }
+          },
+          {
+            key: {
+              text: "Case type"
+            },
+            value: {
+              text: "Freedom of Information request"
             }
           }
         ]
