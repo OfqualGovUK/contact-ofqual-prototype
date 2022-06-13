@@ -1,0 +1,50 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Make a new  " %}
+{% set formAction = "/is-it-ao-answer" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Make an enquiry</span>
+  <h1 class="govuk-heading-l">{{ pageHeading }}</h1>
+
+  <p class="govuk-body">Awarding organisations are also known as exam boards or an awarding body, developing qualifications and issuing certificates, diplomas or titles.</p>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: "Is your question about an awarding organisation regulated by Ofqual?",
+        classes: "govuk-fieldset__legend--m"
+      }
+    },
+    _hint: {
+      text: "Awarding organisations are also known as exam boards or an awarding body, developing qualifications and issuing certificates, diplomas or titles."
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes"
+      },
+      {
+        value: "No, an awarding organisation is not relevant to my question",
+        text: "No, an awarding organisation is not relevant to my question"
+      },
+      {
+        divider: "or"
+      },
+      {
+        value: "I do not know the awarding organisation",
+        text: "I do not know the awarding organisation"
+      }
+    ]
+   } | decorateAttributes(data, "data.isItAo")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}

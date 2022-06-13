@@ -114,17 +114,17 @@
           href: "/manage/send"
         }) }} 
 
+        {% if data.settings.caseReview == "Is able to request review" and data.confirmReviewRequest != "true"%}
+          {{ govukButton({
+            text: "Request review of outcome",
+            classes: "govuk-button--secondary",
+            href: "./../manage/request-review"
+          }) }}
+        {% endif %}
+
       </div>
 
-      {% if data.settings.caseReview == "Is able to request review" and data.confirmReviewRequest != "true"%}
-        <div class="govuk-button-group govuk-!-margin-bottom-2 govuk-!-margin-top-6">
-            {{ govukButton({
-              text: "Request review of outcome",
-              classes: "govuk-button--secondary",
-              href: "./../manage/request-review"
-            }) }}
-        </div>
-      {% endif %}
+      
 
     </div>
 
