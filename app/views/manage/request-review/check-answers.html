@@ -2,7 +2,7 @@
 
 {% set pageHeading = "Confirm close of complaint" %}
 {# This is the success message that plays back to the user on the next screen #}
-{% set successMessage %}Your have requested a review of the outcome{% endset %}
+{% set successMessage %}You have requested an internal review{% endset %}
 {% set formAction = "/manage?_flash=" + successMessage %}
 
 {% block formContent %}
@@ -11,26 +11,28 @@
     <div class="govuk-grid-column-two-thirds"> #}
 
     <h1 class="govuk-heading-l">
-      Confirm the request to review the outcome
+      Confirm the request for an internal review
     </h1>
-
-    <p class="govuk-body">You will be able to view your complaint for 6 months, after this period access to the complaint will be removed.</p>
   
     {% set reviewRequestReasons %}
-      <ul class="govuk-list">
-        {% for reason in data.requestReviewReasons %}
-          <li>
-            {{ reason }}
-          </li>
-        {% endfor %}
-      </ul>
+      {% if data.manage.case == "caseComplaint" %}
+        <ul class="govuk-list">
+          {% for reason in data.requestReviewReasons %}
+            <li>
+              {{ reason }}
+            </li>
+          {% endfor %}
+        </ul>
+      {% else %}
+        {{ data.reviewRequestReason }}
+      {% endif %}
     {% endset %}
     
     {{ govukSummaryList({
       rows: [
         {
           key: {
-            text: "Why are you requesting a review of the outcome?"
+            text: "Why are you requesting an internal review?"
           },
           value: {
             html: reviewRequestReasons
@@ -40,7 +42,7 @@
               {
                 href: "../request-review",
                 text: "Change",
-                visuallyHiddenText: "requesting a review of the outcome"
+                visuallyHiddenText: "reason for requesting an internal review"
               }
             ]
           }

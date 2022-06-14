@@ -16,7 +16,7 @@
       <div class="govuk-button-group govuk-!-margin-bottom-3 govuk-!-margin-top-3">
         
         {# if not closed #}
-        {% if data.confirmClosed != "true" and data.manage.case != "caseComplaint" %}
+        {% if data.confirmClosed != "true" and data.manage.case != "caseFoi" %}
           {{ govukButton({
             text: "Close this case",
             classes: "govuk-button--secondary",
@@ -104,7 +104,7 @@
       {% endif %} #}
 
       {# If a complaint #}
-      {% if data.manage.case == "caseComplaint" %}
+      {% if data.manage.case == "caseFoi" %}
         {{ govukSummaryList({
           rows: [
             {

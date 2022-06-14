@@ -1,0 +1,31 @@
+{% extends "_templates/page-template.html" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        <span class="govuk-caption-l">
+          By you,
+          <time>{{ "" | today|  govukDate }}</time>
+        </span>
+        Internal review requested
+      </h1>
+      
+      <p clas="govuk-body">
+        {{ data.reviewRequestReason }}
+      </p>
+
+      <div class="govuk-button-group govuk-!-margin-top-6">
+        {{ govukButton({
+          text: "Return to the dashboard",
+          classes: "govuk-button--secondary",
+          href: "./../../manage"
+        }) }}
+      </div>
+  
+    </div>
+  </div>
+  
+{% endblock %}

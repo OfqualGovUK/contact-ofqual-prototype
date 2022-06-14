@@ -41,7 +41,7 @@
     </span><br> 
   {% endset %}
   
-  {% set caseComplaint %}
+  {% set caseFoi %}
     {# <span class="govuk-!-font-weight-bold govuk-!-margin-bottom-2">
       Enquiry submitted <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
     </span>
@@ -83,8 +83,8 @@
         html: caseNew
       },
       {
-        value: "caseComplaint",
-        html: caseComplaint
+        value: "caseFoi",
+        html: caseFoi
       }
     ]
   } | decorateAttributes(data, "data.manage.case")) }}
