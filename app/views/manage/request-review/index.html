@@ -6,7 +6,7 @@
 
 {% block formContent %}
 
-  {# <h1 class="govuk-heading-l">Request an internal review</h1>
+  <h1 class="govuk-heading-l">Request an internal review</h1>
   <p clas="govuk-body">If you are unhappy with the way in which your request has been handled you have the right to request an internal review. You must do this within 40 working days of the date of this response.</p>
   <h2 class="govuk-heading-m">Further Information</h2>
   <p clas="govuk-body">We will acknowledge receipt of your request for internal review and inform you of our target date for responding.</p>
@@ -19,13 +19,13 @@
     Water Lane<br>
     Wilmslow<br>
     Cheshire, SK9 5AF
-  </address> #}
+  </address>
 
   {{ govukTextarea({  
     rows: "12",
     label: {
       text: "Why are you requesting an internal review?",
-      classes: "govuk-label--l",
+      classes: "govuk-label--m",
       isPageHeading: true
     }
   } | decorateAttributes(data, "data.reviewRequestReason")) }}
