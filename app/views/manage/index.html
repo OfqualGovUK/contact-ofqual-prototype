@@ -28,16 +28,31 @@
       </div>
     {% endif %}
 
-    {% if data.settings.caseReview == "Is able to request review"%}
+    {% if data.reviewRequestReason %}
       <div class="app-notification-item"> 
-        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">An outcome has been reached by Ofqual</h3>
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">Internal review requested</h3>
         <p class="govuk-hint govuk-!-font-size-16">
-          <span class="app-timeline-item__name">Ofqual, </span>
-          <time datetime="">{{ "" | today | govukDate }} at 11:20</time>
+          <span class="app-timeline-item__name">By you, </span>
+          <time datetime="">{{ "" | today | govukDate }} at 17:11</time>
         </p>
-        <a href="/manage/read/outcome-reached" class="govuk-link govuk-body">View outcome <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today | govukDate }}</time></span></a>
+        <div class="app-notification-item__note govuk-!-margin-bottom-2">
+          <p class="govuk-body">You have requested an internal review of how your response was handled.</p>
+          <p class="govuk-body">Ofqual is required to reply to this request within 40 days.<br> We will respond by <time datetime="">{{ "" | today | moment('add', 40, 'days') |  govukDate }}</time>.</p>
+        </div>
+        <a href="/manage/read/review-requested" class="govuk-link govuk-body">View request <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today | govukDate }}</time></span></a>
       </div>
     {% endif %}
+    
+    {# {% if data.settings.caseReview == "Is able to request review" %}
+      <div class="app-notification-item"> 
+        <h3 class="govuk-heading-s govuk-!-margin-bottom-1">You have the right to request an internal review</h3>
+        <p class="govuk-hint govuk-!-font-size-16">
+          <span class="app-timeline-item__name">Ofqual, </span>
+          <time datetime="">{{ "" | today | govukDate }} at 12.02</time>
+        </p>
+        <a href="/manage/read/outcome-reached" class="govuk-link govuk-body">View details <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today | govukDate }}</time></span></a>
+      </div>
+    {% endif %} #}
 
     {% if data.send.subject %}
       <div class="app-notification-item"> 
@@ -52,15 +67,15 @@
       </div>
     {% endif %}
 
-    {# {% if data.manage.case == "caseComplaint" %} #}
-    {% if data.manage.case == "caseComplaint" %}
+    {# {% if data.manage.case == "caseFoi" %} #}
+    {% if data.manage.case == "caseFoi" %}
       <div class="app-notification-item"> 
         <h3 class="govuk-heading-s govuk-!-margin-bottom-1">
           A response to your case is available
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
           <span class="app-timeline-item__name">Ofqaul, </span>
-          <time datetime="">{{ "" | today | moment('subtract', 12, 'days') |  govukDate }}</time>
+          <time datetime="">{{ "" | today | moment('subtract', 12, 'days') |  govukDate }} at 21:11</time>
         </p>
         <a href="/manage/read" class="govuk-link govuk-body">View response <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today | moment('subtract', 1, 'days') |  govukDate }}</time></span></a>
       </div>
@@ -70,7 +85,7 @@
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
           <span class="app-timeline-item__name">Ofqual, </span>
-          <time datetime="">{{ "" | today | moment('subtract', 21, 'days') |  govukDate }}</time>
+          <time datetime="">{{ "" | today | moment('subtract', 21, 'days') |  govukDate }} at 17:01</time>
         </p>
         <div class="app-notification-item__note govuk-!-margin-bottom-2">
           <p class="govuk-body">This enqiury has been reassigned as a Freedom of Information request.</p>
@@ -83,7 +98,7 @@
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
           <span class="app-timeline-item__name">By you, </span>
-          <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }}</time>
+          <time datetime="">{{ "" | today | moment('subtract', 23, 'days') |  govukDate }} at 13:19</time>
         </p>
         <a href="/manage/case-details" class="govuk-link govuk-body">View case details</a>
       </div>
@@ -94,7 +109,7 @@
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
           <span class="app-timeline-item__name">Ofqaul, </span>
-          <time datetime="">{{ "" | today |  govukDate }}</time>
+          <time datetime="">{{ "" | today |  govukDate }} at 12:02</time>
         </p>
         <a href="/manage/read" class="govuk-link govuk-body">View response <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today |  govukDate }}</time></span></a>
       </div>
@@ -104,7 +119,7 @@
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
           <span class="app-timeline-item__name">Ofqual, </span>
-          <time datetime="">{{ "" | today | moment('subtract', 21, 'days') |  govukDate }}</time>
+          <time datetime="">{{ "" | today | moment('subtract', 1, 'days') |  govukDate }} at 15.05</time>
         </p>
         <div class="app-notification-item__note govuk-!-margin-bottom-2">
           <p class="govuk-body">This enqiury has been reassigned as a Freedom of Information request.</p>
@@ -117,9 +132,9 @@
         </h3>
         <p class="govuk-hint govuk-!-font-size-16">
           <span class="app-timeline-item__name">By you, </span>
-          <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }}</time>
+          <time datetime="">{{ "" | today | moment('subtract', 2, 'days') |  govukDate }} at 12:34</time>
         </p>
-        <a href="/manage/case-details" class="govuk-link govuk-body">View details</a>
+        <a href="/manage/case-details" class="govuk-link govuk-body">View case details</a>
       </div>
     {% endif %}  
 

@@ -1,44 +1,24 @@
 
 {% extends "_templates/form-template.html" %}
 
-{% set pageHeading = "If you are not happy with the outcome" %}
+{% set pageHeading = "Provide details of your request" %}
 {% set formAction = "./../manage/request-review/check-answers" %}
 
 {% block formContent %}
 
-  <h1 class="govuk-heading-l">Request an internal review</h1>
-  <p clas="govuk-body">If you are not happy with the outcome of your complaint, you can request an internal review.</p>
-  <p clas="govuk-body">We will consider reviewing the outcome if you feel that Ofqual have got something wrong. To do this you will need to provide evidence of one of the following options.</p>
+  {# <h1 class="govuk-heading-l">{{ pageHeading }}</h1> #}
 
-  {{ govukCheckboxes({
-    fieldset: {
-      legend: {
-        text: "Why are you requesting a review of the outcome?",
-        classes: "govuk-fieldset__legend--m"
-      }
-    },
-    hint: {
-      text: "Select all that apply."
-    },
-    items: [
-      {
-        value: "Ofqual made the decision based on inaccurate facts",
-        text: "Ofqual made the decision based on inaccurate facts"
-      },
-      {
-        value: "Ofqual overlooked or misunderstood parts of my complaint",
-        text: "Ofqual overlooked or misunderstood parts of my complaint"
-      },
-      {
-        value: "I have new information that was not previously available",
-        text: "I have new information that was not previously available"
-      },
-      {
-        value: "I do not consider the outcome reasonable in view of the findings",
-        text: "I do not consider the outcome reasonable in view of the findings"
-      }
-    ]
-  } | decorateAttributes(data, "data.requestReviewReasons")) }}
+  {{ govukTextarea({  
+    rows: "12",
+    label: {
+      text: pageHeading,
+      classes: "govuk-label--l",
+      isPageHeading: true
+    }, 
+    _hint : {
+      text: "Provide details of your request and any additional information"
+    }
+  } | decorateAttributes(data, "data.reviewRequestReason")) }}
 
   <div class="govuk-button-group">
     {{ govukButton({
@@ -46,10 +26,5 @@
     }) }}
     <a class="govuk-link" href="./../manage">Cancel</a>
   </div>
-
-  {{ govukDetails({
-    summaryText: "How will the review be investigated?",
-    text: "Placeholder text"
-}) }}
 
 {% endblock %}

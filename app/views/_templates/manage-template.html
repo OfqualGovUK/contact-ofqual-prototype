@@ -55,7 +55,7 @@
         Enquiry
       {% endif %}
     {# if its a complaint #}
-    {% elseif data.manage.case == "caseComplaint" %}
+    {% elseif data.manage.case == "caseFoi" %}
       Complaint
     {% else %}
       Enquiry
@@ -78,7 +78,7 @@
               text: "Open",
               classes: "govuk-tag--blue"
             })}}
-          {% elseif data.manage.case == "caseComplaint" %}
+          {% elseif data.manage.case == "caseFoi" %}
             {{govukTag({
               text: "Closed",
               classes: "govuk-tag--grey"
@@ -91,13 +91,13 @@
           {% elseif data.settings.caseReview  == "Is able to request review" and data.confirmReviewRequest == "true" %}
             {{govukTag({
               text: "Review requested",
-              classes: "govuk-tag--pink"
+              classes: "govuk-tag--yellow"
             })}}
-          {% elseif data.settings.caseReview  == "Is able to request review" and data.confirmClosed != "true" %}
+          {# {% elseif data.settings.caseReview  == "Is able to request review" and data.confirmClosed != "true" %}
             {{govukTag({
               text: "Outcome reached",
               classes: "govuk-tag--blue"
-            })}}
+            })}} #}
           {% else %}
             {{govukTag({
               text: "Open",
@@ -116,9 +116,9 @@
 
         {% if data.settings.caseReview == "Is able to request review" and data.confirmReviewRequest != "true"%}
           {{ govukButton({
-            text: "Request review of outcome",
+            text: "Request an internal review",
             classes: "govuk-button--secondary",
-            href: "./../manage/request-review"
+            href: "./../manage/read/outcome-reached"
           }) }}
         {% endif %}
 

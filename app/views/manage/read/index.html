@@ -17,23 +17,39 @@
 
       <p class="govuk-body">Thank you for contacting Ofqual.
       
-      <p class="govuk-body">To explain, we provided an overview of the support for each qualification for students taking GCSEs, AS and A levels in 2022. I have provided you with a link here: <a href="https://www.gov.uk/guidance/subject-by-subject-support-for-gcse-as-and-a-level-students-in-2022" class="govuk-link govuk-body">https://www.gov.uk/guidance/subject-by-subject-support-for-gcse-as-and-a-level-students-in-2022</a></p> 
+      <p class="govuk-body">[The reply from Ofqual goes here]</p>
 
+      {% if data.settings.caseReview == "Is able to request review" %}
 
-      <p class="govuk-body">If you have any concerns about the detail of advance information you should contact your son’s centre, who will then be able to inform the relevant exam board if appropriate.</p> 
+        <h2 class="govuk-heading-m">You have the right to request an internal review</h2>
+        <p clas="govuk-body">If you are unhappy with the way in which your request has been handled you have the right to request an internal review. You must do this within 40 working days of the date of this response.</p>
+        <p clas="govuk-body">We will acknowledge receipt of your request for internal review and inform you of our target date for responding.</p>
+        <p clas="govuk-body">Wherever possible the internal review will be undertaken by someone other than the person who took the original decision. We will re-evaluate our handling of the request and pay particular attention to any concerns you raise.</p>
+        {# <p clas="govuk-body">If you are dissatisfied with the outcome of the internal review, you can apply to the Information Commissioner. Complaints to the Information Commissioner can also be sent to:</p>
+        <address class="govuk-body">
+          FOI/EIR Complaints Resolution<br>
+          Information Commissioner's Office<br>
+          Wycliffe House<br>
+          Water Lane<br>
+          Wilmslow<br>
+          Cheshire, SK9 5AF
+        </address> #}
 
-      <p class="govuk-body">After results have been issued, if a student thinks there is an error in the marking or that an exam board hasn’t followed its processes properly, there is a reviews and appeals process, of which I have provided you with a link here:  <a href="https://www.gov.uk/guidance/regulating-gcses-as-and-a-levels-guide-for-schools-and-colleges-2022/reviews-and-appeals" class="govuk-link govuk-body">https://www.gov.uk/guidance/regulating-gcses-as-and-a-levels-guide-for-schools-and-colleges-2022/reviews-and-appeals</a></p> 
+      {% endif %}
 
-      <p class="govuk-body">I hope this is useful information.</p> 
-      <p class="govuk-body">Yours sincerely, Support Officer - Public Enquiries, Ofqual</p>
-
+      <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
+      
       <h2 class="govuk-heading-m">Attachments</h2>
       <a href="./../manage/login" class="govuk-link govuk-body">Document title (PDF - 36kb)</a>
 
       <div class="govuk-button-group govuk-!-margin-top-6">
-        {{ govukButton({
+        {# {{ govukButton({
           text: "Reply to this message",
           href: "./send"
+        }) }} #}
+        {{ govukButton({
+          text: "Reply to this message",
+          href: "./../manage/send"
         }) }}
         <span class="govuk-body govuk-!-margin-right-2">or</span> <a class="govuk-link" href="/manage">return to the dashboard</a>
       </div>
