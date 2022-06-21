@@ -35,6 +35,10 @@
           <span class="app-timeline-item__name">By you, </span>
           <time datetime="">{{ "" | today | govukDate }} at 17:11</time>
         </p>
+        <div class="app-notification-item__note govuk-!-margin-bottom-2">
+          <p class="govuk-body">You have requested an internal review of how your response was handled.</p>
+          <p class="govuk-body">Ofqual is required to reply to this request within 40 days.<br> We will respond by <time datetime="">{{ "" | today | moment('add', 40, 'days') |  govukDate }}</time>.</p>
+        </div>
         <a href="/manage/read/review-requested" class="govuk-link govuk-body">View request <span class="govuk-visually-hidden">Received <time datetime="">{{ "" | today | govukDate }}</time></span></a>
       </div>
     {% endif %}
