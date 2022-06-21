@@ -7,17 +7,23 @@
 
       <h1 class="govuk-heading-l">
         <span class="govuk-caption-l">
-          From you,
-          <time datetime="">{{ "" | today | govukDate }}</time>
+          By you,
+          <time>{{ "" | today|  govukDate }}</time>
         </span>
-        {{ data.send.subject }}
+        Internal review requested
       </h1>
       
-      <p clas="govuk-body">{{ data.send.message }}</p>
+      <p clas="govuk-body">
+        {{ data.send.message }}
+      </p>
+
+      <h2 class="govuk-heading-m">Attachments</h2>
+      <a href="./../manage/login" class="govuk-link govuk-body">Document title (PDF - 36kb)</a>
 
       <div class="govuk-button-group govuk-!-margin-top-6">
         {{ govukButton({
-          text: "Return to my complaint",
+          text: "Return to the dashboard",
+          classes: "govuk-button--secondary",
           href: "./../../manage"
         }) }}
       </div>
