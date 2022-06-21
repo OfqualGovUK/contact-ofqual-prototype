@@ -1,0 +1,47 @@
+{% extends "_templates/page-template.html" %}
+
+{% set pageHeading = "Your request has been submitted" %}
+{% set backLink = "false" %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      {% set panelHtml %}
+        We have sent you a confirmation email to email@email.com
+      {% endset %}
+
+      {{ govukPanel({
+        titleText: "Your freedom of information request has been submitted",
+        html: panelHtml
+      }) }}
+
+      <h2 class="govuk-heading-m">What happens next</h2>
+
+      <p class="govuk-body">
+        You will receive an email with a link for you to <a href="./../manage/login" class="govuk-link">sign in to manage your case, view and update your question to Ofqual</a>.
+      </p>
+
+      <p class="govuk-body">We take all questions seriously, and if you ask us a question you will be notified by email once we have an answer for you. You will need to follow the link within the email and sign in to read our response and manage your case.</p>
+
+      <p class="govuk-body">We will reply within 20 working days, from the date that we have enough information to respond to your request. If we need clarification regarding your request, we will contact you as early as possible.</p>
+     
+      <h2 class="govuk-heading-m">What to expect</h2>
+      
+      <p class="govuk-body">You can expect us to either:</p>
+      <ul class="govuk-list govuk-list--bullet">
+        <li>give you the information you've asked for</li>
+        <li>tell you we don’t have the information. If this is the case, we will endeavour to provide you with any relevant advice and assistance</li>
+        <li>refuse to give you the information, and explain why</li>
+        <li>say that we need more time to consider the public interest in disclosing or withholding the information and tell you when to expect a response. A response should not be later than 40 working days after the date of your request</li>
+      </ul>
+
+      <p class="govuk-body">
+        <a href="#" class="govuk-link">What did you think of this service?</a> (takes 30 seconds)
+      </p>          
+  
+    </div>
+  </div>
+  
+{% endblock %}

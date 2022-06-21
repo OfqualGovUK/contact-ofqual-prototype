@@ -1,0 +1,140 @@
+{% extends "_templates/form-template.html" %}
+
+{% set formAction = "./confirmation" %}
+
+{% block formContent %}
+
+  {# <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds"> #}
+
+      <h1 class="govuk-heading-l">Review your freedom of infromation request</h1>
+      
+      <h2 class="govuk-heading-m">Your details</h2>
+      
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Title"
+            },
+            value: {
+              text: data.title or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi",
+                  text: "Change",
+                  visuallyHiddenText: " title"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Full name"
+            },
+            value: {
+              text: data.fullName or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi",
+                  text: "Change",
+                  visuallyHiddenText: " full name"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Phone number"
+            },
+            value: {
+              text: data.phone or 'Not provided'
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi",
+                  text: "Change",
+                  visuallyHiddenText: " phone number"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: data.email or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi",
+                  text: "Change",
+                  visuallyHiddenText: "the email"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+      
+      <h2 class="govuk-heading-m">Request details</h2>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Add a detailed description of the information you want"
+            },
+            value: {
+              text: data.question or "Not provided"
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi/the-request",
+                  text: "Change",
+                  visuallyHiddenText: " the description of the information you want"
+                }
+              ]
+            }
+          },
+          {
+            key: {
+              text: "Upload a supporting document"
+            },
+            value: {
+              text: data.fileUpload or 'Not provided'
+            },
+            actions: {
+              items: [
+                {
+                  href: "./../foi/the-request",
+                  text: "Change",
+                  visuallyHiddenText: "the uploaded file"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <input type="hidden" id="confirmFoi" name="confirmFoi" value="true">
+      
+      <div class="govuk-button-group">
+        {{ govukButton({
+          text: "Submit request"
+        }) }}
+        <a class="govuk-link" href="/manage">Cancel</a>
+      </div>
+  
+    {# </div>
+  </div> #}
+  
+{% endblock %}
