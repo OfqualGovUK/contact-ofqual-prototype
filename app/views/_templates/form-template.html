@@ -31,6 +31,19 @@
 {% block content %}
 
   <div class="govuk-grid-row">
+
+    {# <div class="govuk-grid-column-full">
+      {% set html %}
+        <p class="govuk-notification-banner__heading">
+          You have been signed out due to 4 hours of no activity
+        </p>
+      {% endset %}
+
+      {{ govukNotificationBanner({
+        html: html
+      }) }}
+    </div> #}
+
     <div class="govuk-grid-column-two-thirds">
 
     <form{% if formAction %} action="{{ formAction }}"{% endif %} method="post" novalidate spellcheck="false">
