@@ -87,17 +87,29 @@ router.post('/is-it-documents-answer', function (req, res) {
 
 // Is your request about a qualification regulated by Ofqual?
 router.post('/foi/is-it-qual-answer', function (req, res) {
-
+  
   let isItQual = req.session.data.isItQual
-
+  
   if (isItQual === 'Yes') {
-      res.redirect('/foi/choose-qual')
+    res.redirect('/foi/choose-qual')
+  } else {
+    res.redirect('/foi/the-request')
+  }
+  
+})
+
+// Do you have any supporting documentation you want to include?
+router.post('/is-it-request-documents-answer', function (req, res) {
+
+  let isItDocument = req.session.data.isItDocument
+
+  if (isItDocument === 'Yes') {
+      res.redirect('/foi/upload-document')
     } else {
-      res.redirect('/foi/the-request')
+      res.redirect('/foi/check-answers')
   }
 
 })
-
 
 
 // Complaints

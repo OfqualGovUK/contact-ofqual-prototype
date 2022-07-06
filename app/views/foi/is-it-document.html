@@ -1,0 +1,41 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Do you want to upload files to support your enquiry?" %}
+{% set formAction = "/is-it-request-documents-answer" %}
+
+{% block formContent %}
+
+  <span class="govuk-caption-l">Make a Freedom of Information request</span>
+
+  {{ govukRadios({
+    fieldset: {
+      legend: {
+        text: pageHeading,
+        classes: "govuk-fieldset__legend--l",
+        isPageHeading: true
+      }
+    },
+    _hint: {
+      text: "You can upload documents to support your request"
+    },
+    items: [
+      {
+        value: "Yes",
+        text: "Yes"
+      },
+      {
+        value: "No",
+        text: "No"
+      }
+    ]
+  } | decorateAttributes(data, "data.isItDocument")) }}
+
+  <div class="govuk-button-group">
+    {{ govukButton({
+      text: "Continue"
+    }) }}
+    <a class="govuk-link" href="./../frontdoor">Cancel</a>
+  </div>
+
+{% endblock %}

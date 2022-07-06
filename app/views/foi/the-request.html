@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "What information are you requesting?" %}
-{% set formAction = "./check-answers" %}
+{% set formAction = "./is-it-document" %}
 
 {% block formContent %}
 
@@ -12,17 +12,19 @@
     rows: "12",
     label: {
       text: "Add a detailed description of the information you want",
-      classes: "govuk-label--l",
-      isPageHeading: true
+      classes: "govuk-label--l"
+    },
+    hint: {
+      text: "You will be able to upload files to support your enquiry on a following page"
     }
   } | decorateAttributes(data, "data.question")) }}
 
-  {{ govukFileUpload({
+  {# {{ govukFileUpload({
     label: {
       text: "Upload a supporting document (optional)",
       classes: "govuk-label--s"
     }
-  } | decorateAttributes(data, "data.fileUpload")) }}
+  } | decorateAttributes(data, "data.fileUpload")) }} #}
 
   <div class="govuk-button-group">
     {{ govukButton({

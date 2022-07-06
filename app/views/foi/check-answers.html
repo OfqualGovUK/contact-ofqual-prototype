@@ -104,10 +104,17 @@
                 }
               ]
             }
-          },
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">Supporting files</h2>
+
+      {{ govukSummaryList({
+        rows: [
           {
             key: {
-              text: "Upload a supporting document"
+              text: "Uploads"
             },
             value: {
               text: data.fileUpload or 'Not provided'
@@ -115,9 +122,9 @@
             actions: {
               items: [
                 {
-                  href: "./../foi/the-request",
+                  href: "./../foi/upload-document",
                   text: "Change",
-                  visuallyHiddenText: "the uploaded file"
+                  visuallyHiddenText: "the uploaded files"
                 }
               ]
             }
