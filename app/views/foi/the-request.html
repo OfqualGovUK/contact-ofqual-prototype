@@ -2,7 +2,7 @@
 {% extends "_templates/form-template.html" %}
 
 {% set pageHeading = "What information are you requesting?" %}
-{% set formAction = "./is-it-document" %}
+{% set formAction = "./is-it--answers" %}
 
 {% block formContent %}
 
@@ -15,7 +15,7 @@
       classes: "govuk-label--l"
     },
     hint: {
-      text: "You will be able to upload files to support your request on a following page"
+      text: "You will be able to upload files to support your enquiry on a following page"
     }
   } | decorateAttributes(data, "data.question")) }}
 
