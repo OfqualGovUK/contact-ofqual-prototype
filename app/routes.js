@@ -121,7 +121,7 @@ router.post('/complaint-type-answer', function (req, res) {
   let complaintType = req.session.data.complaintType
 
   if (complaintType === 'View an existing complaint') {
-      res.redirect('/manage/login')
+      res.redirect('/manage/sign-in')
   } else {
       //res.redirect('/job_alerts2/create-success-email')
   }
