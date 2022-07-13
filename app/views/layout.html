@@ -49,12 +49,12 @@
     navigation: [
     {
       text: data.existing.emailAddress
-    } if data.existing.emailAddress,
+    },
     {
       href: "./home",
       text: "Sign out"
-    } if data.existing.emailAddress
-  ]
+    } 
+  ] if data.existing.emailAddress
   }) }}
 {% endblock %}
 
