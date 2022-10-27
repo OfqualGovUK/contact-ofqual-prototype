@@ -1,0 +1,16 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Do you want to search for a thing?" %}
+{% set backLink = "false" %}
+{% set formAction = "/existing-account-answer" %}
+{% set signedOut = "true" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-xl">Check your email</h1>
+
+  <p class="govuk-body">You should have received a link by email. Follow the link and confirem your email address.</p>
+  <p class="govuk-body"> If it doe not arrive in 5 minutes, check your junk folder or <a href="./request-a-new-code" class="govuk-link">try again</a>.</p>
+
+{% endblock %}

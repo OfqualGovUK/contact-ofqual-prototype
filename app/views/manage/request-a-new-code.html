@@ -1,0 +1,20 @@
+
+{% extends "_templates/form-template.html" %}
+
+{% set pageHeading = "Do you want to search for a thing?" %}
+{% set backLink = "false" %}
+{% set formAction = "./email-new-link" %}
+{% set signedOut = "true" %}
+
+{% block formContent %}
+
+  <h1 class="govuk-heading-xl">The link you clicked has expired</h1>
+
+  <p class="govuk-body">Sign in links only work once and expire after one hour, so you need to request a new one. We'll send this by email.</p>
+
+
+  {{ govukButton({
+    text: "Email me a new link"
+  }) }}
+
+{% endblock %}
