@@ -1,20 +1,22 @@
 
-{% extends "_templates/form-template.html" %}
+{% extends "_templates/page-template.html" %}
 
 {% set pageHeading = "Do you want to search for a thing?" %}
 {% set backLink = "false" %}
-{% set formAction = "./email-new-link" %}
 {% set signedOut = "true" %}
 
-{% block formContent %}
+{% block content %}
+<div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">The link you clicked has expired</h1>
 
-  <h1 class="govuk-heading-xl">The link you clicked has expired</h1>
+      <p class="govuk-body">Sign in links only work once and expire after one hour, so you need to request a new one. We'll send this by email.</p>
+    
 
-  <p class="govuk-body">Sign in links only work once and expire after one hour, so you need to request a new one. We'll send this by email.</p>
-
-
-  {{ govukButton({
-    text: "Email me a new link"
-  }) }}
-
+    {{ govukButton({
+      text: "Email me a new link",
+      href: "./email-new-link"
+    }) }}
+</div>
+</div>
 {% endblock %}
